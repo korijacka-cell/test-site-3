@@ -12,6 +12,7 @@
   :root {
     --bg: #14100d;
     --bg-2: #1d1814;
+    --bg-3: #261f1a;
     --cream: #f6ede0;
     --cream-2: #ede2cf;
     --gold: #c9a449;
@@ -21,6 +22,7 @@
     --teal: #2ba89a;
     --text-dim: #b8a892;
     --border: rgba(201, 164, 73, 0.2);
+    --border-strong: rgba(201, 164, 73, 0.4);
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
@@ -34,25 +36,24 @@
   .display { font-family: 'Cormorant Garamond', serif; font-weight: 600; letter-spacing: -0.01em; line-height: 1.05; }
   .eyebrow { font-family: 'Cinzel', serif; font-size: 0.75rem; letter-spacing: 0.32em; text-transform: uppercase; color: var(--gold); }
   
-  /* NAV */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 50;
-    background: rgba(20, 16, 13, 0.85);
+    background: rgba(20, 16, 13, 0.92);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
-    padding: 0.85rem 2rem;
+    padding: 0.75rem 2rem;
     display: flex; align-items: center; justify-content: space-between;
   }
-  nav .brand { display: flex; align-items: center; gap: 0.75rem; }
-  nav .brand img { height: 48px; width: auto; }
+  nav .brand { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+  nav .brand img { height: 44px; width: auto; }
   nav .brand .brand-text { font-family: 'Cinzel', serif; font-size: 0.85rem; letter-spacing: 0.18em; color: var(--cream); }
   nav .brand .brand-text small { display: block; font-size: 0.62rem; color: var(--gold); letter-spacing: 0.25em; margin-top: 2px; }
-  nav ul { list-style: none; display: flex; gap: 2.25rem; align-items: center; }
-  nav ul a { color: var(--cream); text-decoration: none; font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 500; transition: color 0.2s; }
+  nav ul { list-style: none; display: flex; gap: 2rem; align-items: center; }
+  nav ul a { color: var(--cream); text-decoration: none; font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 500; transition: color 0.2s; }
   nav ul a:hover { color: var(--gold); }
   nav .cart-btn {
-    background: var(--red); color: var(--cream); border: none; padding: 0.7rem 1.4rem;
-    font-family: 'DM Sans'; font-weight: 600; font-size: 0.8rem; letter-spacing: 0.12em;
+    background: var(--red); color: var(--cream); border: none; padding: 0.65rem 1.2rem;
+    font-family: 'DM Sans'; font-weight: 600; font-size: 0.75rem; letter-spacing: 0.12em;
     text-transform: uppercase; cursor: pointer; border-radius: 2px; position: relative;
     transition: background 0.2s;
   }
@@ -63,28 +64,22 @@
     display: flex; align-items: center; justify-content: center;
     font-size: 0.7rem; font-weight: 700;
   }
-  .mobile-menu-btn { display: none; background: transparent; border: 1px solid var(--gold); color: var(--gold); padding: 0.5rem 0.75rem; cursor: pointer; }
+  .mobile-menu-btn { display: none; background: transparent; border: 1px solid var(--gold); color: var(--gold); padding: 0.4rem 0.7rem; cursor: pointer; }
   
-  /* HERO */
   .hero {
-    min-height: 100vh; padding: 8rem 2rem 4rem; position: relative;
+    min-height: 100vh; padding: 7rem 2rem 4rem; position: relative;
     background:
       radial-gradient(ellipse at top right, rgba(200, 51, 46, 0.18), transparent 50%),
       radial-gradient(ellipse at bottom left, rgba(43, 168, 154, 0.12), transparent 50%),
       var(--bg);
     display: grid; grid-template-columns: 1.1fr 1fr; gap: 4rem; align-items: center;
   }
-  .hero::before {
-    content: ''; position: absolute; inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9'/%3E%3CfeColorMatrix values='0 0 0 0 0.5 0 0 0 0 0.5 0 0 0 0 0.3 0 0 0 0.5 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-    pointer-events: none;
-  }
   .hero-content { position: relative; z-index: 1; }
   .hero .arabic { font-family: 'Cormorant Garamond'; font-size: 1.5rem; color: var(--teal); font-style: italic; margin-bottom: 1rem; }
-  .hero h1 { font-size: clamp(3rem, 7vw, 6rem); margin: 0.75rem 0 1.5rem; }
+  .hero h1 { font-size: clamp(2.75rem, 6.5vw, 5.5rem); margin: 0.75rem 0 1.5rem; }
   .hero h1 .gold { color: var(--gold); font-style: italic; }
   .hero h1 .red { color: var(--red); }
-  .hero p.lead { font-size: 1.15rem; color: var(--text-dim); max-width: 480px; margin-bottom: 2.5rem; }
+  .hero p.lead { font-size: 1.1rem; color: var(--text-dim); max-width: 480px; margin-bottom: 2.5rem; }
   .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
   .btn {
     display: inline-block; padding: 1rem 2rem; font-family: 'DM Sans';
@@ -103,31 +98,29 @@
   .hero-logo-wrap::before {
     content: ''; position: absolute; width: 480px; height: 480px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(201, 164, 73, 0.15) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(201, 164, 73, 0.18) 0%, transparent 70%);
     z-index: -1;
   }
   .hero-logo-wrap img { max-width: 100%; height: auto; max-height: 540px; filter: drop-shadow(0 30px 60px rgba(0,0,0,0.5)); }
-  .hero-badges { position: absolute; bottom: 2.5rem; left: 2rem; display: flex; gap: 2rem; color: var(--text-dim); font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; z-index: 1; }
+  .hero-badges { position: absolute; bottom: 2rem; left: 2rem; display: flex; gap: 2rem; color: var(--text-dim); font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; z-index: 1; }
   .hero-badges span { display: flex; align-items: center; gap: 0.5rem; }
   .hero-badges span::before { content: ''; width: 6px; height: 6px; background: var(--gold); border-radius: 50%; }
   
-  /* SECTIONS */
-  section { padding: 6rem 2rem; position: relative; }
-  .container { max-width: 1200px; margin: 0 auto; }
-  .section-head { text-align: center; margin-bottom: 4rem; }
+  section { padding: 5.5rem 2rem; position: relative; }
+  .container { max-width: 1280px; margin: 0 auto; }
+  .section-head { text-align: center; margin-bottom: 3rem; }
   .section-head .eyebrow { display: block; margin-bottom: 1rem; }
-  .section-head h2 { font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 1rem; }
-  .section-head p { color: var(--text-dim); max-width: 560px; margin: 0 auto; }
+  .section-head h2 { font-size: clamp(2.25rem, 4.5vw, 3.5rem); margin-bottom: 0.85rem; }
+  .section-head p { color: var(--text-dim); max-width: 620px; margin: 0 auto; font-size: 0.98rem; }
   
-  /* ABOUT */
   .about { background: var(--bg-2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4.5rem; align-items: center; }
   .about-text h2 { margin-bottom: 1.5rem; }
   .about-text .eyebrow { margin-bottom: 1rem; display: block; }
-  .about-text p { color: var(--text-dim); margin-bottom: 1.25rem; font-size: 1.02rem; }
+  .about-text p { color: var(--text-dim); margin-bottom: 1.25rem; font-size: 1rem; }
   .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid var(--border); }
-  .about-stats .stat .num { font-family: 'Cormorant Garamond'; font-size: 3rem; color: var(--gold); line-height: 1; }
-  .about-stats .stat .label { font-size: 0.8rem; color: var(--text-dim); letter-spacing: 0.15em; text-transform: uppercase; margin-top: 0.5rem; }
+  .about-stats .stat .num { font-family: 'Cormorant Garamond'; font-size: 2.75rem; color: var(--gold); line-height: 1; }
+  .about-stats .stat .label { font-size: 0.75rem; color: var(--text-dim); letter-spacing: 0.15em; text-transform: uppercase; margin-top: 0.5rem; }
   .about-visual {
     aspect-ratio: 4/5;
     background:
@@ -142,103 +135,142 @@
     color: var(--gold);
   }
   
-  /* MENU */
-  .menu-intro-note {
-    text-align: center; background: rgba(201, 164, 73, 0.08); border: 1px solid var(--border);
-    padding: 1rem 1.5rem; border-radius: 2px; max-width: 720px; margin: 0 auto 3rem;
-    font-size: 0.88rem; color: var(--cream-2);
+  .mockup-note {
+    background: rgba(201, 164, 73, 0.08); border: 1px solid var(--border);
+    padding: 1rem 1.25rem; border-radius: 2px; max-width: 880px; margin: 0 auto 2.5rem;
+    font-size: 0.85rem; color: var(--cream-2); text-align: center;
   }
-  .menu-intro-note strong { color: var(--gold); }
-  .menu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; }
+  .mockup-note strong { color: var(--gold); }
+  
+  .cat-tabs {
+    display: flex; gap: 0.5rem; justify-content: center; margin-bottom: 2.5rem; flex-wrap: wrap;
+    border-bottom: 1px solid var(--border); padding-bottom: 1.5rem;
+  }
+  .cat-tab {
+    background: transparent; border: 1px solid var(--border);
+    color: var(--text-dim); padding: 0.55rem 1.1rem;
+    font-family: 'Cinzel'; font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase;
+    cursor: pointer; border-radius: 999px; transition: all 0.2s;
+    font-weight: 600;
+  }
+  .cat-tab:hover:not(:disabled) { color: var(--cream); border-color: var(--gold); }
+  .cat-tab.active { background: var(--gold); color: var(--bg); border-color: var(--gold); }
+  .cat-tab:disabled { opacity: 0.55; cursor: not-allowed; }
+  .cat-tab .coming { font-size: 0.55rem; color: var(--red); margin-left: 0.3rem; vertical-align: super; }
+  
+  .menu-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+  }
   .menu-card {
     background: var(--bg-2);
     border: 1px solid var(--border);
     border-radius: 4px;
     overflow: hidden;
     cursor: pointer;
-    transition: all 0.3s;
+    transition: all 0.25s;
     display: flex; flex-direction: column;
-  }
-  .menu-card:hover { transform: translateY(-4px); border-color: var(--gold); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
-  .menu-card-img {
-    aspect-ratio: 4/3;
-    background-size: cover; background-position: center;
     position: relative;
   }
-  .menu-card-img .tag {
-    position: absolute; top: 1rem; left: 1rem;
-    background: var(--bg); color: var(--gold);
-    padding: 0.3rem 0.7rem; font-size: 0.7rem; letter-spacing: 0.15em;
-    text-transform: uppercase; border: 1px solid var(--gold);
+  .menu-card:hover { transform: translateY(-3px); border-color: var(--gold); box-shadow: 0 12px 30px rgba(0,0,0,0.4); }
+  .menu-card-img {
+    aspect-ratio: 1/1;
+    background-size: cover; background-position: center;
+    position: relative;
+    border-bottom: 1px solid var(--border);
   }
-  .menu-card-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
-  .menu-card h3 { font-family: 'Cormorant Garamond'; font-weight: 600; font-size: 1.5rem; margin-bottom: 0.4rem; color: var(--cream); }
-  .menu-card .desc { color: var(--text-dim); font-size: 0.88rem; margin-bottom: 1.25rem; flex: 1; }
-  .menu-card .row { display: flex; align-items: center; justify-content: space-between; margin-top: auto; }
-  .menu-card .price { font-family: 'Cormorant Garamond'; font-size: 1.5rem; color: var(--gold); font-weight: 600; }
-  .menu-card .add { background: var(--red); color: var(--cream); border: none; padding: 0.55rem 1rem; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; cursor: pointer; transition: background 0.2s; border-radius: 2px; }
+  .menu-card-img .tag {
+    position: absolute; top: 0.6rem; left: 0.6rem;
+    background: var(--bg); color: var(--gold);
+    padding: 0.25rem 0.55rem; font-size: 0.6rem; letter-spacing: 0.15em;
+    text-transform: uppercase; border: 1px solid var(--gold);
+    font-family: 'Cinzel'; font-weight: 600;
+  }
+  .menu-card-img .tag.popular { color: var(--red); border-color: var(--red); }
+  .menu-card-body { padding: 1rem 1rem 1.1rem; display: flex; flex-direction: column; flex: 1; }
+  .menu-card .item-num { font-family: 'Cinzel'; font-size: 0.65rem; color: var(--text-dim); letter-spacing: 0.18em; margin-bottom: 0.3rem; }
+  .menu-card h3 { font-family: 'Cormorant Garamond'; font-weight: 600; font-size: 1.2rem; margin-bottom: 0.35rem; color: var(--cream); line-height: 1.15; }
+  .menu-card .desc { color: var(--text-dim); font-size: 0.78rem; line-height: 1.45; margin-bottom: 0.9rem; flex: 1; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .menu-card .row { display: flex; align-items: center; justify-content: space-between; margin-top: auto; gap: 0.5rem; }
+  .menu-card .price { font-family: 'Cormorant Garamond'; font-size: 1.3rem; color: var(--gold); font-weight: 600; line-height: 1; }
+  .menu-card .add { background: var(--red); color: var(--cream); border: none; padding: 0.45rem 0.85rem; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; cursor: pointer; transition: background 0.2s; border-radius: 2px; font-family: 'DM Sans'; }
   .menu-card .add:hover { background: var(--red-dark); }
+  .placeholder-badge {
+    position: absolute; top: 0.6rem; right: 0.6rem;
+    background: rgba(0,0,0,0.7); color: var(--cream);
+    padding: 0.18rem 0.45rem; font-size: 0.55rem; letter-spacing: 0.1em;
+    border-radius: 2px; font-family: 'DM Sans'; font-weight: 500;
+  }
   
-  /* LOCATION + HOURS */
+  .coming-soon-section {
+    margin-top: 4rem; padding: 2.5rem; background: var(--bg-2); border: 1px solid var(--border);
+    border-radius: 4px; text-align: center;
+  }
+  .coming-soon-section h3 { font-family: 'Cormorant Garamond'; font-size: 1.75rem; color: var(--gold); margin-bottom: 0.5rem; }
+  .coming-soon-section p { color: var(--text-dim); max-width: 560px; margin: 0 auto 1.5rem; font-size: 0.92rem; }
+  .coming-categories { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .coming-cat {
+    border: 1px solid var(--border); padding: 0.8rem 1.4rem; border-radius: 2px;
+    color: var(--cream); font-family: 'Cinzel'; font-size: 0.72rem; letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+  .coming-cat strong { color: var(--gold); display: block; font-size: 0.65rem; margin-top: 0.2rem; }
+  
   .location { background: var(--bg-2); border-top: 1px solid var(--border); }
   .location-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
-  .location-info h3 { font-family: 'Cormorant Garamond'; font-size: 2rem; margin-bottom: 1rem; color: var(--gold); }
-  .location-info .info-block { margin-bottom: 1.75rem; }
+  .location-info h3 { font-family: 'Cormorant Garamond'; font-size: 1.8rem; margin-bottom: 1rem; color: var(--gold); }
+  .location-info .info-block { margin-bottom: 1.5rem; }
   .location-info .info-block .label { font-family: 'Cinzel'; font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.4rem; }
-  .location-info .info-block p, .location-info .info-block a { color: var(--cream); font-size: 1rem; text-decoration: none; }
+  .location-info .info-block p, .location-info .info-block a { color: var(--cream); font-size: 0.98rem; text-decoration: none; }
   .location-info .info-block a:hover { color: var(--gold); }
-  .hours-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem 1rem; color: var(--text-dim); font-size: 0.95rem; }
+  .hours-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem 1rem; color: var(--text-dim); font-size: 0.9rem; }
   .hours-grid .day { color: var(--cream); }
   .map-frame { width: 100%; aspect-ratio: 1; border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
   .map-frame iframe { width: 100%; height: 100%; border: 0; filter: invert(0.92) hue-rotate(180deg); }
   
-  /* CONTACT */
   .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
   .contact-form { display: flex; flex-direction: column; gap: 1rem; }
   .contact-form input, .contact-form textarea {
     background: var(--bg-2); border: 1px solid var(--border);
-    padding: 1rem 1.2rem; color: var(--cream);
-    font-family: 'DM Sans'; font-size: 0.95rem;
+    padding: 0.95rem 1.1rem; color: var(--cream);
+    font-family: 'DM Sans'; font-size: 0.92rem;
     border-radius: 2px;
     transition: border 0.2s;
   }
-  .contact-form input:focus, .contact-form textarea:focus {
-    outline: none; border-color: var(--gold);
-  }
+  .contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: var(--gold); }
   .contact-form textarea { resize: vertical; min-height: 130px; }
   .contact-side { color: var(--text-dim); }
-  .contact-side .big-q { font-family: 'Cormorant Garamond'; font-size: 2.25rem; color: var(--cream); line-height: 1.1; margin-bottom: 1.25rem; }
+  .contact-side .big-q { font-family: 'Cormorant Garamond'; font-size: 2.1rem; color: var(--cream); line-height: 1.1; margin-bottom: 1.25rem; }
   .contact-side .big-q em { color: var(--gold); }
   
-  /* FOOTER */
   footer { background: #0d0a08; padding: 4rem 2rem 2rem; border-top: 1px solid var(--border); }
-  .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 3rem; max-width: 1200px; margin: 0 auto; }
-  .footer-grid h4 { font-family: 'Cinzel'; font-size: 0.78rem; letter-spacing: 0.25em; color: var(--gold); margin-bottom: 1.25rem; text-transform: uppercase; }
+  .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 3rem; max-width: 1280px; margin: 0 auto; }
+  .footer-grid h4 { font-family: 'Cinzel'; font-size: 0.75rem; letter-spacing: 0.25em; color: var(--gold); margin-bottom: 1.1rem; text-transform: uppercase; }
   .footer-grid p, .footer-grid li, .footer-grid a {
-    color: var(--text-dim); font-size: 0.88rem; line-height: 1.9; text-decoration: none; list-style: none;
+    color: var(--text-dim); font-size: 0.85rem; line-height: 1.85; text-decoration: none; list-style: none;
   }
   .footer-grid a:hover { color: var(--gold); }
-  .footer-brand img { height: 100px; margin-bottom: 1rem; }
+  .footer-brand img { height: 90px; margin-bottom: 1rem; }
   .footer-brand p { max-width: 280px; }
-  .socials { display: flex; gap: 0.75rem; margin-top: 1.25rem; }
+  .socials { display: flex; gap: 0.65rem; margin-top: 1.25rem; }
   .socials a {
-    width: 38px; height: 38px; border: 1px solid var(--border);
+    width: 36px; height: 36px; border: 1px solid var(--border);
     border-radius: 50%; display: flex; align-items: center; justify-content: center;
     transition: all 0.2s;
   }
   .socials a:hover { border-color: var(--gold); background: var(--gold); }
   .socials a:hover svg { fill: var(--bg); }
-  .socials svg { width: 16px; height: 16px; fill: var(--cream); transition: fill 0.2s; }
+  .socials svg { width: 15px; height: 15px; fill: var(--cream); transition: fill 0.2s; }
   .footer-bottom {
-    max-width: 1200px; margin: 3rem auto 0; padding-top: 2rem;
+    max-width: 1280px; margin: 3rem auto 0; padding-top: 2rem;
     border-top: 1px solid var(--border); display: flex; justify-content: space-between;
     color: var(--text-dim); font-size: 0.78rem; flex-wrap: wrap; gap: 1rem;
   }
   .footer-bottom .built-by { color: var(--gold); }
   
-  /* MODAL */
   .modal-backdrop {
-    position: fixed; inset: 0; background: rgba(0,0,0,0.75);
+    position: fixed; inset: 0; background: rgba(0,0,0,0.78);
     backdrop-filter: blur(6px); z-index: 100;
     display: none; align-items: center; justify-content: center;
     padding: 1.5rem;
@@ -247,11 +279,11 @@
   @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
   .modal {
     background: var(--bg-2); border: 1px solid var(--border);
-    width: 100%; max-width: 580px; max-height: 90vh; overflow-y: auto;
+    width: 100%; max-width: 620px; max-height: 90vh; overflow-y: auto;
     border-radius: 4px; position: relative;
   }
   .modal-header { position: relative; }
-  .modal-header img { width: 100%; aspect-ratio: 16/10; object-fit: cover; }
+  .modal-header img { width: 100%; aspect-ratio: 16/9; object-fit: cover; }
   .modal-close {
     position: absolute; top: 1rem; right: 1rem;
     background: var(--bg); color: var(--cream);
@@ -259,32 +291,43 @@
     font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center;
   }
   .modal-body { padding: 1.75rem; }
-  .modal-body h3 { font-family: 'Cormorant Garamond'; font-size: 2rem; color: var(--cream); margin-bottom: 0.4rem; }
-  .modal-body .modal-desc { color: var(--text-dim); margin-bottom: 1.5rem; font-size: 0.95rem; }
-  .modal-body .modal-price { font-family: 'Cormorant Garamond'; font-size: 1.5rem; color: var(--gold); margin-bottom: 1.5rem; }
-  .option-group { padding: 1.25rem 0; border-top: 1px solid var(--border); }
-  .option-group .opt-label { display: flex; justify-content: space-between; margin-bottom: 0.85rem; }
-  .option-group .opt-label .opt-title { font-family: 'Cinzel'; font-size: 0.78rem; letter-spacing: 0.18em; color: var(--gold); text-transform: uppercase; }
-  .option-group .opt-label .opt-req { font-size: 0.7rem; color: var(--text-dim); letter-spacing: 0.1em; text-transform: uppercase; }
-  .option-row {
-    display: flex; align-items: center; padding: 0.6rem 0;
-    color: var(--cream); cursor: pointer; gap: 0.75rem;
+  .modal-body .item-num-modal { font-family: 'Cinzel'; font-size: 0.7rem; color: var(--gold); letter-spacing: 0.2em; margin-bottom: 0.5rem; }
+  .modal-body h3 { font-family: 'Cormorant Garamond'; font-size: 1.85rem; color: var(--cream); margin-bottom: 0.4rem; line-height: 1.1; }
+  .modal-body .modal-desc { color: var(--text-dim); margin-bottom: 1rem; font-size: 0.92rem; }
+  .modal-body .modal-price { font-family: 'Cormorant Garamond'; font-size: 1.5rem; color: var(--gold); margin-bottom: 1.5rem; font-weight: 600; }
+  .served-with-note {
+    background: rgba(43, 168, 154, 0.08); border-left: 3px solid var(--teal);
+    padding: 0.75rem 1rem; margin-bottom: 1rem; border-radius: 2px;
+    font-size: 0.82rem; color: var(--cream-2);
   }
-  .option-row input { accent-color: var(--gold); width: 18px; height: 18px; cursor: pointer; }
-  .option-row .opt-name { flex: 1; font-size: 0.95rem; }
-  .option-row .opt-extra { color: var(--gold); font-size: 0.88rem; }
+  .served-with-note strong { color: var(--teal); font-family: 'Cinzel'; font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; display: block; margin-bottom: 0.2rem; }
+  
+  .option-group { padding: 1.1rem 0; border-top: 1px solid var(--border); }
+  .option-group .opt-label { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.65rem; }
+  .option-group .opt-label .opt-title { font-family: 'Cinzel'; font-size: 0.78rem; letter-spacing: 0.18em; color: var(--gold); text-transform: uppercase; }
+  .option-group .opt-label .opt-req { font-size: 0.65rem; color: var(--text-dim); letter-spacing: 0.1em; text-transform: uppercase; }
+  .option-row {
+    display: flex; align-items: center; padding: 0.5rem 0.4rem;
+    color: var(--cream); cursor: pointer; gap: 0.7rem;
+    border-radius: 2px; transition: background 0.15s;
+    margin: 0 -0.4rem;
+  }
+  .option-row:hover { background: rgba(201, 164, 73, 0.04); }
+  .option-row input { accent-color: var(--gold); width: 17px; height: 17px; cursor: pointer; flex-shrink: 0; }
+  .option-row .opt-name { flex: 1; font-size: 0.9rem; }
+  .option-row .opt-extra { color: var(--gold); font-size: 0.85rem; font-weight: 600; }
   .special-input {
     width: 100%; background: var(--bg); border: 1px solid var(--border);
     padding: 0.85rem; color: var(--cream); font-family: 'DM Sans';
-    border-radius: 2px; resize: vertical; min-height: 70px;
+    border-radius: 2px; resize: vertical; min-height: 70px; font-size: 0.9rem;
   }
   .modal-footer {
     padding: 1.25rem 1.75rem; border-top: 1px solid var(--border);
     display: flex; align-items: center; gap: 1rem;
-    background: var(--bg);
+    background: var(--bg); position: sticky; bottom: 0;
   }
   .qty-control {
-    display: flex; align-items: center; gap: 0.5rem;
+    display: flex; align-items: center; gap: 0.4rem;
     background: var(--bg-2); border: 1px solid var(--border); padding: 0.3rem;
     border-radius: 2px;
   }
@@ -295,7 +338,6 @@
   .qty-control span { min-width: 30px; text-align: center; font-weight: 600; }
   .modal-footer .btn { flex: 1; }
   
-  /* CART DRAWER */
   .cart-drawer {
     position: fixed; top: 0; right: 0; bottom: 0; width: 100%; max-width: 460px;
     background: var(--bg-2); border-left: 1px solid var(--border);
@@ -308,72 +350,80 @@
     padding: 1.5rem; display: flex; align-items: center; justify-content: space-between;
     border-bottom: 1px solid var(--border);
   }
-  .cart-head h3 { font-family: 'Cormorant Garamond'; font-size: 1.75rem; color: var(--gold); }
+  .cart-head h3 { font-family: 'Cormorant Garamond'; font-size: 1.65rem; color: var(--gold); }
   .cart-head button { background: transparent; border: none; color: var(--cream); font-size: 1.5rem; cursor: pointer; }
   .cart-items { flex: 1; overflow-y: auto; padding: 1rem 1.5rem; }
   .cart-empty { text-align: center; color: var(--text-dim); padding: 4rem 1rem; }
   .cart-empty .eyebrow { display: block; margin-bottom: 0.5rem; }
   .cart-item {
-    display: grid; grid-template-columns: 60px 1fr auto; gap: 1rem;
-    padding: 1rem 0; border-bottom: 1px solid var(--border);
-    align-items: center;
+    display: grid; grid-template-columns: 56px 1fr auto; gap: 0.9rem;
+    padding: 0.9rem 0; border-bottom: 1px solid var(--border);
+    align-items: flex-start;
   }
-  .cart-item img { width: 60px; height: 60px; object-fit: cover; border-radius: 2px; }
-  .cart-item .ci-name { font-family: 'Cormorant Garamond'; font-size: 1.15rem; color: var(--cream); }
-  .cart-item .ci-mods { font-size: 0.75rem; color: var(--text-dim); margin: 0.2rem 0; }
-  .cart-item .ci-qty { font-size: 0.78rem; color: var(--gold); }
-  .cart-item .ci-price { font-family: 'Cormorant Garamond'; color: var(--gold); font-size: 1.15rem; }
-  .cart-item .ci-remove { background: transparent; border: none; color: var(--text-dim); cursor: pointer; font-size: 0.78rem; margin-top: 0.25rem; }
+  .cart-item img { width: 56px; height: 56px; object-fit: cover; border-radius: 2px; }
+  .cart-item .ci-name { font-family: 'Cormorant Garamond'; font-size: 1.05rem; color: var(--cream); line-height: 1.2; }
+  .cart-item .ci-mods { font-size: 0.72rem; color: var(--text-dim); margin: 0.25rem 0; line-height: 1.4; }
+  .cart-item .ci-qty { font-size: 0.72rem; color: var(--gold); margin-top: 0.1rem; }
+  .cart-item .ci-price { font-family: 'Cormorant Garamond'; color: var(--gold); font-size: 1.05rem; }
+  .cart-item .ci-remove { background: transparent; border: none; color: var(--text-dim); cursor: pointer; font-size: 0.72rem; margin-top: 0.25rem; padding: 0; }
   .cart-item .ci-remove:hover { color: var(--red); }
-  .cart-foot { border-top: 1px solid var(--border); padding: 1.5rem; }
-  .cart-totals { margin-bottom: 1.25rem; }
-  .cart-totals .row { display: flex; justify-content: space-between; padding: 0.35rem 0; color: var(--text-dim); font-size: 0.9rem; }
-  .cart-totals .row.total { font-family: 'Cormorant Garamond'; font-size: 1.5rem; color: var(--cream); border-top: 1px solid var(--border); padding-top: 0.85rem; margin-top: 0.5rem; }
+  .cart-foot { border-top: 1px solid var(--border); padding: 1.4rem 1.5rem 1.5rem; }
+  .cart-totals { margin-bottom: 1.1rem; }
+  .cart-totals .row { display: flex; justify-content: space-between; padding: 0.3rem 0; color: var(--text-dim); font-size: 0.88rem; }
+  .cart-totals .row.total { font-family: 'Cormorant Garamond'; font-size: 1.4rem; color: var(--cream); border-top: 1px solid var(--border); padding-top: 0.75rem; margin-top: 0.5rem; }
   .cart-totals .row.total span:last-child { color: var(--gold); }
   .square-checkout {
     background: linear-gradient(135deg, #006aff, #003c91); color: white;
-    width: 100%; padding: 1rem; font-family: 'DM Sans'; font-weight: 600;
-    font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase;
+    width: 100%; padding: 0.95rem; font-family: 'DM Sans'; font-weight: 600;
+    font-size: 0.82rem; letter-spacing: 0.15em; text-transform: uppercase;
     border: none; cursor: pointer; border-radius: 2px;
-    display: flex; align-items: center; justify-content: center; gap: 0.75rem;
+    display: flex; align-items: center; justify-content: center; gap: 0.6rem;
   }
   .square-checkout:disabled { opacity: 0.5; cursor: not-allowed; }
-  .square-checkout::before {
-    content: ''; width: 18px; height: 18px;
-    background: white; mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 4h16v16H4z M8 8h8v8H8z' fill='currentColor'/%3E%3C/svg%3E") center/contain no-repeat;
-  }
-  .pickup-note { font-size: 0.78rem; color: var(--text-dim); text-align: center; margin-top: 0.75rem; }
+  .pickup-note { font-size: 0.72rem; color: var(--text-dim); text-align: center; margin-top: 0.7rem; }
   
-  /* TOAST */
   .toast {
-    position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%) translateY(120%);
+    position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%) translateY(150%);
     background: var(--gold); color: var(--bg);
-    padding: 0.9rem 1.5rem; border-radius: 2px;
-    font-weight: 600; font-size: 0.85rem; letter-spacing: 0.1em;
+    padding: 0.85rem 1.4rem; border-radius: 2px;
+    font-weight: 600; font-size: 0.82rem; letter-spacing: 0.1em;
     z-index: 200; transition: transform 0.35s ease;
     box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    max-width: 90vw;
   }
   .toast.show { transform: translateX(-50%) translateY(0); }
   
-  /* RESPONSIVE */
+  @media (max-width: 1100px) {
+    .menu-grid { grid-template-columns: repeat(3, 1fr); }
+  }
   @media (max-width: 880px) {
-    nav { padding: 0.75rem 1rem; }
+    nav { padding: 0.6rem 1rem; }
     nav ul { display: none; }
     .mobile-menu-btn { display: block; }
     nav .brand .brand-text { display: none; }
-    .hero { grid-template-columns: 1fr; padding: 6rem 1.25rem 3rem; text-align: center; gap: 2rem; }
+    .hero { grid-template-columns: 1fr; padding: 5.5rem 1.25rem 3rem; text-align: center; gap: 1.5rem; }
     .hero-logo-wrap { order: -1; }
-    .hero-logo-wrap img { max-height: 320px; }
+    .hero-logo-wrap img { max-height: 280px; }
     .hero-cta { justify-content: center; }
-    .hero-badges { position: static; justify-content: center; flex-wrap: wrap; margin-top: 2rem; }
+    .hero-badges { position: static; justify-content: center; flex-wrap: wrap; margin-top: 1.5rem; gap: 1.25rem; }
     .about-grid, .location-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
     .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
-    section { padding: 4rem 1.25rem; }
+    section { padding: 3.5rem 1rem; }
+    .menu-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+    .menu-card-body { padding: 0.75rem 0.75rem 0.85rem; }
+    .menu-card h3 { font-size: 1rem; }
+    .menu-card .desc { font-size: 0.72rem; -webkit-line-clamp: 2; }
+    .menu-card .price { font-size: 1.1rem; }
+    .menu-card .add { padding: 0.4rem 0.7rem; font-size: 0.6rem; }
+    .cat-tabs { gap: 0.35rem; }
+    .cat-tab { padding: 0.45rem 0.85rem; font-size: 0.62rem; }
   }
   @media (max-width: 500px) {
     .footer-grid { grid-template-columns: 1fr; }
-    .menu-grid { grid-template-columns: 1fr; }
     .about-stats { grid-template-columns: 1fr; }
+    .modal-body { padding: 1.25rem; }
+    .modal-footer { padding: 1rem 1.25rem; flex-wrap: wrap; }
+    .modal-footer .btn { flex-basis: 100%; }
   }
 </style>
 </head>
@@ -445,14 +495,35 @@
 <section id="menu">
   <div class="container">
     <div class="section-head">
-      <span class="eyebrow">The Menu</span>
+      <span class="eyebrow">Our Menu</span>
       <h2 class="display">Entrées</h2>
-      <p>All entrées served on a bed of seasoned rice, with hummus and salad. Substitutions available for $1.</p>
+      <p>All entrées served on a bed of seasoned yellow rice with hummus and salad. Substitute any side for $1.</p>
     </div>
-    <div class="menu-intro-note">
-      <strong>★ Mockup note:</strong> Prices shown are placeholders — final menu will sync directly with King's Square POS and pull live pricing & availability. The full DoorDash menu (sides, sandwiches, appetizers, desserts) is ready to be added in phase 2.
+    
+    <div class="mockup-note">
+      <strong>★ Mockup notes:</strong> All 12 entrée items, prices, and descriptions pulled directly from King's active menu. Photos shown are stock placeholders — Phase 1 includes an on-site photo session to capture every dish. The full menu (Wraps · Specialties · Arabi · Sides — 30+ more items) launches in Phase 2.
     </div>
+    
+    <div class="cat-tabs">
+      <button class="cat-tab active">Entrées</button>
+      <button class="cat-tab" disabled>Wraps <span class="coming">Soon</span></button>
+      <button class="cat-tab" disabled>King's Specialties <span class="coming">Soon</span></button>
+      <button class="cat-tab" disabled>Arabi Style <span class="coming">Soon</span></button>
+      <button class="cat-tab" disabled>Sides <span class="coming">Soon</span></button>
+    </div>
+    
     <div class="menu-grid" id="menuGrid"></div>
+    
+    <div class="coming-soon-section">
+      <h3>The Full Menu Goes Live in Phase 2</h3>
+      <p>Once entrées are signed off, we'll layer in the rest. Same Square sync, same customization framework — 30+ items across these categories:</p>
+      <div class="coming-categories">
+        <div class="coming-cat">Wraps <strong>10 items</strong></div>
+        <div class="coming-cat">King's Specialties <strong>6 items</strong></div>
+        <div class="coming-cat">Arabi Style <strong>5 items</strong></div>
+        <div class="coming-cat">Sides & Sauces <strong>12 items</strong></div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -488,7 +559,7 @@
         </div>
       </div>
       <div class="map-frame">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3469.5!2d-98.5715!3d29.5311!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjnCsDMxJzUyLjAiTiA5OMKwMzQnMTcuNCJX!5e0!3m2!1sen!2sus!4v1700000000000" allowfullscreen loading="lazy"></iframe>
+        <iframe src="https://www.google.com/maps?q=8719+Wurzbach+Rd+San+Antonio+TX+78240&output=embed" allowfullscreen loading="lazy"></iframe>
       </div>
     </div>
   </div>
@@ -565,7 +636,6 @@
   </div>
 </footer>
 
-<!-- ITEM CUSTOMIZATION MODAL -->
 <div class="modal-backdrop" id="modal" onclick="if(event.target===this)closeModal()">
   <div class="modal">
     <div class="modal-header">
@@ -573,40 +643,68 @@
       <button class="modal-close" onclick="closeModal()">×</button>
     </div>
     <div class="modal-body">
+      <div class="item-num-modal" id="modalNum"></div>
       <h3 id="modalTitle"></h3>
       <p class="modal-desc" id="modalDesc"></p>
       <div class="modal-price" id="modalPrice"></div>
       
-      <div class="option-group">
-        <div class="opt-label">
-          <span class="opt-title">Choose Your Side</span>
-          <span class="opt-req">Required · Select 1</span>
-        </div>
-        <label class="option-row"><input type="radio" name="side" value="rice" checked /><span class="opt-name">Seasoned Rice (Default)</span></label>
-        <label class="option-row"><input type="radio" name="side" value="fries" /><span class="opt-name">French Fries (Substitute)</span><span class="opt-extra">+$1.00</span></label>
-        <label class="option-row"><input type="radio" name="side" value="salad-only" /><span class="opt-name">Extra Salad (Substitute)</span><span class="opt-extra">+$1.00</span></label>
-        <label class="option-row"><input type="radio" name="side" value="hummus-only" /><span class="opt-name">Extra Hummus (Substitute)</span><span class="opt-extra">+$1.00</span></label>
+      <div class="served-with-note">
+        <strong>Served With</strong>
+        Seasoned yellow rice · Homemade hummus · Fresh Mediterranean salad · Pita bread
       </div>
       
       <div class="option-group">
         <div class="opt-label">
-          <span class="opt-title">Add Sauces</span>
-          <span class="opt-req">Optional · Multiple</span>
+          <span class="opt-title">Substitute Your Side</span>
+          <span class="opt-req">Optional · +$1 each</span>
         </div>
-        <label class="option-row"><input type="checkbox" data-extra="0.75" /><span class="opt-name">Extra Garlic Sauce</span><span class="opt-extra">+$0.75</span></label>
-        <label class="option-row"><input type="checkbox" data-extra="0.75" /><span class="opt-name">Tahini (Sesame) Sauce</span><span class="opt-extra">+$0.75</span></label>
-        <label class="option-row"><input type="checkbox" data-extra="0.75" /><span class="opt-name">Tzatziki</span><span class="opt-extra">+$0.75</span></label>
-        <label class="option-row"><input type="checkbox" data-extra="1.50" /><span class="opt-name">Muhammara (Roasted Red Pepper)</span><span class="opt-extra">+$1.50</span></label>
+        <label class="option-row"><input type="checkbox" data-extra="1.00" /><span class="opt-name">Substitute rice for fries</span><span class="opt-extra">+$1.00</span></label>
+        <label class="option-row"><input type="checkbox" data-extra="1.00" /><span class="opt-name">Substitute rice for extra salad</span><span class="opt-extra">+$1.00</span></label>
+        <label class="option-row"><input type="checkbox" data-extra="1.00" /><span class="opt-name">Substitute hummus for tzatziki</span><span class="opt-extra">+$1.00</span></label>
+        <label class="option-row"><input type="checkbox" data-extra="1.00" /><span class="opt-name">Substitute hummus for muhammara</span><span class="opt-extra">+$1.00</span></label>
       </div>
       
       <div class="option-group">
         <div class="opt-label">
-          <span class="opt-title">Add-Ons</span>
+          <span class="opt-title">★ Add Extra Protein</span>
+          <span class="opt-req">Optional · Most popular</span>
+        </div>
+        <label class="option-row"><input type="checkbox" data-extra="9.50" /><span class="opt-name">+ Extra Chicken Kabab Skewer</span><span class="opt-extra">+$9.50</span></label>
+        <label class="option-row"><input type="checkbox" data-extra="10.00" /><span class="opt-name">+ Extra Beef Kabab Skewer</span><span class="opt-extra">+$10.00</span></label>
+        <label class="option-row"><input type="checkbox" data-extra="11.00" /><span class="opt-name">+ Extra Chicken Tikka Skewer</span><span class="opt-extra">+$11.00</span></label>
+        <label class="option-row"><input type="checkbox" data-extra="12.00" /><span class="opt-name">+ Extra Lamb Tikka Skewer</span><span class="opt-extra">+$12.00</span></label>
+        <label class="option-row"><input type="checkbox" data-extra="8.00" /><span class="opt-name">+ Add Chicken Shawarma (½ portion)</span><span class="opt-extra">+$8.00</span></label>
+        <label class="option-row"><input type="checkbox" data-extra="9.00" /><span class="opt-name">+ Add Beef Shawarma (½ portion)</span><span class="opt-extra">+$9.00</span></label>
+        <label class="option-row"><input type="checkbox" data-extra="8.00" /><span class="opt-name">+ Add Lamb Gyro (½ portion)</span><span class="opt-extra">+$8.00</span></label>
+        <label class="option-row"><input type="checkbox" data-extra="8.00" /><span class="opt-name">+ Add Chicken Gyro (½ portion)</span><span class="opt-extra">+$8.00</span></label>
+      </div>
+      
+      <div class="option-group">
+        <div class="opt-label">
+          <span class="opt-title">Add Sides</span>
           <span class="opt-req">Optional</span>
         </div>
-        <label class="option-row"><input type="checkbox" data-extra="2.00" /><span class="opt-name">Extra Pita Bread (2 pcs)</span><span class="opt-extra">+$2.00</span></label>
-        <label class="option-row"><input type="checkbox" data-extra="3.50" /><span class="opt-name">Falafel (4 pcs)</span><span class="opt-extra">+$3.50</span></label>
-        <label class="option-row"><input type="checkbox" data-extra="2.50" /><span class="opt-name">Grape Leaves (2 pcs)</span><span class="opt-extra">+$2.50</span></label>
+        <label class="option-row"><input type="checkbox" data-extra="5.99" /><span class="opt-name">Add Falafel (5 pcs)</span><span class="opt-extra">+$5.99</span></label>
+        <label class="option-row"><input type="checkbox" data-extra="5.99" /><span class="opt-name">Add Grape Leaves (5 pcs)</span><span class="opt-extra">+$5.99</span></label>
+        <label class="option-row"><input type="checkbox" data-extra="6.99" /><span class="opt-name">Add Hummus (with pita)</span><span class="opt-extra">+$6.99</span></label>
+        <label class="option-row"><input type="checkbox" data-extra="5.99" /><span class="opt-name">Add Muhammara</span><span class="opt-extra">+$5.99</span></label>
+        <label class="option-row"><input type="checkbox" data-extra="6.99" /><span class="opt-name">Add Greek Salad</span><span class="opt-extra">+$6.99</span></label>
+        <label class="option-row"><input type="checkbox" data-extra="4.99" /><span class="opt-name">Add Small Fries</span><span class="opt-extra">+$4.99</span></label>
+        <label class="option-row"><input type="checkbox" data-extra="8.99" /><span class="opt-name">Add Large Fries</span><span class="opt-extra">+$8.99</span></label>
+        <label class="option-row"><input type="checkbox" data-extra="4.99" /><span class="opt-name">Add Mixed Pickled Veggies</span><span class="opt-extra">+$4.99</span></label>
+        <label class="option-row"><input type="checkbox" data-extra="2.00" /><span class="opt-name">Add Extra Pita (2 pcs)</span><span class="opt-extra">+$2.00</span></label>
+      </div>
+      
+      <div class="option-group">
+        <div class="opt-label">
+          <span class="opt-title">Extra Sauces</span>
+          <span class="opt-req">Optional · 2oz cup</span>
+        </div>
+        <label class="option-row"><input type="checkbox" data-extra="1.50" /><span class="opt-name">Syrian Garlic Sauce</span><span class="opt-extra">+$1.50</span></label>
+        <label class="option-row"><input type="checkbox" data-extra="1.50" /><span class="opt-name">Tahini (Sesame Seed) Sauce</span><span class="opt-extra">+$1.50</span></label>
+        <label class="option-row"><input type="checkbox" data-extra="1.50" /><span class="opt-name">Tzatziki</span><span class="opt-extra">+$1.50</span></label>
+        <label class="option-row"><input type="checkbox" data-extra="1.50" /><span class="opt-name">Muhammara (Roasted Red Pepper)</span><span class="opt-extra">+$1.50</span></label>
+        <label class="option-row"><input type="checkbox" data-extra="0.50" /><span class="opt-name">Hot Sauce</span><span class="opt-extra">+$0.50</span></label>
       </div>
       
       <div class="option-group">
@@ -628,7 +726,6 @@
   </div>
 </div>
 
-<!-- CART DRAWER -->
 <div class="cart-drawer" id="cartDrawer">
   <div class="cart-head">
     <h3>Your Order</h3>
@@ -646,7 +743,7 @@
       <div class="row"><span>Tax (8.25%)</span><span id="cartTax">$0.00</span></div>
       <div class="row total"><span>Total</span><span id="cartTotal">$0.00</span></div>
     </div>
-    <button class="square-checkout" id="checkoutBtn" disabled onclick="checkout()">Checkout with Square</button>
+    <button class="square-checkout" id="checkoutBtn" disabled onclick="checkout()">⬛ Checkout with Square</button>
     <div class="pickup-note">Pickup only · Ready in ~20 minutes</div>
   </div>
 </div>
@@ -654,99 +751,111 @@
 <div class="toast" id="toast"></div>
 
 <script>
-  // MENU DATA — pulled from DoorDash structure; prices are placeholder until synced with Square
+  // REAL MENU DATA — pulled directly from kingofshawarmaandkabob.godaddysites.com
+  // Item numbers match their menu listing exactly. Prices are the merchant's own.
   const MENU = [
     {
-      id: 'chicken-kabab',
-      name: 'Chicken Kabab Plate',
-      desc: 'Two skewers of marinated chicken chunks, char-grilled. Served on seasoned rice with hummus and salad.',
-      price: 14.99,
-      tag: 'Bestseller',
-      img: 'https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=800&q=80'
-    },
-    {
-      id: 'lamb-kabab',
-      name: 'Lamb Kabab Plate',
-      desc: 'Two skewers of marinated lamb medallions, fire-grilled to perfection. Served on rice with hummus and salad.',
-      price: 17.99,
-      img: 'https://images.unsplash.com/photo-1633237308525-cd587cf71926?w=800&q=80'
-    },
-    {
-      id: 'mixed-kabab',
-      name: 'Mixed Kabab Plate',
-      desc: 'One skewer of chicken chunks and one skewer of lamb medallions. The best of both worlds.',
-      price: 16.99,
-      tag: 'Popular',
-      img: 'https://images.unsplash.com/photo-1559847844-5315695dadae?w=800&q=80'
-    },
-    {
-      id: 'kafta-chicken',
-      name: 'Kafta Chicken Plate',
-      desc: 'Two seasoned ground chicken skewers, hand-formed and grilled. Served with rice, hummus, salad.',
-      price: 14.99,
-      img: 'https://images.unsplash.com/photo-1606755962773-d324e0a13086?w=800&q=80'
-    },
-    {
-      id: 'mixed-kafta',
-      name: 'Mixed Kafta Plate',
-      desc: 'One ground beef and one ground chicken kafta skewer. Spiced with Mediterranean herbs.',
-      price: 15.99,
-      img: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=800&q=80'
-    },
-    {
-      id: 'chicken-shawarma',
-      name: 'Chicken Shawarma Plate',
-      desc: 'Shaved marinated chicken from our rotating spit, served on rice with hummus, salad, and garlic sauce.',
-      price: 13.99,
-      tag: 'Bestseller',
+      id: 'chicken-shawarma', num: '#25', name: 'Chicken Shawarma',
+      desc: 'Shaved, roasted pieces of marinated chicken. Served on yellow rice with hummus and salad.',
+      price: 18.99, tag: 'Bestseller', tagType: 'popular',
       img: 'https://images.unsplash.com/photo-1561651823-34feb02250e4?w=800&q=80'
     },
     {
-      id: 'beef-shawarma',
-      name: 'Beef Shawarma Plate',
-      desc: 'Slow-roasted beef shawarma, shaved to order, served with rice, hummus, salad, and tahini sauce.',
-      price: 14.99,
+      id: 'beef-shawarma', num: '#26', name: 'Beef Shawarma',
+      desc: 'Shaved, roasted pieces of marinated beef. Served on yellow rice with hummus and salad.',
+      price: 19.99,
       img: 'https://images.unsplash.com/photo-1633321702518-7feccafb94d5?w=800&q=80'
     },
     {
-      id: 'gyro-plate',
-      name: 'Gyro Plate',
-      desc: 'Classic shaved gyro meat on rice with hummus and salad, finished with tzatziki sauce.',
-      price: 13.99,
+      id: 'mix-shawarma', num: '#27', name: 'Mix Shawarma',
+      desc: 'Shaved roasted marinated beef AND chicken — the best of both. On rice with hummus and salad.',
+      price: 19.99, tag: 'Popular', tagType: 'popular',
+      img: 'https://images.unsplash.com/photo-1604152135912-04a022e23696?w=800&q=80'
+    },
+    {
+      id: 'chicken-kabab', num: '#23', name: 'Chicken Kabab',
+      desc: 'Two seasoned ground chicken skewers, hand-formed and grilled. Served with rice, hummus, salad.',
+      price: 18.99,
+      img: 'https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=800&q=80'
+    },
+    {
+      id: 'beef-kabab', num: '#22', name: 'Beef Kabab',
+      desc: 'Two seasoned ground beef skewers, charcoal-grilled. Served on rice with hummus and salad.',
+      price: 19.99,
+      img: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=800&q=80'
+    },
+    {
+      id: 'mix-kabob', num: '#24', name: 'Mix Kabob',
+      desc: 'One seasoned ground beef skewer and one ground chicken skewer. Best of both.',
+      price: 19.99,
+      img: 'https://images.unsplash.com/photo-1559847844-5315695dadae?w=800&q=80'
+    },
+    {
+      id: 'chicken-tikka', num: '#33', name: 'Chicken Tikka',
+      desc: 'Two skewers of marinated chicken chunks, char-grilled to order. Served on rice with hummus, salad.',
+      price: 21.99, tag: 'Chef\'s Pick',
+      img: 'https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?w=800&q=80'
+    },
+    {
+      id: 'lamb-tikka', num: '#31', name: 'Lamb Tikka',
+      desc: 'Two skewers of marinated lamb medallions, fire-grilled. Served on rice with hummus and salad.',
+      price: 22.99,
+      img: 'https://images.unsplash.com/photo-1633237308525-cd587cf71926?w=800&q=80'
+    },
+    {
+      id: 'mix-tikka', num: '#34', name: 'Mix Tikka',
+      desc: 'One skewer of marinated chicken chunks and one of marinated lamb medallions.',
+      price: 22.99,
+      img: 'https://images.unsplash.com/photo-1606755962773-d324e0a13086?w=800&q=80'
+    },
+    {
+      id: 'lamb-gyro', num: '#28', name: 'Lamb Gyro',
+      desc: 'Shaved lamb gyro meat over yellow rice with hummus, fresh salad, and pita bread.',
+      price: 18.99,
       img: 'https://images.unsplash.com/photo-1530469912745-a215c6b256ea?w=800&q=80'
     },
     {
-      id: 'falafel-plate',
-      name: 'Falafel Plate',
-      desc: '10 pieces of crispy homemade falafel over a fresh Mediterranean salad, topped with tahini.',
-      price: 12.99,
-      tag: 'Vegetarian',
-      img: 'https://images.unsplash.com/photo-1593001872095-7d5b3868fb1d?w=800&q=80'
+      id: 'chicken-gyro', num: '#29', name: 'Chicken Gyro',
+      desc: 'Shaved chicken gyro meat over yellow rice with hummus, fresh salad, and pita bread.',
+      price: 18.99,
+      img: 'https://images.unsplash.com/photo-1639024471283-03518883512d?w=800&q=80'
+    },
+    {
+      id: 'mix-gyro', num: '#30', name: 'Mix Gyro',
+      desc: 'Shaved chicken AND lamb gyro meat — sample both. On rice with hummus and salad.',
+      price: 18.99,
+      img: 'https://images.unsplash.com/photo-1593504049359-74330189a345?w=800&q=80'
     }
   ];
   
-  // RENDER MENU
   const grid = document.getElementById('menuGrid');
   MENU.forEach(item => {
     const card = document.createElement('div');
     card.className = 'menu-card';
     card.onclick = () => openModal(item);
+    const tagHTML = item.tag ? `<span class="tag ${item.tagType === 'popular' ? 'popular' : ''}">${item.tag}</span>` : '';
     card.innerHTML = `
       <div class="menu-card-img" style="background-image:url('${item.img}')">
-        ${item.tag ? `<span class="tag">${item.tag}</span>` : ''}
+        ${tagHTML}
+        <span class="placeholder-badge">Sample Photo</span>
       </div>
       <div class="menu-card-body">
+        <div class="item-num">${item.num}</div>
         <h3>${item.name}</h3>
         <p class="desc">${item.desc}</p>
         <div class="row">
           <span class="price">$${item.price.toFixed(2)}</span>
-          <button class="add" onclick="event.stopPropagation(); openModal(${JSON.stringify(item).replace(/"/g, '&quot;')})">Customize</button>
+          <button class="add" onclick="event.stopPropagation(); openModalById('${item.id}')">Customize</button>
         </div>
       </div>`;
     grid.appendChild(card);
   });
   
-  // MODAL STATE
+  function openModalById(id) {
+    const item = MENU.find(m => m.id === id);
+    if (item) openModal(item);
+  }
+  
   let currentItem = null;
   let currentQty = 1;
   
@@ -754,17 +863,17 @@
     currentItem = item;
     currentQty = 1;
     document.getElementById('modalImg').src = item.img;
+    document.getElementById('modalNum').textContent = `Entrée ${item.num}`;
     document.getElementById('modalTitle').textContent = item.name;
     document.getElementById('modalDesc').textContent = item.desc;
     document.getElementById('modalPrice').textContent = '$' + item.price.toFixed(2);
     document.getElementById('modalQty').textContent = 1;
     document.getElementById('modalNotes').value = '';
-    // reset radios/checkboxes
-    document.querySelectorAll('#modal input[name="side"]').forEach((r, i) => r.checked = i === 0);
     document.querySelectorAll('#modal input[type="checkbox"]').forEach(c => c.checked = false);
     updateAddBtn();
     document.getElementById('modal').classList.add('active');
     document.body.style.overflow = 'hidden';
+    document.querySelector('.modal').scrollTop = 0;
   }
   function closeModal() {
     document.getElementById('modal').classList.remove('active');
@@ -778,8 +887,6 @@
   function calcLinePrice() {
     if (!currentItem) return 0;
     let p = currentItem.price;
-    const side = document.querySelector('#modal input[name="side"]:checked');
-    if (side && side.value !== 'rice') p += 1.00;
     document.querySelectorAll('#modal input[type="checkbox"]:checked').forEach(c => {
       p += parseFloat(c.dataset.extra || 0);
     });
@@ -790,20 +897,12 @@
   }
   document.querySelectorAll('#modal input').forEach(i => i.addEventListener('change', updateAddBtn));
   
-  // CART
   let CART = [];
-  
   function addToCart() {
     if (!currentItem) return;
-    const side = document.querySelector('#modal input[name="side"]:checked');
-    const addons = [...document.querySelectorAll('#modal input[type="checkbox"]:checked')]
+    const mods = [...document.querySelectorAll('#modal input[type="checkbox"]:checked')]
       .map(c => c.parentElement.querySelector('.opt-name').textContent);
     const notes = document.getElementById('modalNotes').value;
-    const mods = [];
-    if (side && side.value !== 'rice') {
-      mods.push(side.parentElement.querySelector('.opt-name').textContent.replace(' (Substitute)', ''));
-    }
-    mods.push(...addons);
     CART.push({
       id: currentItem.id + '-' + Date.now(),
       name: currentItem.name,
@@ -814,7 +913,7 @@
     });
     closeModal();
     renderCart();
-    showToast(`Added to order: ${currentItem.name}`);
+    showToast(`Added: ${currentItem.name}`);
   }
   function removeItem(id) {
     CART = CART.filter(i => i.id !== id);
@@ -834,8 +933,8 @@
           <img src="${i.img}" alt="${i.name}" />
           <div>
             <div class="ci-name">${i.name}</div>
-            ${i.mods.length ? `<div class="ci-mods">+ ${i.mods.join(', ')}</div>` : ''}
-            ${i.notes ? `<div class="ci-mods">Note: ${i.notes}</div>` : ''}
+            ${i.mods.length ? `<div class="ci-mods">+ ${i.mods.join('<br/>+ ')}</div>` : ''}
+            ${i.notes ? `<div class="ci-mods"><em>Note: ${i.notes}</em></div>` : ''}
             <div class="ci-qty">Qty: ${i.qty}</div>
             <button class="ci-remove" onclick="removeItem('${i.id}')">Remove</button>
           </div>
@@ -858,7 +957,7 @@
   function checkout() {
     showToast('→ Redirecting to Square checkout...');
     setTimeout(() => {
-      alert('SQUARE CHECKOUT (Mockup)\n\nIn production: this hands the order off to the Square Checkout API.\nThe order would then appear in King\'s Square Dashboard for the kitchen to accept & prepare.\n\nFlow:\n1. Customer pays via Square (card, Apple Pay, Google Pay)\n2. Order prints to kitchen + appears on tablet\n3. Customer gets SMS/email confirmation with ETA\n4. Customer picks up at counter');
+      alert('SQUARE CHECKOUT (Mockup demo)\n\nIn production this hands the order off to the Square Checkout API.\nThe order appears in King\'s existing Square Dashboard for the kitchen.\n\nFLOW:\n1. Customer pays via Square (card, Apple Pay, Google Pay, Cash App Pay)\n2. Order auto-prints to kitchen + appears on tablet\n3. Customer gets SMS/email confirmation with pickup ETA\n4. Customer picks up at the counter — staff confirms in Square POS\n\nNO new system to learn. Uses the same Square account already in place.');
     }, 600);
   }
   
@@ -872,10 +971,9 @@
     const t = document.getElementById('toast');
     t.textContent = msg;
     t.classList.add('show');
-    setTimeout(() => t.classList.remove('show'), 2600);
+    setTimeout(() => t.classList.remove('show'), 2400);
   }
   
-  // Smooth nav close cart on link click
   document.querySelectorAll('nav ul a').forEach(a => a.addEventListener('click', closeCart));
 </script>
 
