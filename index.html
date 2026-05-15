@@ -188,6 +188,14 @@
     font-family: 'Cinzel'; font-weight: 600;
   }
   .menu-card-img .tag.popular { color: var(--red); border-color: var(--red); }
+  .menu-card-img .rating {
+    position: absolute; bottom: 0.6rem; left: 0.6rem;
+    background: rgba(0,0,0,0.75); color: var(--cream);
+    padding: 0.25rem 0.5rem; font-size: 0.65rem; letter-spacing: 0.05em;
+    border-radius: 999px; font-weight: 600;
+    display: flex; align-items: center; gap: 0.3rem;
+  }
+  .menu-card-img .rating::before { content: '👍'; font-size: 0.7rem; }
   .menu-card-body { padding: 1rem 1rem 1.1rem; display: flex; flex-direction: column; flex: 1; }
   .menu-card .item-num { font-family: 'Cinzel'; font-size: 0.65rem; color: var(--text-dim); letter-spacing: 0.18em; margin-bottom: 0.3rem; }
   .menu-card h3 { font-family: 'Cormorant Garamond'; font-weight: 600; font-size: 1.2rem; margin-bottom: 0.35rem; color: var(--cream); line-height: 1.15; }
@@ -291,7 +299,8 @@
     font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center;
   }
   .modal-body { padding: 1.75rem; }
-  .modal-body .item-num-modal { font-family: 'Cinzel'; font-size: 0.7rem; color: var(--gold); letter-spacing: 0.2em; margin-bottom: 0.5rem; }
+  .modal-body .item-num-modal { font-family: 'Cinzel'; font-size: 0.7rem; color: var(--gold); letter-spacing: 0.2em; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.75rem; }
+  .modal-body .item-num-modal .modal-rating { color: var(--teal); font-family: 'DM Sans'; letter-spacing: 0.05em; text-transform: none; }
   .modal-body h3 { font-family: 'Cormorant Garamond'; font-size: 1.85rem; color: var(--cream); margin-bottom: 0.4rem; line-height: 1.1; }
   .modal-body .modal-desc { color: var(--text-dim); margin-bottom: 1rem; font-size: 0.92rem; }
   .modal-body .modal-price { font-family: 'Cormorant Garamond'; font-size: 1.5rem; color: var(--gold); margin-bottom: 1.5rem; font-weight: 600; }
@@ -303,9 +312,9 @@
   .served-with-note strong { color: var(--teal); font-family: 'Cinzel'; font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; display: block; margin-bottom: 0.2rem; }
   
   .option-group { padding: 1.1rem 0; border-top: 1px solid var(--border); }
-  .option-group .opt-label { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.65rem; }
+  .option-group .opt-label { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.65rem; gap: 0.5rem; }
   .option-group .opt-label .opt-title { font-family: 'Cinzel'; font-size: 0.78rem; letter-spacing: 0.18em; color: var(--gold); text-transform: uppercase; }
-  .option-group .opt-label .opt-req { font-size: 0.65rem; color: var(--text-dim); letter-spacing: 0.1em; text-transform: uppercase; }
+  .option-group .opt-label .opt-req { font-size: 0.65rem; color: var(--text-dim); letter-spacing: 0.1em; text-transform: uppercase; flex-shrink: 0; }
   .option-row {
     display: flex; align-items: center; padding: 0.5rem 0.4rem;
     color: var(--cream); cursor: pointer; gap: 0.7rem;
@@ -316,6 +325,26 @@
   .option-row input { accent-color: var(--gold); width: 17px; height: 17px; cursor: pointer; flex-shrink: 0; }
   .option-row .opt-name { flex: 1; font-size: 0.9rem; }
   .option-row .opt-extra { color: var(--gold); font-size: 0.85rem; font-weight: 600; }
+  .option-row .opt-extra.free { color: var(--teal); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; }
+  
+  .featured-upsell {
+    margin-top: 0.65rem;
+    background: linear-gradient(135deg, rgba(200, 51, 46, 0.12), rgba(201, 164, 73, 0.08));
+    border: 1px solid var(--border-strong); border-radius: 4px; padding: 0.85rem;
+    display: flex; align-items: center; gap: 0.85rem; cursor: pointer;
+    transition: all 0.2s;
+  }
+  .featured-upsell:hover { border-color: var(--gold); background: linear-gradient(135deg, rgba(200, 51, 46, 0.18), rgba(201, 164, 73, 0.12)); }
+  .featured-upsell input { accent-color: var(--gold); width: 18px; height: 18px; flex-shrink: 0; }
+  .featured-upsell .fu-img {
+    width: 48px; height: 48px; border-radius: 4px; background-size: cover; background-position: center;
+    flex-shrink: 0;
+  }
+  .featured-upsell .fu-text { flex: 1; }
+  .featured-upsell .fu-name { font-family: 'Cormorant Garamond'; font-size: 1.1rem; color: var(--cream); line-height: 1.1; }
+  .featured-upsell .fu-tag { font-family: 'Cinzel'; font-size: 0.6rem; color: var(--red); letter-spacing: 0.15em; text-transform: uppercase; }
+  .featured-upsell .fu-price { color: var(--gold); font-weight: 600; font-size: 0.95rem; }
+  
   .special-input {
     width: 100%; background: var(--bg); border: 1px solid var(--border);
     padding: 0.85rem; color: var(--cream); font-family: 'DM Sans';
@@ -497,11 +526,11 @@
     <div class="section-head">
       <span class="eyebrow">Our Menu</span>
       <h2 class="display">Entrées</h2>
-      <p>All entrées served on a bed of seasoned yellow rice with hummus and salad. Substitute any side for $1.</p>
+      <p>All entrées served on a bed of seasoned yellow rice with hummus, salad, and crispy bread or pita.</p>
     </div>
     
     <div class="mockup-note">
-      <strong>★ Mockup notes:</strong> All 12 entrée items, prices, and descriptions pulled directly from King's active menu. Photos shown are stock placeholders — Phase 1 includes an on-site photo session to capture every dish. The full menu (Wraps · Specialties · Arabi · Sides — 30+ more items) launches in Phase 2.
+      <strong>★ Mockup notes:</strong> All 12 entrées, prices, descriptions, and modifier options pulled directly from King's active DoorDash menu — including the full upsell stack (extra skewers, cheddar on kabab, grilled veg, drinks). Photos are stock placeholders for now; Phase 1 includes an on-site photo session at the truck.
     </div>
     
     <div class="cat-tabs">
@@ -636,6 +665,7 @@
   </div>
 </footer>
 
+<!-- ITEM CUSTOMIZATION MODAL — mirrors DoorDash modifier order exactly -->
 <div class="modal-backdrop" id="modal" onclick="if(event.target===this)closeModal()">
   <div class="modal">
     <div class="modal-header">
@@ -643,73 +673,96 @@
       <button class="modal-close" onclick="closeModal()">×</button>
     </div>
     <div class="modal-body">
-      <div class="item-num-modal" id="modalNum"></div>
+      <div class="item-num-modal">
+        <span id="modalNum"></span>
+        <span class="modal-rating" id="modalRating"></span>
+      </div>
       <h3 id="modalTitle"></h3>
       <p class="modal-desc" id="modalDesc"></p>
       <div class="modal-price" id="modalPrice"></div>
       
       <div class="served-with-note">
         <strong>Served With</strong>
-        Seasoned yellow rice · Homemade hummus · Fresh Mediterranean salad · Pita bread
+        Bed of seasoned yellow rice · Homemade hummus · Fresh salad · <span id="breadType">Crispy bread</span>
       </div>
       
+      <!-- MODIFICATIONS — pulled directly from DoorDash modifier list, in DoorDash's exact order -->
       <div class="option-group">
         <div class="opt-label">
-          <span class="opt-title">Substitute Your Side</span>
-          <span class="opt-req">Optional · +$1 each</span>
-        </div>
-        <label class="option-row"><input type="checkbox" data-extra="1.00" /><span class="opt-name">Substitute rice for fries</span><span class="opt-extra">+$1.00</span></label>
-        <label class="option-row"><input type="checkbox" data-extra="1.00" /><span class="opt-name">Substitute rice for extra salad</span><span class="opt-extra">+$1.00</span></label>
-        <label class="option-row"><input type="checkbox" data-extra="1.00" /><span class="opt-name">Substitute hummus for tzatziki</span><span class="opt-extra">+$1.00</span></label>
-        <label class="option-row"><input type="checkbox" data-extra="1.00" /><span class="opt-name">Substitute hummus for muhammara</span><span class="opt-extra">+$1.00</span></label>
-      </div>
-      
-      <div class="option-group">
-        <div class="opt-label">
-          <span class="opt-title">★ Add Extra Protein</span>
-          <span class="opt-req">Optional · Most popular</span>
-        </div>
-        <label class="option-row"><input type="checkbox" data-extra="9.50" /><span class="opt-name">+ Extra Chicken Kabab Skewer</span><span class="opt-extra">+$9.50</span></label>
-        <label class="option-row"><input type="checkbox" data-extra="10.00" /><span class="opt-name">+ Extra Beef Kabab Skewer</span><span class="opt-extra">+$10.00</span></label>
-        <label class="option-row"><input type="checkbox" data-extra="11.00" /><span class="opt-name">+ Extra Chicken Tikka Skewer</span><span class="opt-extra">+$11.00</span></label>
-        <label class="option-row"><input type="checkbox" data-extra="12.00" /><span class="opt-name">+ Extra Lamb Tikka Skewer</span><span class="opt-extra">+$12.00</span></label>
-        <label class="option-row"><input type="checkbox" data-extra="8.00" /><span class="opt-name">+ Add Chicken Shawarma (½ portion)</span><span class="opt-extra">+$8.00</span></label>
-        <label class="option-row"><input type="checkbox" data-extra="9.00" /><span class="opt-name">+ Add Beef Shawarma (½ portion)</span><span class="opt-extra">+$9.00</span></label>
-        <label class="option-row"><input type="checkbox" data-extra="8.00" /><span class="opt-name">+ Add Lamb Gyro (½ portion)</span><span class="opt-extra">+$8.00</span></label>
-        <label class="option-row"><input type="checkbox" data-extra="8.00" /><span class="opt-name">+ Add Chicken Gyro (½ portion)</span><span class="opt-extra">+$8.00</span></label>
-      </div>
-      
-      <div class="option-group">
-        <div class="opt-label">
-          <span class="opt-title">Add Sides</span>
+          <span class="opt-title">Modifications</span>
           <span class="opt-req">Optional</span>
         </div>
-        <label class="option-row"><input type="checkbox" data-extra="5.99" /><span class="opt-name">Add Falafel (5 pcs)</span><span class="opt-extra">+$5.99</span></label>
-        <label class="option-row"><input type="checkbox" data-extra="5.99" /><span class="opt-name">Add Grape Leaves (5 pcs)</span><span class="opt-extra">+$5.99</span></label>
-        <label class="option-row"><input type="checkbox" data-extra="6.99" /><span class="opt-name">Add Hummus (with pita)</span><span class="opt-extra">+$6.99</span></label>
-        <label class="option-row"><input type="checkbox" data-extra="5.99" /><span class="opt-name">Add Muhammara</span><span class="opt-extra">+$5.99</span></label>
-        <label class="option-row"><input type="checkbox" data-extra="6.99" /><span class="opt-name">Add Greek Salad</span><span class="opt-extra">+$6.99</span></label>
-        <label class="option-row"><input type="checkbox" data-extra="4.99" /><span class="opt-name">Add Small Fries</span><span class="opt-extra">+$4.99</span></label>
-        <label class="option-row"><input type="checkbox" data-extra="8.99" /><span class="opt-name">Add Large Fries</span><span class="opt-extra">+$8.99</span></label>
-        <label class="option-row"><input type="checkbox" data-extra="4.99" /><span class="opt-name">Add Mixed Pickled Veggies</span><span class="opt-extra">+$4.99</span></label>
-        <label class="option-row"><input type="checkbox" data-extra="2.00" /><span class="opt-name">Add Extra Pita (2 pcs)</span><span class="opt-extra">+$2.00</span></label>
+        <label class="option-row"><input type="checkbox" data-extra="8.99" /><span class="opt-name">Add lamb tikka skewer</span><span class="opt-extra">+$8.99</span></label>
+        <label class="option-row"><input type="checkbox" data-extra="7.99" /><span class="opt-name">Add chicken tikka skewer</span><span class="opt-extra">+$7.99</span></label>
+        <label class="option-row"><input type="checkbox" data-extra="5.99" /><span class="opt-name">Add chicken kabab skewer</span><span class="opt-extra">+$5.99</span></label>
+        <label class="option-row"><input type="checkbox" data-extra="3.89" /><span class="opt-name">Add an extra crispy bread</span><span class="opt-extra">+$3.89</span></label>
+        <label class="option-row"><input type="checkbox" data-extra="2.59" /><span class="opt-name">Add cheddar cheese on the kabab</span><span class="opt-extra">+$2.59</span></label>
+        <label class="option-row"><input type="checkbox" data-extra="5.39" /><span class="opt-name">Add side of fries</span><span class="opt-extra">+$5.39</span></label>
+        <label class="option-row"><input type="checkbox" data-extra="0.89" /><span class="opt-name">Add grilled tomato</span><span class="opt-extra">+$0.89</span></label>
+        <label class="option-row"><input type="checkbox" data-extra="0.89" /><span class="opt-name">Add grilled green peppers</span><span class="opt-extra">+$0.89</span></label>
+        <label class="option-row"><input type="checkbox" data-extra="0.89" /><span class="opt-name">Add grilled onion</span><span class="opt-extra">+$0.89</span></label>
+        <label class="option-row"><input type="checkbox" data-extra="0.59" /><span class="opt-name">Add 2oz Jalapeño</span><span class="opt-extra">+$0.59</span></label>
+        <label class="option-row"><input type="checkbox" data-extra="0.59" /><span class="opt-name">Add 2oz pomegranate sauce</span><span class="opt-extra">+$0.59</span></label>
+        <label class="option-row"><input type="checkbox" data-extra="0.89" /><span class="opt-name">No salad, double rice</span><span class="opt-extra">+$0.89</span></label>
+        <label class="option-row"><input type="checkbox" data-extra="0.89" /><span class="opt-name">No rice, double salad</span><span class="opt-extra">+$0.89</span></label>
+        <label class="option-row"><input type="checkbox" data-extra="0.89" /><span class="opt-name">No hummus, double salad</span><span class="opt-extra">+$0.89</span></label>
+        <label class="option-row"><input type="checkbox" data-extra="0" /><span class="opt-name">No onion inside the crispy bread</span><span class="opt-extra free">Free</span></label>
+        <label class="option-row"><input type="checkbox" data-extra="0" /><span class="opt-name">No muhammara inside the crispy bread</span><span class="opt-extra free">Free</span></label>
+        <label class="option-row"><input type="checkbox" data-extra="0" /><span class="opt-name">No onion at all</span><span class="opt-extra free">Free</span></label>
+        <label class="option-row"><input type="checkbox" data-extra="0" /><span class="opt-name">Extra lemon</span><span class="opt-extra free">Free</span></label>
+        <label class="option-row"><input type="checkbox" data-extra="0" /><span class="opt-name">Extra tzatziki sauce</span><span class="opt-extra free">Free</span></label>
       </div>
       
+      <!-- ADD A DRINK -->
       <div class="option-group">
         <div class="opt-label">
-          <span class="opt-title">Extra Sauces</span>
-          <span class="opt-req">Optional · 2oz cup</span>
+          <span class="opt-title">Add A Drink</span>
+          <span class="opt-req">Optional</span>
         </div>
-        <label class="option-row"><input type="checkbox" data-extra="1.50" /><span class="opt-name">Syrian Garlic Sauce</span><span class="opt-extra">+$1.50</span></label>
-        <label class="option-row"><input type="checkbox" data-extra="1.50" /><span class="opt-name">Tahini (Sesame Seed) Sauce</span><span class="opt-extra">+$1.50</span></label>
-        <label class="option-row"><input type="checkbox" data-extra="1.50" /><span class="opt-name">Tzatziki</span><span class="opt-extra">+$1.50</span></label>
-        <label class="option-row"><input type="checkbox" data-extra="1.50" /><span class="opt-name">Muhammara (Roasted Red Pepper)</span><span class="opt-extra">+$1.50</span></label>
-        <label class="option-row"><input type="checkbox" data-extra="0.50" /><span class="opt-name">Hot Sauce</span><span class="opt-extra">+$0.50</span></label>
+        <label class="option-row"><input type="checkbox" data-extra="1.79" /><span class="opt-name">Coke</span><span class="opt-extra">+$1.79</span></label>
+        <label class="option-row"><input type="checkbox" data-extra="1.79" /><span class="opt-name">Sprite</span><span class="opt-extra">+$1.79</span></label>
+        <label class="option-row"><input type="checkbox" data-extra="1.79" /><span class="opt-name">Diet Coke</span><span class="opt-extra">+$1.79</span></label>
+        <label class="option-row"><input type="checkbox" data-extra="1.79" /><span class="opt-name">Big Red</span><span class="opt-extra">+$1.79</span></label>
+        <label class="option-row"><input type="checkbox" data-extra="1.79" /><span class="opt-name">Dr Pepper</span><span class="opt-extra">+$1.79</span></label>
+        <label class="option-row"><input type="checkbox" data-extra="3.59" /><span class="opt-name">Mexican Coke</span><span class="opt-extra">+$3.59</span></label>
+        <label class="option-row"><input type="checkbox" data-extra="3.59" /><span class="opt-name">Mexican Fanta</span><span class="opt-extra">+$3.59</span></label>
+        <label class="option-row"><input type="checkbox" data-extra="1.19" /><span class="opt-name">Water</span><span class="opt-extra">+$1.19</span></label>
       </div>
       
+      <!-- RECOMMENDED BEVERAGES — DoorDash-style featured upsell -->
       <div class="option-group">
         <div class="opt-label">
-          <span class="opt-title">Special Instructions</span>
+          <span class="opt-title">Recommended Beverage</span>
+          <span class="opt-req">Optional</span>
+        </div>
+        <label class="featured-upsell">
+          <input type="checkbox" data-extra="3.59" />
+          <div class="fu-img" style="background-image:url('https://images.unsplash.com/photo-1554866585-cd94860890b7?w=300&q=80')"></div>
+          <div class="fu-text">
+            <div class="fu-tag">★ Pairs Well</div>
+            <div class="fu-name">Mexican Coke</div>
+          </div>
+          <div class="fu-price">+$3.59</div>
+        </label>
+      </div>
+      
+      <!-- RECOMMENDED SIDES AND APPS -->
+      <div class="option-group">
+        <div class="opt-label">
+          <span class="opt-title">Recommended Sides And Apps</span>
+          <span class="opt-req">Optional · Choose up to 5</span>
+        </div>
+        <label class="option-row"><input type="checkbox" data-extra="5.39" /><span class="opt-name">Small Fries</span><span class="opt-extra">+$5.39</span></label>
+        <label class="option-row"><input type="checkbox" data-extra="6.39" /><span class="opt-name">Grape Leaves</span><span class="opt-extra">+$6.39</span></label>
+        <label class="option-row"><input type="checkbox" data-extra="5.59" /><span class="opt-name">Rice</span><span class="opt-extra">+$5.59</span></label>
+        <label class="option-row"><input type="checkbox" data-extra="1.49" /><span class="opt-name">Pita Bread</span><span class="opt-extra">+$1.49</span></label>
+        <label class="option-row"><input type="checkbox" data-extra="7.19" /><span class="opt-name">Hummus</span><span class="opt-extra">+$7.19</span></label>
+      </div>
+      
+      <!-- SPECIAL INSTRUCTIONS -->
+      <div class="option-group">
+        <div class="opt-label">
+          <span class="opt-title">Preferences · Special Instructions</span>
           <span class="opt-req">Optional</span>
         </div>
         <textarea class="special-input" id="modalNotes" placeholder="Allergies? Cook-level? Anything we should know..."></textarea>
@@ -726,6 +779,7 @@
   </div>
 </div>
 
+<!-- CART DRAWER -->
 <div class="cart-drawer" id="cartDrawer">
   <div class="cart-head">
     <h3>Your Order</h3>
@@ -751,80 +805,87 @@
 <div class="toast" id="toast"></div>
 
 <script>
-  // REAL MENU DATA — pulled directly from kingofshawarmaandkabob.godaddysites.com
-  // Item numbers match their menu listing exactly. Prices are the merchant's own.
+  // REAL MENU DATA — pulled directly from DoorDash (King of Shawarma & Kabab San Antonio)
+  // Item numbers, prices, descriptions all match DoorDash exactly.
+  // "bread" field distinguishes "crispy bread" (kabab/tikka) vs "pita bread" (shawarma/gyro)
   const MENU = [
     {
+      id: 'beef-kabab', num: '#22', name: 'Beef Kabab',
+      desc: 'Two seasoned ground beef skewers, served on a bed of rice, with hummus, salad, and crispy bread.',
+      price: 22.39, rating: '85% (7)', bread: 'crispy bread',
+      tag: 'Top Rated',
+      img: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=800&q=80'
+    },
+    {
+      id: 'chicken-kabab', num: '#23', name: 'Chicken Kabab',
+      desc: 'Two seasoned ground chicken skewers, served on a bed of rice, with hummus, salad, and crispy bread.',
+      price: 21.19, bread: 'crispy bread',
+      img: 'https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=800&q=80'
+    },
+    {
+      id: 'mix-kabab', num: '#24', name: 'Mix Kabab',
+      desc: 'One seasoned ground beef skewer & one seasoned ground chicken skewer, on rice with hummus, salad, crispy bread.',
+      price: 22.19, rating: '100% (8)', bread: 'crispy bread',
+      tag: '100% Liked', tagType: 'popular',
+      img: 'https://images.unsplash.com/photo-1559847844-5315695dadae?w=800&q=80'
+    },
+    {
       id: 'chicken-shawarma', num: '#25', name: 'Chicken Shawarma',
-      desc: 'Shaved, roasted pieces of marinated chicken. Served on yellow rice with hummus and salad.',
-      price: 18.99, tag: 'Bestseller', tagType: 'popular',
+      desc: 'Shaved, roasted pieces of marinated chicken, served on a bed of rice, with hummus, salad, and pita bread.',
+      price: 21.19, bread: 'pita bread',
+      tag: 'Bestseller', tagType: 'popular',
       img: 'https://images.unsplash.com/photo-1561651823-34feb02250e4?w=800&q=80'
     },
     {
       id: 'beef-shawarma', num: '#26', name: 'Beef Shawarma',
-      desc: 'Shaved, roasted pieces of marinated beef. Served on yellow rice with hummus and salad.',
-      price: 19.99,
+      desc: 'Shaved roasted pieces of marinated beef, served on a bed of rice, with hummus, salad, and pita bread.',
+      price: 22.39, bread: 'pita bread',
       img: 'https://images.unsplash.com/photo-1633321702518-7feccafb94d5?w=800&q=80'
     },
     {
       id: 'mix-shawarma', num: '#27', name: 'Mix Shawarma',
-      desc: 'Shaved roasted marinated beef AND chicken — the best of both. On rice with hummus and salad.',
-      price: 19.99, tag: 'Popular', tagType: 'popular',
+      desc: 'Shaved roasted pieces of marinated beef & shaved roasted pieces of marinated chicken, on rice with hummus, salad, pita.',
+      price: 21.19, rating: '100% (8)', bread: 'pita bread',
+      tag: '100% Liked', tagType: 'popular',
       img: 'https://images.unsplash.com/photo-1604152135912-04a022e23696?w=800&q=80'
     },
     {
-      id: 'chicken-kabab', num: '#23', name: 'Chicken Kabab',
-      desc: 'Two seasoned ground chicken skewers, hand-formed and grilled. Served with rice, hummus, salad.',
-      price: 18.99,
-      img: 'https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=800&q=80'
-    },
-    {
-      id: 'beef-kabab', num: '#22', name: 'Beef Kabab',
-      desc: 'Two seasoned ground beef skewers, charcoal-grilled. Served on rice with hummus and salad.',
-      price: 19.99,
-      img: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=800&q=80'
-    },
-    {
-      id: 'mix-kabob', num: '#24', name: 'Mix Kabob',
-      desc: 'One seasoned ground beef skewer and one ground chicken skewer. Best of both.',
-      price: 19.99,
-      img: 'https://images.unsplash.com/photo-1559847844-5315695dadae?w=800&q=80'
-    },
-    {
-      id: 'chicken-tikka', num: '#33', name: 'Chicken Tikka',
-      desc: 'Two skewers of marinated chicken chunks, char-grilled to order. Served on rice with hummus, salad.',
-      price: 21.99, tag: 'Chef\'s Pick',
-      img: 'https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?w=800&q=80'
-    },
-    {
-      id: 'lamb-tikka', num: '#31', name: 'Lamb Tikka',
-      desc: 'Two skewers of marinated lamb medallions, fire-grilled. Served on rice with hummus and salad.',
-      price: 22.99,
-      img: 'https://images.unsplash.com/photo-1633237308525-cd587cf71926?w=800&q=80'
-    },
-    {
-      id: 'mix-tikka', num: '#34', name: 'Mix Tikka',
-      desc: 'One skewer of marinated chicken chunks and one of marinated lamb medallions.',
-      price: 22.99,
-      img: 'https://images.unsplash.com/photo-1606755962773-d324e0a13086?w=800&q=80'
-    },
-    {
       id: 'lamb-gyro', num: '#28', name: 'Lamb Gyro',
-      desc: 'Shaved lamb gyro meat over yellow rice with hummus, fresh salad, and pita bread.',
-      price: 18.99,
+      desc: 'Shaved lamb gyro meat, served on a bed of rice, with hummus, salad, and pita bread.',
+      price: 21.19, bread: 'pita bread',
       img: 'https://images.unsplash.com/photo-1530469912745-a215c6b256ea?w=800&q=80'
     },
     {
       id: 'chicken-gyro', num: '#29', name: 'Chicken Gyro',
-      desc: 'Shaved chicken gyro meat over yellow rice with hummus, fresh salad, and pita bread.',
-      price: 18.99,
+      desc: 'Shaved chicken gyro meat, served on a bed of rice, with hummus, salad, and pita bread.',
+      price: 21.19, bread: 'pita bread',
       img: 'https://images.unsplash.com/photo-1639024471283-03518883512d?w=800&q=80'
     },
     {
       id: 'mix-gyro', num: '#30', name: 'Mix Gyro',
-      desc: 'Shaved chicken AND lamb gyro meat — sample both. On rice with hummus and salad.',
-      price: 18.99,
+      desc: 'Shaved chicken gyro meat & shaved lamb gyro meat, on a bed of rice, with hummus, salad, and pita bread.',
+      price: 21.19, bread: 'pita bread',
       img: 'https://images.unsplash.com/photo-1593504049359-74330189a345?w=800&q=80'
+    },
+    {
+      id: 'lamb-tikka', num: '#31', name: 'Lamb Tikka',
+      desc: 'Two skewers of marinated lamb medallions, served on a bed of rice, with hummus, salad, and crispy bread.',
+      price: 27.99, bread: 'crispy bread',
+      tag: 'Premium',
+      img: 'https://images.unsplash.com/photo-1633237308525-cd587cf71926?w=800&q=80'
+    },
+    {
+      id: 'chicken-tikka', num: '#32', name: 'Chicken Tikka',
+      desc: 'Two skewers of marinated chicken chunks, served on a bed of rice, with hummus, salad, and crispy bread.',
+      price: 26.99, bread: 'crispy bread',
+      tag: 'Chef\'s Pick',
+      img: 'https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?w=800&q=80'
+    },
+    {
+      id: 'mix-tikka', num: '#33', name: 'Mix Tikka',
+      desc: 'One skewer of marinated chicken chunks & one skewer of marinated lamb medallions, on rice with hummus, salad, crispy bread.',
+      price: 27.99, bread: 'crispy bread',
+      img: 'https://images.unsplash.com/photo-1606755962773-d324e0a13086?w=800&q=80'
     }
   ];
   
@@ -834,9 +895,11 @@
     card.className = 'menu-card';
     card.onclick = () => openModal(item);
     const tagHTML = item.tag ? `<span class="tag ${item.tagType === 'popular' ? 'popular' : ''}">${item.tag}</span>` : '';
+    const ratingHTML = item.rating ? `<span class="rating">${item.rating}</span>` : '';
     card.innerHTML = `
       <div class="menu-card-img" style="background-image:url('${item.img}')">
         ${tagHTML}
+        ${ratingHTML}
         <span class="placeholder-badge">Sample Photo</span>
       </div>
       <div class="menu-card-body">
@@ -864,11 +927,13 @@
     currentQty = 1;
     document.getElementById('modalImg').src = item.img;
     document.getElementById('modalNum').textContent = `Entrée ${item.num}`;
+    document.getElementById('modalRating').textContent = item.rating ? `👍 ${item.rating}` : '';
     document.getElementById('modalTitle').textContent = item.name;
     document.getElementById('modalDesc').textContent = item.desc;
     document.getElementById('modalPrice').textContent = '$' + item.price.toFixed(2);
     document.getElementById('modalQty').textContent = 1;
     document.getElementById('modalNotes').value = '';
+    document.getElementById('breadType').textContent = item.bread === 'pita bread' ? 'Pita bread' : 'Crispy bread';
     document.querySelectorAll('#modal input[type="checkbox"]').forEach(c => c.checked = false);
     updateAddBtn();
     document.getElementById('modal').classList.add('active');
@@ -901,7 +966,7 @@
   function addToCart() {
     if (!currentItem) return;
     const mods = [...document.querySelectorAll('#modal input[type="checkbox"]:checked')]
-      .map(c => c.parentElement.querySelector('.opt-name').textContent);
+      .map(c => c.parentElement.querySelector('.opt-name, .fu-name').textContent);
     const notes = document.getElementById('modalNotes').value;
     CART.push({
       id: currentItem.id + '-' + Date.now(),
@@ -957,7 +1022,7 @@
   function checkout() {
     showToast('→ Redirecting to Square checkout...');
     setTimeout(() => {
-      alert('SQUARE CHECKOUT (Mockup demo)\n\nIn production this hands the order off to the Square Checkout API.\nThe order appears in King\'s existing Square Dashboard for the kitchen.\n\nFLOW:\n1. Customer pays via Square (card, Apple Pay, Google Pay, Cash App Pay)\n2. Order auto-prints to kitchen + appears on tablet\n3. Customer gets SMS/email confirmation with pickup ETA\n4. Customer picks up at the counter — staff confirms in Square POS\n\nNO new system to learn. Uses the same Square account already in place.');
+      alert('SQUARE CHECKOUT (Mockup demo)\n\nIn production this hands the order off to the Square Checkout API.\nThe order appears in King\'s existing Square Dashboard for the kitchen.\n\nFLOW:\n1. Customer pays via Square (card, Apple Pay, Google Pay, Cash App Pay)\n2. Order auto-prints to kitchen + appears on tablet\n3. Customer gets SMS/email confirmation with pickup ETA\n4. Customer picks up at counter — staff confirms in Square POS\n\nNO new system to learn. Uses the same Square account already in place.\n\nDIRECT BENEFIT vs DoorDash:\n• Keep 100% of revenue (no 30% DoorDash commission)\n• Customer data stays with King (build email/SMS marketing list)\n• Faster order flow (no third-party delay)');
     }, 600);
   }
   
