@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>King of Shawarma & Kabab — Mediterranean | San Antonio, TX</title>
-<meta name="description" content="Authentic homemade Mediterranean cuisine in San Antonio. Halal shawarma, kababs, gyros & more. Order online for pickup." />
+<meta name="description" content="Authentic homemade Mediterranean cuisine in San Antonio. Halal shawarma, kababs, gyros, family meals & more. Order online for pickup or delivery." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600;700&family=Cinzel:wght@500;600;700&display=swap" rel="stylesheet">
@@ -20,6 +20,7 @@
     --red: #c8332e;
     --red-dark: #9a201c;
     --teal: #2ba89a;
+    --teal-dark: #1d7268;
     --text-dim: #b8a892;
     --border: rgba(201, 164, 73, 0.2);
     --border-strong: rgba(201, 164, 73, 0.4);
@@ -36,24 +37,36 @@
   .display { font-family: 'Cormorant Garamond', serif; font-weight: 600; letter-spacing: -0.01em; line-height: 1.05; }
   .eyebrow { font-family: 'Cinzel', serif; font-size: 0.75rem; letter-spacing: 0.32em; text-transform: uppercase; color: var(--gold); }
   
+  /* NAV */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 50;
     background: rgba(20, 16, 13, 0.92);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
-    padding: 0.75rem 2rem;
+    padding: 0.7rem 2rem;
     display: flex; align-items: center; justify-content: space-between;
+    gap: 1rem;
   }
-  nav .brand { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+  nav .brand { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; flex-shrink: 0; }
   nav .brand img { height: 44px; width: auto; }
-  nav .brand .brand-text { font-family: 'Cinzel', serif; font-size: 0.85rem; letter-spacing: 0.18em; color: var(--cream); }
-  nav .brand .brand-text small { display: block; font-size: 0.62rem; color: var(--gold); letter-spacing: 0.25em; margin-top: 2px; }
-  nav ul { list-style: none; display: flex; gap: 2rem; align-items: center; }
-  nav ul a { color: var(--cream); text-decoration: none; font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 500; transition: color 0.2s; }
+  nav .brand .brand-text { font-family: 'Cinzel', serif; font-size: 0.82rem; letter-spacing: 0.18em; color: var(--cream); }
+  nav .brand .brand-text small { display: block; font-size: 0.6rem; color: var(--gold); letter-spacing: 0.25em; margin-top: 2px; }
+  nav ul { list-style: none; display: flex; gap: 1.75rem; align-items: center; }
+  nav ul a { color: var(--cream); text-decoration: none; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 500; transition: color 0.2s; cursor: pointer; }
   nav ul a:hover { color: var(--gold); }
+  nav .right-tools { display: flex; align-items: center; gap: 0.75rem; }
+  .points-chip {
+    background: linear-gradient(135deg, rgba(201,164,73,0.18), rgba(201,164,73,0.08));
+    border: 1px solid var(--border-strong); color: var(--gold);
+    padding: 0.5rem 0.85rem; font-family: 'Cinzel'; font-size: 0.7rem; letter-spacing: 0.1em;
+    border-radius: 999px; cursor: pointer; font-weight: 600;
+    display: flex; align-items: center; gap: 0.4rem;
+  }
+  .points-chip:hover { border-color: var(--gold); background: rgba(201,164,73,0.18); }
+  .points-chip::before { content: '★'; font-size: 0.9rem; }
   nav .cart-btn {
-    background: var(--red); color: var(--cream); border: none; padding: 0.65rem 1.2rem;
-    font-family: 'DM Sans'; font-weight: 600; font-size: 0.75rem; letter-spacing: 0.12em;
+    background: var(--red); color: var(--cream); border: none; padding: 0.6rem 1.1rem;
+    font-family: 'DM Sans'; font-weight: 600; font-size: 0.73rem; letter-spacing: 0.12em;
     text-transform: uppercase; cursor: pointer; border-radius: 2px; position: relative;
     transition: background 0.2s;
   }
@@ -66,6 +79,7 @@
   }
   .mobile-menu-btn { display: none; background: transparent; border: 1px solid var(--gold); color: var(--gold); padding: 0.4rem 0.7rem; cursor: pointer; }
   
+  /* HERO */
   .hero {
     min-height: 100vh; padding: 7rem 2rem 4rem; position: relative;
     background:
@@ -91,10 +105,7 @@
   .btn-primary:hover { background: var(--red-dark); transform: translateY(-2px); }
   .btn-outline { background: transparent; color: var(--gold); border: 1px solid var(--gold); }
   .btn-outline:hover { background: var(--gold); color: var(--bg); }
-  .hero-logo-wrap {
-    position: relative; display: flex; justify-content: center; align-items: center;
-    z-index: 1;
-  }
+  .hero-logo-wrap { position: relative; display: flex; justify-content: center; align-items: center; z-index: 1; }
   .hero-logo-wrap::before {
     content: ''; position: absolute; width: 480px; height: 480px;
     border-radius: 50%;
@@ -106,6 +117,28 @@
   .hero-badges span { display: flex; align-items: center; gap: 0.5rem; }
   .hero-badges span::before { content: ''; width: 6px; height: 6px; background: var(--gold); border-radius: 50%; }
   
+  /* SPECIALS BANNER (admin-editable) */
+  .specials-strip {
+    background: linear-gradient(90deg, var(--red-dark), var(--red), var(--red-dark));
+    padding: 0.85rem 2rem; text-align: center; position: relative;
+    border-top: 1px solid rgba(0,0,0,0.3); border-bottom: 1px solid rgba(0,0,0,0.3);
+  }
+  .specials-strip .strip-content {
+    color: var(--cream); font-family: 'Cinzel'; font-size: 0.78rem; letter-spacing: 0.18em;
+    text-transform: uppercase;
+    display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap;
+  }
+  .specials-strip .strip-content strong { color: var(--gold-bright); }
+  .specials-strip .strip-content .pulse {
+    width: 8px; height: 8px; border-radius: 50%; background: var(--gold-bright);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.3); }
+  }
+  
+  /* SECTIONS */
   section { padding: 5.5rem 2rem; position: relative; }
   .container { max-width: 1280px; margin: 0 auto; }
   .section-head { text-align: center; margin-bottom: 3rem; }
@@ -113,6 +146,7 @@
   .section-head h2 { font-size: clamp(2.25rem, 4.5vw, 3.5rem); margin-bottom: 0.85rem; }
   .section-head p { color: var(--text-dim); max-width: 620px; margin: 0 auto; font-size: 0.98rem; }
   
+  /* ABOUT */
   .about { background: var(--bg-2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
   .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4.5rem; align-items: center; }
   .about-text h2 { margin-bottom: 1.5rem; }
@@ -135,36 +169,137 @@
     color: var(--gold);
   }
   
+  /* LOYALTY SECTION */
+  .loyalty-section {
+    background: linear-gradient(135deg, rgba(201, 164, 73, 0.06), rgba(43, 168, 154, 0.04));
+    border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+  }
+  .loyalty-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+  .loyalty-card {
+    background: var(--bg-2); border: 1px solid var(--border-strong); border-radius: 8px;
+    padding: 2.5rem; position: relative; overflow: hidden;
+  }
+  .loyalty-card::before {
+    content: ''; position: absolute; top: -50%; right: -50%; width: 100%; height: 200%;
+    background: radial-gradient(circle, rgba(201,164,73,0.12), transparent 60%);
+    pointer-events: none;
+  }
+  .loyalty-stars { font-size: 1.5rem; color: var(--gold); margin-bottom: 0.5rem; }
+  .loyalty-card h3 { font-family: 'Cormorant Garamond'; font-size: 2rem; color: var(--cream); margin-bottom: 0.5rem; }
+  .loyalty-card .balance {
+    font-family: 'Cormorant Garamond'; font-size: 3.5rem; color: var(--gold); line-height: 1;
+    margin: 1.25rem 0 0.4rem;
+  }
+  .loyalty-card .balance-label { color: var(--text-dim); font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase; font-family: 'Cinzel'; }
+  .loyalty-card .next-reward {
+    background: var(--bg); border-radius: 2px; padding: 1rem; margin-top: 1.5rem;
+    border-left: 3px solid var(--gold);
+    font-size: 0.88rem; color: var(--cream-2);
+  }
+  .loyalty-card .next-reward strong { color: var(--gold); }
+  .progress-bar { width: 100%; height: 6px; background: var(--bg); border-radius: 999px; margin-top: 0.7rem; overflow: hidden; }
+  .progress-fill { height: 100%; background: linear-gradient(90deg, var(--gold), var(--gold-bright)); border-radius: 999px; transition: width 0.5s; }
+  .loyalty-text h2 { margin-bottom: 1.25rem; }
+  .loyalty-text .eyebrow { display: block; margin-bottom: 1rem; }
+  .loyalty-text p { color: var(--text-dim); margin-bottom: 1rem; font-size: 1rem; }
+  .loyalty-features { margin-top: 1.5rem; display: grid; gap: 0.85rem; }
+  .loyalty-feature { display: flex; gap: 0.85rem; align-items: flex-start; }
+  .loyalty-feature .feat-icon {
+    width: 32px; height: 32px; background: rgba(201,164,73,0.12); border: 1px solid var(--border);
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    color: var(--gold); font-size: 0.95rem; flex-shrink: 0; font-weight: 700;
+  }
+  .loyalty-feature .feat-text strong { color: var(--cream); font-size: 0.95rem; display: block; margin-bottom: 0.15rem; }
+  .loyalty-feature .feat-text span { color: var(--text-dim); font-size: 0.85rem; }
+  
+  /* MOCKUP NOTE */
   .mockup-note {
     background: rgba(201, 164, 73, 0.08); border: 1px solid var(--border);
-    padding: 1rem 1.25rem; border-radius: 2px; max-width: 880px; margin: 0 auto 2.5rem;
+    padding: 1rem 1.25rem; border-radius: 2px; max-width: 880px; margin: 0 auto 2rem;
     font-size: 0.85rem; color: var(--cream-2); text-align: center;
   }
   .mockup-note strong { color: var(--gold); }
   
-  .cat-tabs {
-    display: flex; gap: 0.5rem; justify-content: center; margin-bottom: 2.5rem; flex-wrap: wrap;
-    border-bottom: 1px solid var(--border); padding-bottom: 1.5rem;
+  /* CATEGORY QUICK NAV — sticky pill bar */
+  .cat-quicknav {
+    position: sticky; top: 60px; z-index: 30;
+    background: rgba(20, 16, 13, 0.92); backdrop-filter: blur(8px);
+    padding: 0.85rem 0; margin: 0 -2rem 2rem; padding-left: 2rem; padding-right: 2rem;
+    border-bottom: 1px solid var(--border); border-top: 1px solid var(--border);
+    overflow-x: auto; -webkit-overflow-scrolling: touch;
   }
-  .cat-tab {
+  .cat-quicknav::-webkit-scrollbar { display: none; }
+  .cat-quicknav-inner { display: flex; gap: 0.5rem; max-width: 1280px; margin: 0 auto; }
+  .quicknav-pill {
     background: transparent; border: 1px solid var(--border);
-    color: var(--text-dim); padding: 0.55rem 1.1rem;
-    font-family: 'Cinzel'; font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--text-dim); padding: 0.5rem 1.1rem;
+    font-family: 'Cinzel'; font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase;
     cursor: pointer; border-radius: 999px; transition: all 0.2s;
-    font-weight: 600;
+    font-weight: 600; white-space: nowrap; flex-shrink: 0;
   }
-  .cat-tab:hover:not(:disabled) { color: var(--cream); border-color: var(--gold); }
-  .cat-tab.active { background: var(--gold); color: var(--bg); border-color: var(--gold); }
-  .cat-tab:disabled { opacity: 0.55; cursor: not-allowed; }
-  .cat-tab .coming { font-size: 0.55rem; color: var(--red); margin-left: 0.3rem; vertical-align: super; }
+  .quicknav-pill:hover { color: var(--cream); border-color: var(--gold); }
+  .quicknav-pill.active { background: var(--gold); color: var(--bg); border-color: var(--gold); }
+  .quicknav-pill .count { opacity: 0.6; margin-left: 0.4rem; font-size: 0.85em; }
   
+  /* CATEGORY DROPDOWNS */
+  .menu-category {
+    border: 1px solid var(--border); border-radius: 4px;
+    background: var(--bg-2); margin-bottom: 1rem;
+    overflow: hidden; transition: border 0.2s;
+  }
+  .menu-category.open { border-color: var(--border-strong); }
+  .category-header {
+    padding: 1.25rem 1.5rem; cursor: pointer; user-select: none;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 1rem; transition: background 0.2s;
+  }
+  .category-header:hover { background: var(--bg-3); }
+  .category-header-left { display: flex; align-items: center; gap: 1rem; }
+  .category-header h2 {
+    font-family: 'Cormorant Garamond'; font-size: 1.75rem; color: var(--cream);
+    line-height: 1;
+  }
+  .category-header h2 .cat-num { color: var(--gold); font-size: 0.95rem; font-family: 'Cinzel'; font-weight: 600; letter-spacing: 0.15em; margin-right: 0.5rem; vertical-align: middle; }
+  .category-count {
+    color: var(--text-dim); font-size: 0.75rem; letter-spacing: 0.15em;
+    font-family: 'Cinzel'; text-transform: uppercase; font-weight: 600;
+  }
+  .category-badge {
+    background: rgba(201, 164, 73, 0.18); color: var(--gold);
+    padding: 0.25rem 0.6rem; font-size: 0.6rem; letter-spacing: 0.15em;
+    border-radius: 2px; font-family: 'Cinzel'; font-weight: 600; text-transform: uppercase;
+    border: 1px solid var(--border);
+  }
+  .category-badge.loyalty { background: linear-gradient(135deg, rgba(201,164,73,0.25), rgba(232,194,103,0.15)); color: var(--gold-bright); }
+  .category-toggle {
+    width: 36px; height: 36px; border-radius: 50%;
+    border: 1px solid var(--border); background: transparent;
+    color: var(--gold); cursor: pointer; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.25s;
+  }
+  .menu-category.open .category-toggle { transform: rotate(180deg); background: var(--gold); color: var(--bg); }
+  .category-body {
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.4s ease;
+  }
+  .menu-category.open .category-body { max-height: 9999px; }
+  .category-body-inner { padding: 0 1.5rem 1.75rem; }
+  .category-intro {
+    padding: 0 0 1.25rem; color: var(--text-dim); font-size: 0.88rem; font-style: italic;
+    border-bottom: 1px solid var(--border); margin-bottom: 1.25rem;
+  }
+  
+  /* MENU GRID — compact tiles */
   .menu-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 1.25rem;
+    gap: 1rem;
   }
+  .menu-grid.three-col { grid-template-columns: repeat(3, 1fr); }
+  .menu-grid.two-col { grid-template-columns: repeat(2, 1fr); }
   .menu-card {
-    background: var(--bg-2);
+    background: var(--bg-3);
     border: 1px solid var(--border);
     border-radius: 4px;
     overflow: hidden;
@@ -181,50 +316,41 @@
     border-bottom: 1px solid var(--border);
   }
   .menu-card-img .tag {
-    position: absolute; top: 0.6rem; left: 0.6rem;
+    position: absolute; top: 0.5rem; left: 0.5rem;
     background: var(--bg); color: var(--gold);
-    padding: 0.25rem 0.55rem; font-size: 0.6rem; letter-spacing: 0.15em;
+    padding: 0.22rem 0.5rem; font-size: 0.55rem; letter-spacing: 0.15em;
     text-transform: uppercase; border: 1px solid var(--gold);
     font-family: 'Cinzel'; font-weight: 600;
   }
   .menu-card-img .tag.popular { color: var(--red); border-color: var(--red); }
+  .menu-card-img .tag.loyalty { color: var(--gold-bright); border-color: var(--gold-bright); background: rgba(0,0,0,0.7); }
   .menu-card-img .rating {
-    position: absolute; bottom: 0.6rem; left: 0.6rem;
+    position: absolute; bottom: 0.5rem; left: 0.5rem;
     background: rgba(0,0,0,0.75); color: var(--cream);
-    padding: 0.25rem 0.5rem; font-size: 0.65rem; letter-spacing: 0.05em;
+    padding: 0.2rem 0.45rem; font-size: 0.6rem; letter-spacing: 0.05em;
     border-radius: 999px; font-weight: 600;
-    display: flex; align-items: center; gap: 0.3rem;
+    display: flex; align-items: center; gap: 0.25rem;
   }
-  .menu-card-img .rating::before { content: '👍'; font-size: 0.7rem; }
-  .menu-card-body { padding: 1rem 1rem 1.1rem; display: flex; flex-direction: column; flex: 1; }
-  .menu-card .item-num { font-family: 'Cinzel'; font-size: 0.65rem; color: var(--text-dim); letter-spacing: 0.18em; margin-bottom: 0.3rem; }
-  .menu-card h3 { font-family: 'Cormorant Garamond'; font-weight: 600; font-size: 1.2rem; margin-bottom: 0.35rem; color: var(--cream); line-height: 1.15; }
-  .menu-card .desc { color: var(--text-dim); font-size: 0.78rem; line-height: 1.45; margin-bottom: 0.9rem; flex: 1; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-  .menu-card .row { display: flex; align-items: center; justify-content: space-between; margin-top: auto; gap: 0.5rem; }
-  .menu-card .price { font-family: 'Cormorant Garamond'; font-size: 1.3rem; color: var(--gold); font-weight: 600; line-height: 1; }
-  .menu-card .add { background: var(--red); color: var(--cream); border: none; padding: 0.45rem 0.85rem; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; cursor: pointer; transition: background 0.2s; border-radius: 2px; font-family: 'DM Sans'; }
-  .menu-card .add:hover { background: var(--red-dark); }
+  .menu-card-img .rating::before { content: '👍'; font-size: 0.65rem; }
   .placeholder-badge {
-    position: absolute; top: 0.6rem; right: 0.6rem;
+    position: absolute; top: 0.5rem; right: 0.5rem;
     background: rgba(0,0,0,0.7); color: var(--cream);
-    padding: 0.18rem 0.45rem; font-size: 0.55rem; letter-spacing: 0.1em;
+    padding: 0.15rem 0.4rem; font-size: 0.5rem; letter-spacing: 0.1em;
     border-radius: 2px; font-family: 'DM Sans'; font-weight: 500;
   }
+  .menu-card-body { padding: 0.85rem 0.9rem 0.95rem; display: flex; flex-direction: column; flex: 1; }
+  .menu-card .item-num { font-family: 'Cinzel'; font-size: 0.6rem; color: var(--text-dim); letter-spacing: 0.18em; margin-bottom: 0.25rem; }
+  .menu-card h3 { font-family: 'Cormorant Garamond'; font-weight: 600; font-size: 1.1rem; margin-bottom: 0.3rem; color: var(--cream); line-height: 1.15; }
+  .menu-card .desc { color: var(--text-dim); font-size: 0.72rem; line-height: 1.4; margin-bottom: 0.75rem; flex: 1; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .menu-card .row { display: flex; align-items: center; justify-content: space-between; margin-top: auto; gap: 0.4rem; }
+  .menu-card .price-stack { display: flex; flex-direction: column; line-height: 1; }
+  .menu-card .price { font-family: 'Cormorant Garamond'; font-size: 1.2rem; color: var(--gold); font-weight: 600; line-height: 1; }
+  .menu-card .pts-price { font-family: 'Cinzel'; font-size: 0.62rem; color: var(--gold-bright); letter-spacing: 0.1em; margin-top: 0.2rem; font-weight: 600; }
+  .menu-card .pts-price::before { content: '★ '; }
+  .menu-card .add { background: var(--red); color: var(--cream); border: none; padding: 0.4rem 0.75rem; font-size: 0.6rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; cursor: pointer; transition: background 0.2s; border-radius: 2px; font-family: 'DM Sans'; }
+  .menu-card .add:hover { background: var(--red-dark); }
   
-  .coming-soon-section {
-    margin-top: 4rem; padding: 2.5rem; background: var(--bg-2); border: 1px solid var(--border);
-    border-radius: 4px; text-align: center;
-  }
-  .coming-soon-section h3 { font-family: 'Cormorant Garamond'; font-size: 1.75rem; color: var(--gold); margin-bottom: 0.5rem; }
-  .coming-soon-section p { color: var(--text-dim); max-width: 560px; margin: 0 auto 1.5rem; font-size: 0.92rem; }
-  .coming-categories { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-  .coming-cat {
-    border: 1px solid var(--border); padding: 0.8rem 1.4rem; border-radius: 2px;
-    color: var(--cream); font-family: 'Cinzel'; font-size: 0.72rem; letter-spacing: 0.18em;
-    text-transform: uppercase;
-  }
-  .coming-cat strong { color: var(--gold); display: block; font-size: 0.65rem; margin-top: 0.2rem; }
-  
+  /* LOCATION + HOURS */
   .location { background: var(--bg-2); border-top: 1px solid var(--border); }
   .location-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
   .location-info h3 { font-family: 'Cormorant Garamond'; font-size: 1.8rem; margin-bottom: 1rem; color: var(--gold); }
@@ -237,14 +363,32 @@
   .map-frame { width: 100%; aspect-ratio: 1; border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
   .map-frame iframe { width: 100%; height: 100%; border: 0; filter: invert(0.92) hue-rotate(180deg); }
   
+  /* EVENTS */
+  .events-section { background: var(--bg); padding-top: 4rem; }
+  .events-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem; }
+  .event-card {
+    background: var(--bg-2); border: 1px solid var(--border); border-radius: 4px;
+    padding: 1.5rem; display: flex; gap: 1.25rem; align-items: flex-start;
+  }
+  .event-date {
+    background: var(--gold); color: var(--bg); border-radius: 4px;
+    width: 60px; padding: 0.5rem 0.4rem; text-align: center; flex-shrink: 0;
+    font-family: 'Cormorant Garamond'; line-height: 1;
+  }
+  .event-date .month { font-family: 'Cinzel'; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 600; }
+  .event-date .day { font-size: 1.75rem; font-weight: 600; margin-top: 0.2rem; }
+  .event-content h4 { font-family: 'Cormorant Garamond'; font-size: 1.25rem; color: var(--cream); margin-bottom: 0.25rem; line-height: 1.2; }
+  .event-content .event-time { font-size: 0.78rem; color: var(--gold); margin-bottom: 0.4rem; letter-spacing: 0.05em; }
+  .event-content p { color: var(--text-dim); font-size: 0.84rem; line-height: 1.5; }
+  
+  /* CONTACT */
   .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
   .contact-form { display: flex; flex-direction: column; gap: 1rem; }
   .contact-form input, .contact-form textarea {
     background: var(--bg-2); border: 1px solid var(--border);
     padding: 0.95rem 1.1rem; color: var(--cream);
     font-family: 'DM Sans'; font-size: 0.92rem;
-    border-radius: 2px;
-    transition: border 0.2s;
+    border-radius: 2px; transition: border 0.2s;
   }
   .contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: var(--gold); }
   .contact-form textarea { resize: vertical; min-height: 130px; }
@@ -252,13 +396,14 @@
   .contact-side .big-q { font-family: 'Cormorant Garamond'; font-size: 2.1rem; color: var(--cream); line-height: 1.1; margin-bottom: 1.25rem; }
   .contact-side .big-q em { color: var(--gold); }
   
+  /* FOOTER */
   footer { background: #0d0a08; padding: 4rem 2rem 2rem; border-top: 1px solid var(--border); }
   .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 3rem; max-width: 1280px; margin: 0 auto; }
   .footer-grid h4 { font-family: 'Cinzel'; font-size: 0.75rem; letter-spacing: 0.25em; color: var(--gold); margin-bottom: 1.1rem; text-transform: uppercase; }
   .footer-grid p, .footer-grid li, .footer-grid a {
     color: var(--text-dim); font-size: 0.85rem; line-height: 1.85; text-decoration: none; list-style: none;
   }
-  .footer-grid a:hover { color: var(--gold); }
+  .footer-grid a:hover { color: var(--gold); cursor: pointer; }
   .footer-brand img { height: 90px; margin-bottom: 1rem; }
   .footer-brand p { max-width: 280px; }
   .socials { display: flex; gap: 0.65rem; margin-top: 1.25rem; }
@@ -276,7 +421,13 @@
     color: var(--text-dim); font-size: 0.78rem; flex-wrap: wrap; gap: 1rem;
   }
   .footer-bottom .built-by { color: var(--gold); }
+  .footer-bottom .staff-link {
+    color: var(--text-dim); cursor: pointer; font-size: 0.7rem;
+    text-decoration: underline; opacity: 0.6;
+  }
+  .footer-bottom .staff-link:hover { color: var(--gold); opacity: 1; }
   
+  /* MODAL — item customization */
   .modal-backdrop {
     position: fixed; inset: 0; background: rgba(0,0,0,0.78);
     backdrop-filter: blur(6px); z-index: 100;
@@ -290,6 +441,7 @@
     width: 100%; max-width: 620px; max-height: 90vh; overflow-y: auto;
     border-radius: 4px; position: relative;
   }
+  .modal.wide { max-width: 920px; }
   .modal-header { position: relative; }
   .modal-header img { width: 100%; aspect-ratio: 16/9; object-fit: cover; }
   .modal-close {
@@ -297,13 +449,37 @@
     background: var(--bg); color: var(--cream);
     width: 38px; height: 38px; border-radius: 50%; border: none;
     font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center;
+    z-index: 5;
   }
   .modal-body { padding: 1.75rem; }
-  .modal-body .item-num-modal { font-family: 'Cinzel'; font-size: 0.7rem; color: var(--gold); letter-spacing: 0.2em; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.75rem; }
+  .modal-body .item-num-modal { font-family: 'Cinzel'; font-size: 0.7rem; color: var(--gold); letter-spacing: 0.2em; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; }
   .modal-body .item-num-modal .modal-rating { color: var(--teal); font-family: 'DM Sans'; letter-spacing: 0.05em; text-transform: none; }
   .modal-body h3 { font-family: 'Cormorant Garamond'; font-size: 1.85rem; color: var(--cream); margin-bottom: 0.4rem; line-height: 1.1; }
   .modal-body .modal-desc { color: var(--text-dim); margin-bottom: 1rem; font-size: 0.92rem; }
   .modal-body .modal-price { font-family: 'Cormorant Garamond'; font-size: 1.5rem; color: var(--gold); margin-bottom: 1.5rem; font-weight: 600; }
+  
+  /* PAY-WITH-POINTS TOGGLE */
+  .pay-toggle {
+    background: linear-gradient(135deg, rgba(201,164,73,0.12), rgba(232,194,103,0.06));
+    border: 1px solid var(--border-strong); border-radius: 4px;
+    padding: 1rem; margin-bottom: 1.25rem;
+  }
+  .pay-toggle-head { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.85rem; }
+  .pay-toggle-head .star-icon { color: var(--gold-bright); font-size: 1.1rem; }
+  .pay-toggle-head .title { font-family: 'Cinzel'; font-size: 0.78rem; letter-spacing: 0.15em; color: var(--gold); text-transform: uppercase; font-weight: 600; }
+  .pay-options { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; }
+  .pay-opt {
+    background: var(--bg); border: 1px solid var(--border); border-radius: 4px;
+    padding: 0.85rem; cursor: pointer; text-align: center; transition: all 0.2s;
+  }
+  .pay-opt:hover { border-color: var(--gold); }
+  .pay-opt.active { border-color: var(--gold); background: rgba(201,164,73,0.1); }
+  .pay-opt.disabled { opacity: 0.4; cursor: not-allowed; }
+  .pay-opt .pay-label { font-family: 'Cinzel'; font-size: 0.65rem; letter-spacing: 0.15em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 0.3rem; }
+  .pay-opt .pay-value { font-family: 'Cormorant Garamond'; font-size: 1.4rem; color: var(--cream); font-weight: 600; line-height: 1; }
+  .pay-opt.active .pay-value { color: var(--gold); }
+  .pay-opt .pay-note { font-size: 0.65rem; color: var(--text-dim); margin-top: 0.3rem; }
+  
   .served-with-note {
     background: rgba(43, 168, 154, 0.08); border-left: 3px solid var(--teal);
     padding: 0.75rem 1rem; margin-bottom: 1rem; border-radius: 2px;
@@ -367,6 +543,7 @@
   .qty-control span { min-width: 30px; text-align: center; font-weight: 600; }
   .modal-footer .btn { flex: 1; }
   
+  /* CART DRAWER */
   .cart-drawer {
     position: fixed; top: 0; right: 0; bottom: 0; width: 100%; max-width: 460px;
     background: var(--bg-2); border-left: 1px solid var(--border);
@@ -381,7 +558,22 @@
   }
   .cart-head h3 { font-family: 'Cormorant Garamond'; font-size: 1.65rem; color: var(--gold); }
   .cart-head button { background: transparent; border: none; color: var(--cream); font-size: 1.5rem; cursor: pointer; }
-  .cart-items { flex: 1; overflow-y: auto; padding: 1rem 1.5rem; }
+  
+  /* PICKUP/DELIVERY TOGGLE */
+  .fulfillment-toggle {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin: 0 1.5rem 1rem;
+    background: var(--bg); border: 1px solid var(--border); border-radius: 4px; overflow: hidden;
+  }
+  .ft-opt {
+    padding: 0.7rem; text-align: center; cursor: pointer;
+    font-family: 'Cinzel'; font-size: 0.7rem; letter-spacing: 0.18em;
+    color: var(--text-dim); transition: all 0.2s; text-transform: uppercase; font-weight: 600;
+  }
+  .ft-opt:hover { color: var(--cream); }
+  .ft-opt.active { background: var(--gold); color: var(--bg); }
+  .ft-opt small { display: block; font-size: 0.55rem; letter-spacing: 0.1em; font-weight: 500; opacity: 0.7; margin-top: 0.15rem; }
+  
+  .cart-items { flex: 1; overflow-y: auto; padding: 0.5rem 1.5rem 1rem; }
   .cart-empty { text-align: center; color: var(--text-dim); padding: 4rem 1rem; }
   .cart-empty .eyebrow { display: block; margin-bottom: 0.5rem; }
   .cart-item {
@@ -393,12 +585,16 @@
   .cart-item .ci-name { font-family: 'Cormorant Garamond'; font-size: 1.05rem; color: var(--cream); line-height: 1.2; }
   .cart-item .ci-mods { font-size: 0.72rem; color: var(--text-dim); margin: 0.25rem 0; line-height: 1.4; }
   .cart-item .ci-qty { font-size: 0.72rem; color: var(--gold); margin-top: 0.1rem; }
+  .cart-item .ci-pts { font-size: 0.72rem; color: var(--gold-bright); margin-top: 0.1rem; font-weight: 600; }
   .cart-item .ci-price { font-family: 'Cormorant Garamond'; color: var(--gold); font-size: 1.05rem; }
+  .cart-item .ci-price.points { color: var(--gold-bright); font-size: 0.88rem; }
   .cart-item .ci-remove { background: transparent; border: none; color: var(--text-dim); cursor: pointer; font-size: 0.72rem; margin-top: 0.25rem; padding: 0; }
   .cart-item .ci-remove:hover { color: var(--red); }
   .cart-foot { border-top: 1px solid var(--border); padding: 1.4rem 1.5rem 1.5rem; }
   .cart-totals { margin-bottom: 1.1rem; }
   .cart-totals .row { display: flex; justify-content: space-between; padding: 0.3rem 0; color: var(--text-dim); font-size: 0.88rem; }
+  .cart-totals .row.points-row { color: var(--gold-bright); }
+  .cart-totals .row.earn-row { color: var(--teal); font-size: 0.78rem; }
   .cart-totals .row.total { font-family: 'Cormorant Garamond'; font-size: 1.4rem; color: var(--cream); border-top: 1px solid var(--border); padding-top: 0.75rem; margin-top: 0.5rem; }
   .cart-totals .row.total span:last-child { color: var(--gold); }
   .square-checkout {
@@ -411,6 +607,7 @@
   .square-checkout:disabled { opacity: 0.5; cursor: not-allowed; }
   .pickup-note { font-size: 0.72rem; color: var(--text-dim); text-align: center; margin-top: 0.7rem; }
   
+  /* TOAST */
   .toast {
     position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%) translateY(150%);
     background: var(--gold); color: var(--bg);
@@ -422,30 +619,180 @@
   }
   .toast.show { transform: translateX(-50%) translateY(0); }
   
+  /* ADMIN OVERLAY */
+  .admin-overlay {
+    position: fixed; inset: 0; background: var(--bg); z-index: 200;
+    display: none; flex-direction: column;
+  }
+  .admin-overlay.active { display: flex; }
+  .admin-nav {
+    padding: 1rem 2rem; background: var(--bg-2); border-bottom: 1px solid var(--border);
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .admin-nav .admin-brand { display: flex; align-items: center; gap: 0.75rem; }
+  .admin-nav .admin-brand img { height: 38px; }
+  .admin-nav .admin-brand .ab-title { font-family: 'Cinzel'; font-size: 0.85rem; letter-spacing: 0.18em; color: var(--gold); }
+  .admin-nav .admin-brand .ab-title small { display: block; font-size: 0.6rem; color: var(--text-dim); letter-spacing: 0.25em; margin-top: 2px; }
+  .admin-nav-right { display: flex; gap: 0.75rem; align-items: center; }
+  .admin-status {
+    font-size: 0.7rem; color: var(--teal); letter-spacing: 0.12em; font-family: 'Cinzel'; text-transform: uppercase;
+    display: flex; align-items: center; gap: 0.4rem;
+  }
+  .admin-status::before { content: ''; width: 6px; height: 6px; background: var(--teal); border-radius: 50%; animation: pulse 2s infinite; }
+  .admin-logout {
+    background: transparent; border: 1px solid var(--border); color: var(--cream);
+    padding: 0.5rem 1rem; font-family: 'DM Sans'; font-size: 0.72rem; letter-spacing: 0.12em;
+    text-transform: uppercase; cursor: pointer; border-radius: 2px;
+  }
+  .admin-logout:hover { border-color: var(--red); color: var(--red); }
+  
+  .admin-tabs {
+    background: var(--bg-2); padding: 0 2rem; border-bottom: 1px solid var(--border);
+    display: flex; gap: 0; overflow-x: auto;
+  }
+  .admin-tab {
+    background: transparent; border: none; padding: 1rem 1.5rem;
+    color: var(--text-dim); cursor: pointer; font-family: 'Cinzel'; font-size: 0.72rem;
+    letter-spacing: 0.18em; text-transform: uppercase; font-weight: 600;
+    border-bottom: 2px solid transparent; transition: all 0.2s; white-space: nowrap;
+  }
+  .admin-tab:hover { color: var(--cream); }
+  .admin-tab.active { color: var(--gold); border-bottom-color: var(--gold); }
+  
+  .admin-content { flex: 1; overflow-y: auto; padding: 2rem; max-width: 1280px; margin: 0 auto; width: 100%; }
+  .admin-content h2 { font-family: 'Cormorant Garamond'; color: var(--cream); margin-bottom: 0.5rem; font-size: 2rem; }
+  .admin-content .admin-sub { color: var(--text-dim); margin-bottom: 2rem; font-size: 0.92rem; }
+  .admin-pane { display: none; }
+  .admin-pane.active { display: block; }
+  
+  .square-sync-card {
+    background: linear-gradient(135deg, rgba(0, 106, 255, 0.1), rgba(0, 60, 145, 0.05));
+    border: 1px solid rgba(0, 106, 255, 0.3); border-radius: 4px;
+    padding: 1.5rem; margin-bottom: 2rem; display: flex; align-items: center; gap: 1.5rem;
+  }
+  .square-sync-card .sync-icon { width: 48px; height: 48px; background: #006aff; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; flex-shrink: 0; }
+  .square-sync-card .sync-info { flex: 1; }
+  .square-sync-card .sync-info h4 { color: var(--cream); margin-bottom: 0.3rem; font-size: 1.05rem; }
+  .square-sync-card .sync-info p { color: var(--text-dim); font-size: 0.85rem; }
+  .square-sync-card .sync-info small { color: var(--teal); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; }
+  .square-sync-card button {
+    background: #006aff; color: white; border: none;
+    padding: 0.7rem 1.4rem; font-family: 'DM Sans'; font-size: 0.78rem; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; border-radius: 2px;
+    flex-shrink: 0;
+  }
+  .square-sync-card button:hover { background: #003c91; }
+  
+  .admin-items-list { display: grid; gap: 0.65rem; }
+  .admin-item {
+    background: var(--bg-2); border: 1px solid var(--border); border-radius: 4px;
+    padding: 0.85rem 1.1rem; display: grid; grid-template-columns: 50px 1fr auto auto;
+    gap: 1rem; align-items: center;
+  }
+  .admin-item img { width: 50px; height: 50px; object-fit: cover; border-radius: 2px; }
+  .admin-item .ai-info .ai-name { font-family: 'Cormorant Garamond'; font-size: 1.05rem; color: var(--cream); line-height: 1.1; }
+  .admin-item .ai-info .ai-cat { font-size: 0.7rem; color: var(--text-dim); margin-top: 0.2rem; }
+  .admin-item .ai-price { font-family: 'Cormorant Garamond'; color: var(--gold); font-size: 1.1rem; }
+  .admin-item .ai-edit {
+    background: transparent; border: 1px solid var(--border); color: var(--cream);
+    padding: 0.4rem 0.85rem; font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase;
+    cursor: pointer; border-radius: 2px; font-family: 'DM Sans'; font-weight: 600;
+  }
+  .admin-item .ai-edit:hover { border-color: var(--gold); color: var(--gold); }
+  
+  .specials-editor, .events-editor {
+    background: var(--bg-2); border: 1px solid var(--border); border-radius: 4px;
+    padding: 1.5rem; margin-bottom: 2rem;
+  }
+  .form-row { display: grid; gap: 0.85rem; margin-bottom: 0.85rem; }
+  .form-row.two-col { grid-template-columns: 1fr 1fr; }
+  .form-row label { font-family: 'Cinzel'; font-size: 0.7rem; letter-spacing: 0.15em; color: var(--gold); text-transform: uppercase; margin-bottom: 0.35rem; display: block; }
+  .form-row input, .form-row textarea, .form-row select {
+    width: 100%; background: var(--bg); border: 1px solid var(--border);
+    padding: 0.7rem 0.9rem; color: var(--cream); font-family: 'DM Sans';
+    font-size: 0.9rem; border-radius: 2px;
+  }
+  .form-row input:focus, .form-row textarea:focus { outline: none; border-color: var(--gold); }
+  .form-actions { display: flex; gap: 0.65rem; margin-top: 1rem; }
+  .admin-btn {
+    background: var(--gold); color: var(--bg); border: none;
+    padding: 0.7rem 1.3rem; font-family: 'DM Sans'; font-size: 0.75rem; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; border-radius: 2px;
+  }
+  .admin-btn:hover { background: var(--gold-bright); }
+  .admin-btn.danger { background: var(--red); color: var(--cream); }
+  .admin-btn.danger:hover { background: var(--red-dark); }
+  .admin-btn.secondary { background: transparent; color: var(--cream); border: 1px solid var(--border); }
+  .admin-btn.secondary:hover { border-color: var(--gold); color: var(--gold); }
+  
+  .special-card, .event-edit-card {
+    background: var(--bg); border-left: 3px solid var(--gold); padding: 1rem 1.25rem;
+    border-radius: 2px; margin-bottom: 0.65rem;
+    display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem;
+  }
+  .special-card .sc-info { flex: 1; }
+  .special-card h5 { color: var(--cream); font-family: 'Cormorant Garamond'; font-size: 1.2rem; margin-bottom: 0.2rem; }
+  .special-card p { color: var(--text-dim); font-size: 0.85rem; }
+  .special-card .sc-meta { font-size: 0.7rem; color: var(--gold); margin-top: 0.4rem; letter-spacing: 0.08em; }
+  
+  /* LOGIN MODAL */
+  .login-box {
+    background: var(--bg-2); border: 1px solid var(--border-strong);
+    border-radius: 4px; padding: 2.5rem;
+    width: 100%; max-width: 400px;
+  }
+  .login-box h3 { font-family: 'Cormorant Garamond'; font-size: 1.75rem; color: var(--gold); margin-bottom: 0.4rem; }
+  .login-box .login-sub { color: var(--text-dim); font-size: 0.85rem; margin-bottom: 1.5rem; }
+  .login-box input {
+    width: 100%; background: var(--bg); border: 1px solid var(--border);
+    padding: 0.95rem 1.1rem; color: var(--cream); font-family: 'DM Sans';
+    border-radius: 2px; margin-bottom: 1rem; font-size: 0.95rem;
+  }
+  .login-box input:focus { outline: none; border-color: var(--gold); }
+  .login-hint {
+    background: rgba(43, 168, 154, 0.08); border: 1px solid rgba(43, 168, 154, 0.3);
+    padding: 0.7rem 0.9rem; border-radius: 2px;
+    font-size: 0.75rem; color: var(--text-dim); margin-top: 1rem;
+  }
+  .login-hint code { background: var(--bg); padding: 0.1rem 0.4rem; border-radius: 2px; color: var(--gold); }
+  
+  /* RESPONSIVE */
   @media (max-width: 1100px) {
     .menu-grid { grid-template-columns: repeat(3, 1fr); }
+    .menu-grid.three-col { grid-template-columns: repeat(2, 1fr); }
   }
   @media (max-width: 880px) {
-    nav { padding: 0.6rem 1rem; }
+    nav { padding: 0.5rem 1rem; }
     nav ul { display: none; }
     .mobile-menu-btn { display: block; }
     nav .brand .brand-text { display: none; }
+    .points-chip { padding: 0.4rem 0.65rem; font-size: 0.65rem; }
+    nav .cart-btn { padding: 0.5rem 0.85rem; font-size: 0.65rem; }
     .hero { grid-template-columns: 1fr; padding: 5.5rem 1.25rem 3rem; text-align: center; gap: 1.5rem; }
     .hero-logo-wrap { order: -1; }
     .hero-logo-wrap img { max-height: 280px; }
     .hero-cta { justify-content: center; }
     .hero-badges { position: static; justify-content: center; flex-wrap: wrap; margin-top: 1.5rem; gap: 1.25rem; }
-    .about-grid, .location-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .about-grid, .location-grid, .contact-grid, .loyalty-grid { grid-template-columns: 1fr; gap: 2.5rem; }
     .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
     section { padding: 3.5rem 1rem; }
-    .menu-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
-    .menu-card-body { padding: 0.75rem 0.75rem 0.85rem; }
-    .menu-card h3 { font-size: 1rem; }
-    .menu-card .desc { font-size: 0.72rem; -webkit-line-clamp: 2; }
-    .menu-card .price { font-size: 1.1rem; }
-    .menu-card .add { padding: 0.4rem 0.7rem; font-size: 0.6rem; }
-    .cat-tabs { gap: 0.35rem; }
-    .cat-tab { padding: 0.45rem 0.85rem; font-size: 0.62rem; }
+    .menu-grid, .menu-grid.three-col, .menu-grid.two-col { grid-template-columns: repeat(2, 1fr); gap: 0.7rem; }
+    .menu-card-body { padding: 0.65rem 0.7rem 0.8rem; }
+    .menu-card h3 { font-size: 0.95rem; }
+    .menu-card .desc { font-size: 0.68rem; -webkit-line-clamp: 2; }
+    .menu-card .price { font-size: 1rem; }
+    .menu-card .add { padding: 0.35rem 0.65rem; font-size: 0.55rem; }
+    .cat-quicknav { top: 56px; margin: 0 -1rem 1.5rem; padding: 0.7rem 1rem; }
+    .category-header { padding: 1rem 1.1rem; }
+    .category-header h2 { font-size: 1.35rem; }
+    .category-body-inner { padding: 0 1.1rem 1.5rem; }
+    .specials-strip { padding: 0.7rem 1rem; }
+    .specials-strip .strip-content { font-size: 0.65rem; letter-spacing: 0.1em; }
+    .admin-content { padding: 1.25rem; }
+    .admin-item { grid-template-columns: 40px 1fr auto; gap: 0.65rem; padding: 0.7rem; }
+    .admin-item .ai-edit { grid-column: 3; }
+    .admin-item .ai-price { grid-column: 1 / 4; grid-row: 2; font-size: 0.95rem; }
+    .pay-options { grid-template-columns: 1fr; }
   }
   @media (max-width: 500px) {
     .footer-grid { grid-template-columns: 1fr; }
@@ -453,6 +800,224 @@
     .modal-body { padding: 1.25rem; }
     .modal-footer { padding: 1rem 1.25rem; flex-wrap: wrap; }
     .modal-footer .btn { flex-basis: 100%; }
+    .form-row.two-col { grid-template-columns: 1fr; }
+  }
+  
+  /* MARKETING UI */
+  .audience-stats {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .audience-card {
+    background: var(--bg-2); border: 1px solid var(--border);
+    border-radius: 4px; padding: 1.1rem 1.2rem;
+    position: relative; overflow: hidden;
+  }
+  .audience-card.highlight {
+    background: linear-gradient(135deg, rgba(43, 168, 154, 0.12), rgba(29, 114, 104, 0.05));
+    border-color: rgba(43, 168, 154, 0.4);
+  }
+  .audience-card .ac-icon { font-size: 1.5rem; margin-bottom: 0.4rem; }
+  .audience-card .ac-num {
+    font-family: 'Cormorant Garamond'; font-size: 2rem; color: var(--gold);
+    line-height: 1; font-weight: 600;
+  }
+  .audience-card.highlight .ac-num { color: var(--teal); }
+  .audience-card .ac-label {
+    font-family: 'Cinzel'; font-size: 0.65rem; letter-spacing: 0.15em;
+    color: var(--cream); text-transform: uppercase; font-weight: 600;
+    margin-top: 0.4rem;
+  }
+  .audience-card .ac-sub { color: var(--text-dim); font-size: 0.72rem; margin-top: 0.25rem; }
+  
+  .campaign-composer {
+    background: var(--bg-2); border: 1px solid var(--border);
+    border-radius: 4px; padding: 1.5rem;
+  }
+  
+  .channel-tabs {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.65rem;
+    margin-bottom: 1.5rem;
+  }
+  .channel-tab {
+    background: var(--bg); border: 1px solid var(--border);
+    border-radius: 4px; padding: 0.85rem 1rem; cursor: pointer;
+    display: flex; align-items: center; gap: 0.85rem;
+    transition: all 0.2s;
+  }
+  .channel-tab:hover { border-color: var(--gold); }
+  .channel-tab.active { border-color: var(--gold); background: rgba(201, 164, 73, 0.08); }
+  .channel-tab .ch-icon { font-size: 1.6rem; }
+  .channel-tab strong { color: var(--cream); font-family: 'Cormorant Garamond'; font-size: 1.05rem; display: block; }
+  .channel-tab small { color: var(--text-dim); font-size: 0.7rem; }
+  
+  .template-chips { display: flex; gap: 0.45rem; flex-wrap: wrap; }
+  .template-chip {
+    background: transparent; border: 1px solid var(--border);
+    color: var(--cream); padding: 0.45rem 0.85rem;
+    font-family: 'DM Sans'; font-size: 0.75rem;
+    border-radius: 999px; cursor: pointer; transition: all 0.2s;
+  }
+  .template-chip:hover { border-color: var(--gold); color: var(--gold); background: rgba(201, 164, 73, 0.05); }
+  
+  .preview-wrap {
+    background: var(--bg); border: 1px solid var(--border);
+    border-radius: 4px; padding: 1.25rem;
+  }
+  
+  /* EMAIL PREVIEW */
+  .email-preview {
+    background: white; color: #1a1a1a; border-radius: 4px;
+    padding: 1.25rem; font-family: -apple-system, system-ui, sans-serif;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  }
+  .email-header {
+    display: flex; justify-content: space-between; align-items: center;
+    padding-bottom: 0.85rem; border-bottom: 1px solid #e5e5e5; margin-bottom: 0.85rem;
+  }
+  .email-from { display: flex; align-items: center; gap: 0.7rem; }
+  .from-avatar {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: var(--red); color: white;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 1rem;
+  }
+  .email-from strong { display: block; color: #1a1a1a; font-size: 0.92rem; }
+  .email-from small { color: #888; font-size: 0.78rem; }
+  .email-time { color: #888; font-size: 0.78rem; }
+  .email-subject {
+    font-size: 1.1rem; color: #1a1a1a; font-weight: 600;
+    margin-bottom: 0.85rem; line-height: 1.3;
+  }
+  .email-body {
+    color: #333; font-size: 0.92rem; line-height: 1.55;
+    white-space: pre-wrap; min-height: 60px;
+  }
+  .email-footer {
+    margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid #e5e5e5;
+    text-align: center;
+  }
+  .email-cta {
+    background: var(--red); color: white; border: none;
+    padding: 0.85rem 1.6rem; font-family: 'DM Sans'; font-weight: 600;
+    font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase;
+    border-radius: 4px; cursor: pointer;
+  }
+  
+  /* SMS PREVIEW */
+  .sms-preview { display: flex; justify-content: center; padding: 0.5rem 0; }
+  .phone-frame {
+    width: 260px; background: #1a1a1a; border-radius: 28px;
+    padding: 32px 12px 24px; position: relative;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+    border: 2px solid #2a2a2a;
+  }
+  .phone-notch {
+    position: absolute; top: 8px; left: 50%; transform: translateX(-50%);
+    width: 60px; height: 14px; background: #000; border-radius: 7px;
+  }
+  .phone-screen {
+    background: #f2f2f7; border-radius: 18px;
+    padding: 1rem 0.75rem; min-height: 200px;
+    display: flex; flex-direction: column;
+  }
+  .sms-header {
+    text-align: center; color: #1a1a1a; font-size: 0.8rem; font-weight: 600;
+    padding-bottom: 0.6rem; border-bottom: 1px solid #d1d1d6; margin-bottom: 0.85rem;
+    font-family: -apple-system, sans-serif;
+  }
+  .sms-bubble {
+    background: #e5e5ea; color: #1a1a1a;
+    padding: 0.6rem 0.85rem; border-radius: 16px;
+    font-size: 0.82rem; line-height: 1.4; word-break: break-word;
+    max-width: 85%; align-self: flex-start;
+    font-family: -apple-system, sans-serif;
+    white-space: pre-wrap;
+  }
+  .sms-time {
+    color: #888; font-size: 0.65rem; align-self: center;
+    margin-top: 0.4rem; font-family: -apple-system, sans-serif;
+  }
+  
+  /* CAMPAIGN HISTORY */
+  .campaign-row {
+    background: var(--bg-2); border: 1px solid var(--border);
+    border-radius: 4px; padding: 1rem 1.25rem; margin-bottom: 0.65rem;
+    display: grid; grid-template-columns: auto 1fr repeat(4, auto); gap: 1.25rem;
+    align-items: center;
+  }
+  .campaign-row .cr-channel {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: var(--bg); display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem;
+  }
+  .campaign-row .cr-channel.email { background: rgba(0, 106, 255, 0.15); }
+  .campaign-row .cr-channel.sms { background: rgba(43, 168, 154, 0.15); }
+  .campaign-row .cr-info .cr-title {
+    font-family: 'Cormorant Garamond'; font-size: 1.05rem; color: var(--cream);
+    line-height: 1.2;
+  }
+  .campaign-row .cr-info .cr-meta { color: var(--text-dim); font-size: 0.72rem; margin-top: 0.2rem; }
+  .campaign-row .cr-stat {
+    text-align: center; min-width: 60px;
+  }
+  .campaign-row .cr-stat .stat-num {
+    font-family: 'Cormorant Garamond'; font-size: 1.2rem; color: var(--gold);
+    line-height: 1; font-weight: 600;
+  }
+  .campaign-row .cr-stat .stat-label {
+    font-family: 'Cinzel'; font-size: 0.55rem; letter-spacing: 0.15em;
+    color: var(--text-dim); text-transform: uppercase; margin-top: 0.3rem;
+  }
+  .campaign-row .cr-stat.revenue .stat-num { color: var(--teal); }
+  
+  /* AUTOMATIONS */
+  .automations-list { display: grid; gap: 0.65rem; }
+  .automation-card {
+    background: var(--bg-2); border: 1px solid var(--border);
+    border-radius: 4px; padding: 1.1rem 1.25rem;
+    display: grid; grid-template-columns: 1fr auto; gap: 1rem; align-items: center;
+  }
+  .automation-info .am-title { color: var(--cream); font-family: 'Cormorant Garamond'; font-size: 1.1rem; margin-bottom: 0.2rem; }
+  .automation-info .am-desc { color: var(--text-dim); font-size: 0.82rem; line-height: 1.45; }
+  .automation-info .am-stats {
+    font-size: 0.7rem; color: var(--teal); margin-top: 0.4rem;
+    letter-spacing: 0.08em; font-family: 'Cinzel'; text-transform: uppercase;
+  }
+  .toggle-switch {
+    width: 48px; height: 26px; background: var(--bg);
+    border: 1px solid var(--border); border-radius: 999px;
+    position: relative; cursor: pointer; transition: all 0.2s;
+  }
+  .toggle-switch::after {
+    content: ''; width: 18px; height: 18px; background: var(--text-dim);
+    border-radius: 50%; position: absolute; top: 3px; left: 3px;
+    transition: all 0.2s;
+  }
+  .toggle-switch.on { background: rgba(43, 168, 154, 0.2); border-color: var(--teal); }
+  .toggle-switch.on::after { left: 25px; background: var(--teal); }
+  
+  .compliance-note {
+    background: rgba(43, 168, 154, 0.06); border-left: 3px solid var(--teal);
+    padding: 1rem 1.25rem; border-radius: 2px; margin-top: 2rem;
+    font-size: 0.82rem; color: var(--cream-2);
+  }
+  .compliance-note strong {
+    color: var(--teal); font-family: 'Cinzel'; font-size: 0.72rem; letter-spacing: 0.15em;
+    text-transform: uppercase; display: block; margin-bottom: 0.4rem;
+  }
+  .compliance-note p { line-height: 1.55; }
+  
+  @media (max-width: 880px) {
+    .audience-stats { grid-template-columns: 1fr 1fr; }
+    .channel-tabs { grid-template-columns: 1fr; }
+    .campaign-row {
+      grid-template-columns: auto 1fr; gap: 0.75rem;
+      grid-template-areas: 'icon info' 'stats stats';
+    }
+    .campaign-row .cr-channel { grid-area: icon; }
+    .campaign-row .cr-info { grid-area: info; }
+    .campaign-row .cr-stat { grid-area: stats; display: inline-block; margin-right: 1rem; }
   }
 </style>
 </head>
@@ -464,16 +1029,20 @@
     <div class="brand-text">King of Shawarma<small>& Kabab · Halal</small></div>
   </a>
   <ul>
-    <li><a href="#menu">Menu</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#location">Location</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a onclick="document.getElementById('menu').scrollIntoView({behavior:'smooth'})">Menu</a></li>
+    <li><a onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">About</a></li>
+    <li><a onclick="document.getElementById('loyalty').scrollIntoView({behavior:'smooth'})">Rewards</a></li>
+    <li><a onclick="document.getElementById('location').scrollIntoView({behavior:'smooth'})">Location</a></li>
+    <li><a onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contact</a></li>
   </ul>
-  <button class="cart-btn" onclick="openCart()">
-    Order Pickup
-    <span class="badge" id="cartBadge" style="display:none;">0</span>
-  </button>
-  <button class="mobile-menu-btn">☰</button>
+  <div class="right-tools">
+    <button class="points-chip" id="pointsChip" onclick="document.getElementById('loyalty').scrollIntoView({behavior:'smooth'})">0 pts</button>
+    <button class="cart-btn" onclick="openCart()">
+      Order
+      <span class="badge" id="cartBadge" style="display:none;">0</span>
+    </button>
+    <button class="mobile-menu-btn">☰</button>
+  </div>
 </nav>
 
 <header class="hero" id="top">
@@ -483,8 +1052,8 @@
     <h1 class="display">Bite into <span class="gold">Happiness.</span><br/>Taste the <span class="red">Mediterranean.</span></h1>
     <p class="lead">Family-run since day one. Every shawarma carved, every kabab grilled, every sauce stirred — all homemade right here in San Antonio.</p>
     <div class="hero-cta">
-      <a href="#menu" class="btn btn-primary">Order for Pickup</a>
-      <a href="#about" class="btn btn-outline">Our Story</a>
+      <a onclick="document.getElementById('menu').scrollIntoView({behavior:'smooth'})" class="btn btn-primary">Order Now</a>
+      <a onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})" class="btn btn-outline">Our Story</a>
     </div>
   </div>
   <div class="hero-logo-wrap">
@@ -497,6 +1066,14 @@
   </div>
 </header>
 
+<!-- SPECIALS STRIP (admin-editable) -->
+<div class="specials-strip" id="specialsStrip">
+  <div class="strip-content">
+    <span class="pulse"></span>
+    <span><strong>This Week:</strong> 10% off all Family Meals · Use code <strong>FAMILY10</strong> at checkout</span>
+  </div>
+</div>
+
 <section class="about" id="about">
   <div class="container">
     <div class="about-grid">
@@ -506,14 +1083,8 @@
         <p>King of Shawarma and Kabab is a family-owned food truck and kitchen serving the rich, layered flavors of the Mediterranean to the heart of San Antonio. Every dish is homemade — from the slow-roasted shawarma cones to the muhammara, hummus, and Syrian garlic sauce.</p>
         <p>What started as a dream of bringing real Mediterranean food to Texas has grown into a community staple. Halal, fresh, and served with the warmth of our family table.</p>
         <div class="about-stats">
-          <div class="stat">
-            <div class="num">100%</div>
-            <div class="label">Halal Certified</div>
-          </div>
-          <div class="stat">
-            <div class="num">Daily</div>
-            <div class="label">Made Fresh</div>
-          </div>
+          <div class="stat"><div class="num">100%</div><div class="label">Halal Certified</div></div>
+          <div class="stat"><div class="num">Daily</div><div class="label">Made Fresh</div></div>
         </div>
       </div>
       <div class="about-visual"></div>
@@ -525,34 +1096,78 @@
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">Our Menu</span>
-      <h2 class="display">Entrées</h2>
-      <p>All entrées served on a bed of seasoned yellow rice with hummus, salad, and crispy bread or pita.</p>
+      <h2 class="display">Order Online</h2>
+      <p>Pickup ready in ~20 minutes · Delivery via DoorDash Drive · 100% Halal · Made to order.</p>
     </div>
     
     <div class="mockup-note">
-      <strong>★ Mockup notes:</strong> All 12 entrées, prices, descriptions, and modifier options pulled directly from King's active DoorDash menu — including the full upsell stack (extra skewers, cheddar on kabab, grilled veg, drinks). Photos are stock placeholders for now; Phase 1 includes an on-site photo session at the truck.
+      <strong>★ Mockup notes:</strong> Full menu (8 categories, 60+ items) pulled directly from DoorDash. Photos are placeholders — Phase 1 includes on-site photo session. Daily specials and events shown on this page are editable by King's staff via the Admin Portal (link in footer).
     </div>
     
-    <div class="cat-tabs">
-      <button class="cat-tab active">Entrées</button>
-      <button class="cat-tab" disabled>Wraps <span class="coming">Soon</span></button>
-      <button class="cat-tab" disabled>King's Specialties <span class="coming">Soon</span></button>
-      <button class="cat-tab" disabled>Arabi Style <span class="coming">Soon</span></button>
-      <button class="cat-tab" disabled>Sides <span class="coming">Soon</span></button>
+    <!-- STICKY QUICKNAV PILLS -->
+    <div class="cat-quicknav">
+      <div class="cat-quicknav-inner" id="quicknavInner"></div>
     </div>
     
-    <div class="menu-grid" id="menuGrid"></div>
-    
-    <div class="coming-soon-section">
-      <h3>The Full Menu Goes Live in Phase 2</h3>
-      <p>Once entrées are signed off, we'll layer in the rest. Same Square sync, same customization framework — 30+ items across these categories:</p>
-      <div class="coming-categories">
-        <div class="coming-cat">Wraps <strong>10 items</strong></div>
-        <div class="coming-cat">King's Specialties <strong>6 items</strong></div>
-        <div class="coming-cat">Arabi Style <strong>5 items</strong></div>
-        <div class="coming-cat">Sides & Sauces <strong>12 items</strong></div>
+    <!-- COLLAPSIBLE CATEGORIES -->
+    <div id="menuCategories"></div>
+  </div>
+</section>
+
+<!-- LOYALTY SECTION -->
+<section class="loyalty-section" id="loyalty">
+  <div class="container">
+    <div class="loyalty-grid">
+      <div class="loyalty-text">
+        <span class="eyebrow">King's Rewards</span>
+        <h2 class="display">Earn points.<br/><em style="color:var(--gold);">Redeem rewards.</em></h2>
+        <p>Earn <strong style="color:var(--gold);">10 points for every $1</strong> you spend on the King's site. Stack them up, then trade them in for our exclusive Arabi-style wraps — the premium handhelds you can't get anywhere else.</p>
+        <div class="loyalty-features">
+          <div class="loyalty-feature">
+            <div class="feat-icon">★</div>
+            <div class="feat-text">
+              <strong>Spend $1 = Earn 10 points</strong>
+              <span>Points apply automatically at checkout.</span>
+            </div>
+          </div>
+          <div class="loyalty-feature">
+            <div class="feat-icon">🥙</div>
+            <div class="feat-text">
+              <strong>Redeem on King's Arabi (#17–#21)</strong>
+              <span>From 800 points: a free Falafel Arabi, Chicken Shawarma Arabi, Lamb Gyro Arabi, or Chicken Gyro Arabi.</span>
+            </div>
+          </div>
+          <div class="loyalty-feature">
+            <div class="feat-icon">👑</div>
+            <div class="feat-text">
+              <strong>Top tier: Beef Shawarma Arabi (1,000 pts)</strong>
+              <span>The crown jewel — most-loved item on the menu.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="loyalty-card">
+        <div class="loyalty-stars">★ ★ ★ ★ ★</div>
+        <h3>Your Rewards Balance</h3>
+        <div class="balance" id="loyaltyBalance">0</div>
+        <div class="balance-label">Points Available</div>
+        <div class="next-reward" id="nextReward">
+          <strong>800 points</strong> away from your first reward — a free Chicken Shawarma Arabi (#17)
+          <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width: 0%;"></div></div>
+        </div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- EVENTS SECTION (admin-editable) -->
+<section class="events-section" id="events">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">What's Happening</span>
+      <h2 class="display">Upcoming Events</h2>
+    </div>
+    <div class="events-grid" id="eventsGrid"></div>
   </div>
 </section>
 
@@ -653,19 +1268,22 @@
     <div>
       <h4>Order</h4>
       <ul>
-        <li><a href="#menu">Pickup Online</a></li>
-        <li><a href="https://www.doordash.com/store/king-of-shawarma-and-kabob-san-antonio-1661324/" target="_blank">DoorDash</a></li>
+        <li><a onclick="openCart()">Pickup Online</a></li>
+        <li><a onclick="setFulfillment('delivery'); openCart();">Delivery (DoorDash Drive)</a></li>
         <li><a href="tel:2107191335">Call (210) 719-1335</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
     <div>© 2026 King of Shawarma & Kabab. All rights reserved.</div>
-    <div class="built-by">Site by Top Hat Media</div>
+    <div style="display:flex; gap:1.5rem; align-items:center;">
+      <span class="staff-link" onclick="openAdminLogin()">Staff Portal</span>
+      <span class="built-by">Site by Top Hat Media</span>
+    </div>
   </div>
 </footer>
 
-<!-- ITEM CUSTOMIZATION MODAL — mirrors DoorDash modifier order exactly -->
+<!-- ITEM CUSTOMIZATION MODAL -->
 <div class="modal-backdrop" id="modal" onclick="if(event.target===this)closeModal()">
   <div class="modal">
     <div class="modal-header">
@@ -681,88 +1299,33 @@
       <p class="modal-desc" id="modalDesc"></p>
       <div class="modal-price" id="modalPrice"></div>
       
-      <div class="served-with-note">
-        <strong>Served With</strong>
-        Bed of seasoned yellow rice · Homemade hummus · Fresh salad · <span id="breadType">Crispy bread</span>
-      </div>
-      
-      <!-- MODIFICATIONS — pulled directly from DoorDash modifier list, in DoorDash's exact order -->
-      <div class="option-group">
-        <div class="opt-label">
-          <span class="opt-title">Modifications</span>
-          <span class="opt-req">Optional</span>
+      <!-- PAY WITH POINTS (only for #17-#21) -->
+      <div class="pay-toggle" id="payToggle" style="display:none;">
+        <div class="pay-toggle-head">
+          <span class="star-icon">★</span>
+          <span class="title">Eligible for Rewards</span>
         </div>
-        <label class="option-row"><input type="checkbox" data-extra="8.99" /><span class="opt-name">Add lamb tikka skewer</span><span class="opt-extra">+$8.99</span></label>
-        <label class="option-row"><input type="checkbox" data-extra="7.99" /><span class="opt-name">Add chicken tikka skewer</span><span class="opt-extra">+$7.99</span></label>
-        <label class="option-row"><input type="checkbox" data-extra="5.99" /><span class="opt-name">Add chicken kabab skewer</span><span class="opt-extra">+$5.99</span></label>
-        <label class="option-row"><input type="checkbox" data-extra="3.89" /><span class="opt-name">Add an extra crispy bread</span><span class="opt-extra">+$3.89</span></label>
-        <label class="option-row"><input type="checkbox" data-extra="2.59" /><span class="opt-name">Add cheddar cheese on the kabab</span><span class="opt-extra">+$2.59</span></label>
-        <label class="option-row"><input type="checkbox" data-extra="5.39" /><span class="opt-name">Add side of fries</span><span class="opt-extra">+$5.39</span></label>
-        <label class="option-row"><input type="checkbox" data-extra="0.89" /><span class="opt-name">Add grilled tomato</span><span class="opt-extra">+$0.89</span></label>
-        <label class="option-row"><input type="checkbox" data-extra="0.89" /><span class="opt-name">Add grilled green peppers</span><span class="opt-extra">+$0.89</span></label>
-        <label class="option-row"><input type="checkbox" data-extra="0.89" /><span class="opt-name">Add grilled onion</span><span class="opt-extra">+$0.89</span></label>
-        <label class="option-row"><input type="checkbox" data-extra="0.59" /><span class="opt-name">Add 2oz Jalapeño</span><span class="opt-extra">+$0.59</span></label>
-        <label class="option-row"><input type="checkbox" data-extra="0.59" /><span class="opt-name">Add 2oz pomegranate sauce</span><span class="opt-extra">+$0.59</span></label>
-        <label class="option-row"><input type="checkbox" data-extra="0.89" /><span class="opt-name">No salad, double rice</span><span class="opt-extra">+$0.89</span></label>
-        <label class="option-row"><input type="checkbox" data-extra="0.89" /><span class="opt-name">No rice, double salad</span><span class="opt-extra">+$0.89</span></label>
-        <label class="option-row"><input type="checkbox" data-extra="0.89" /><span class="opt-name">No hummus, double salad</span><span class="opt-extra">+$0.89</span></label>
-        <label class="option-row"><input type="checkbox" data-extra="0" /><span class="opt-name">No onion inside the crispy bread</span><span class="opt-extra free">Free</span></label>
-        <label class="option-row"><input type="checkbox" data-extra="0" /><span class="opt-name">No muhammara inside the crispy bread</span><span class="opt-extra free">Free</span></label>
-        <label class="option-row"><input type="checkbox" data-extra="0" /><span class="opt-name">No onion at all</span><span class="opt-extra free">Free</span></label>
-        <label class="option-row"><input type="checkbox" data-extra="0" /><span class="opt-name">Extra lemon</span><span class="opt-extra free">Free</span></label>
-        <label class="option-row"><input type="checkbox" data-extra="0" /><span class="opt-name">Extra tzatziki sauce</span><span class="opt-extra free">Free</span></label>
-      </div>
-      
-      <!-- ADD A DRINK -->
-      <div class="option-group">
-        <div class="opt-label">
-          <span class="opt-title">Add A Drink</span>
-          <span class="opt-req">Optional</span>
-        </div>
-        <label class="option-row"><input type="checkbox" data-extra="1.79" /><span class="opt-name">Coke</span><span class="opt-extra">+$1.79</span></label>
-        <label class="option-row"><input type="checkbox" data-extra="1.79" /><span class="opt-name">Sprite</span><span class="opt-extra">+$1.79</span></label>
-        <label class="option-row"><input type="checkbox" data-extra="1.79" /><span class="opt-name">Diet Coke</span><span class="opt-extra">+$1.79</span></label>
-        <label class="option-row"><input type="checkbox" data-extra="1.79" /><span class="opt-name">Big Red</span><span class="opt-extra">+$1.79</span></label>
-        <label class="option-row"><input type="checkbox" data-extra="1.79" /><span class="opt-name">Dr Pepper</span><span class="opt-extra">+$1.79</span></label>
-        <label class="option-row"><input type="checkbox" data-extra="3.59" /><span class="opt-name">Mexican Coke</span><span class="opt-extra">+$3.59</span></label>
-        <label class="option-row"><input type="checkbox" data-extra="3.59" /><span class="opt-name">Mexican Fanta</span><span class="opt-extra">+$3.59</span></label>
-        <label class="option-row"><input type="checkbox" data-extra="1.19" /><span class="opt-name">Water</span><span class="opt-extra">+$1.19</span></label>
-      </div>
-      
-      <!-- RECOMMENDED BEVERAGES — DoorDash-style featured upsell -->
-      <div class="option-group">
-        <div class="opt-label">
-          <span class="opt-title">Recommended Beverage</span>
-          <span class="opt-req">Optional</span>
-        </div>
-        <label class="featured-upsell">
-          <input type="checkbox" data-extra="3.59" />
-          <div class="fu-img" style="background-image:url('https://images.unsplash.com/photo-1554866585-cd94860890b7?w=300&q=80')"></div>
-          <div class="fu-text">
-            <div class="fu-tag">★ Pairs Well</div>
-            <div class="fu-name">Mexican Coke</div>
+        <div class="pay-options">
+          <div class="pay-opt active" id="payCash" onclick="setPayMethod('cash')">
+            <div class="pay-label">Pay with Cash</div>
+            <div class="pay-value" id="payCashValue">$0.00</div>
+            <div class="pay-note" id="earnNote">Earn 0 pts</div>
           </div>
-          <div class="fu-price">+$3.59</div>
-        </label>
-      </div>
-      
-      <!-- RECOMMENDED SIDES AND APPS -->
-      <div class="option-group">
-        <div class="opt-label">
-          <span class="opt-title">Recommended Sides And Apps</span>
-          <span class="opt-req">Optional · Choose up to 5</span>
+          <div class="pay-opt" id="payPoints" onclick="setPayMethod('points')">
+            <div class="pay-label">Redeem with Points</div>
+            <div class="pay-value" id="payPointsValue">0 pts</div>
+            <div class="pay-note" id="payPointsAvail">You have 0 pts</div>
+          </div>
         </div>
-        <label class="option-row"><input type="checkbox" data-extra="5.39" /><span class="opt-name">Small Fries</span><span class="opt-extra">+$5.39</span></label>
-        <label class="option-row"><input type="checkbox" data-extra="6.39" /><span class="opt-name">Grape Leaves</span><span class="opt-extra">+$6.39</span></label>
-        <label class="option-row"><input type="checkbox" data-extra="5.59" /><span class="opt-name">Rice</span><span class="opt-extra">+$5.59</span></label>
-        <label class="option-row"><input type="checkbox" data-extra="1.49" /><span class="opt-name">Pita Bread</span><span class="opt-extra">+$1.49</span></label>
-        <label class="option-row"><input type="checkbox" data-extra="7.19" /><span class="opt-name">Hummus</span><span class="opt-extra">+$7.19</span></label>
       </div>
       
-      <!-- SPECIAL INSTRUCTIONS -->
+      <div class="served-with-note" id="servedWith"></div>
+      
+      <div id="modifierContainer"></div>
+      
       <div class="option-group">
         <div class="opt-label">
-          <span class="opt-title">Preferences · Special Instructions</span>
+          <span class="opt-title">Special Instructions</span>
           <span class="opt-req">Optional</span>
         </div>
         <textarea class="special-input" id="modalNotes" placeholder="Allergies? Cook-level? Anything we should know..."></textarea>
@@ -774,7 +1337,7 @@
         <span id="modalQty">1</span>
         <button onclick="changeQty(1)">+</button>
       </div>
-      <button class="btn btn-primary" onclick="addToCart()">Add to Cart · $<span id="addBtnPrice">0.00</span></button>
+      <button class="btn btn-primary" id="addToCartBtn" onclick="addToCart()">Add to Cart · $<span id="addBtnPrice">0.00</span></button>
     </div>
   </div>
 </div>
@@ -785,6 +1348,10 @@
     <h3>Your Order</h3>
     <button onclick="closeCart()">×</button>
   </div>
+  <div class="fulfillment-toggle">
+    <div class="ft-opt active" id="ftPickup" onclick="setFulfillment('pickup')">Pickup<small>Free · ~20 min</small></div>
+    <div class="ft-opt" id="ftDelivery" onclick="setFulfillment('delivery')">Delivery<small>$4.99 flat · DoorDash Drive</small></div>
+  </div>
   <div class="cart-items" id="cartItems">
     <div class="cart-empty">
       <span class="eyebrow">Empty Cart</span>
@@ -794,252 +1361,1563 @@
   <div class="cart-foot">
     <div class="cart-totals">
       <div class="row"><span>Subtotal</span><span id="cartSubtotal">$0.00</span></div>
+      <div class="row points-row" id="pointsRow" style="display:none;"><span>Points Redemption</span><span id="pointsRowValue">0 pts</span></div>
+      <div class="row" id="deliveryRow" style="display:none;"><span>Delivery Fee</span><span>$4.99</span></div>
       <div class="row"><span>Tax (8.25%)</span><span id="cartTax">$0.00</span></div>
+      <div class="row earn-row" id="earnRow"><span>★ You'll earn</span><span id="pointsEarn">0 pts</span></div>
       <div class="row total"><span>Total</span><span id="cartTotal">$0.00</span></div>
     </div>
     <button class="square-checkout" id="checkoutBtn" disabled onclick="checkout()">⬛ Checkout with Square</button>
-    <div class="pickup-note">Pickup only · Ready in ~20 minutes</div>
+    <div class="pickup-note" id="fulfillmentNote">Pickup only · Ready in ~20 minutes</div>
+  </div>
+</div>
+
+<!-- ADMIN LOGIN MODAL -->
+<div class="modal-backdrop" id="adminLogin" onclick="if(event.target===this)closeAdminLogin()">
+  <div class="login-box">
+    <h3>Staff Portal</h3>
+    <p class="login-sub">Sign in to manage menu, specials, and events.</p>
+    <input type="text" id="adminUser" placeholder="Username" value="" />
+    <input type="password" id="adminPass" placeholder="Password" onkeypress="if(event.key==='Enter')adminLogin()" />
+    <button class="btn btn-primary" style="width:100%; margin-top:0.5rem;" onclick="adminLogin()">Sign In</button>
+    <div class="login-hint">
+      <strong style="color:var(--cream);">Demo credentials:</strong><br/>
+      User: <code>king</code> · Pass: <code>king2026</code>
+    </div>
+  </div>
+</div>
+
+<!-- ADMIN OVERLAY -->
+<div class="admin-overlay" id="adminOverlay">
+  <div class="admin-nav">
+    <div class="admin-brand">
+      <img src="logo.jpg" alt="Logo" />
+      <div class="ab-title">King's Admin<small>Staff Portal</small></div>
+    </div>
+    <div class="admin-nav-right">
+      <span class="admin-status">Live · Synced with Square</span>
+      <button class="admin-logout" onclick="adminLogout()">Sign Out</button>
+    </div>
+  </div>
+  <div class="admin-tabs">
+    <button class="admin-tab active" onclick="switchAdminTab('menu')">Menu Items</button>
+    <button class="admin-tab" onclick="switchAdminTab('specials')">Daily Specials</button>
+    <button class="admin-tab" onclick="switchAdminTab('events')">Events</button>
+    <button class="admin-tab" onclick="switchAdminTab('marketing')">Marketing</button>
+    <button class="admin-tab" onclick="switchAdminTab('photos')">Photos</button>
+    <button class="admin-tab" onclick="switchAdminTab('sync')">Square Sync</button>
+  </div>
+  <div class="admin-content">
+    
+    <!-- MENU TAB -->
+    <div class="admin-pane active" id="adminPane-menu">
+      <h2>Menu Items</h2>
+      <p class="admin-sub">Edit prices, descriptions, and photos. Changes sync to your Square POS catalog automatically.</p>
+      <div class="square-sync-card">
+        <div class="sync-icon">⬛</div>
+        <div class="sync-info">
+          <small>Connected</small>
+          <h4>Square Catalog Integration</h4>
+          <p>62 items synced from your Square POS · Last sync: just now</p>
+        </div>
+        <button onclick="simulateSync()">Sync Now</button>
+      </div>
+      <div class="admin-items-list" id="adminItemsList"></div>
+    </div>
+    
+    <!-- SPECIALS TAB -->
+    <div class="admin-pane" id="adminPane-specials">
+      <h2>Daily & Weekly Specials</h2>
+      <p class="admin-sub">Set the banner that appears at the top of the homepage. Specials sync to all customer-facing channels.</p>
+      <div class="specials-editor">
+        <div class="form-row">
+          <label>Banner Text</label>
+          <input type="text" id="specialText" placeholder="e.g. 10% off all Family Meals" />
+        </div>
+        <div class="form-row two-col">
+          <div>
+            <label>Promo Code (Optional)</label>
+            <input type="text" id="specialCode" placeholder="e.g. FAMILY10" />
+          </div>
+          <div>
+            <label>Expires</label>
+            <input type="date" id="specialExpires" />
+          </div>
+        </div>
+        <div class="form-actions">
+          <button class="admin-btn" onclick="saveSpecial()">Update Banner</button>
+          <button class="admin-btn secondary" onclick="clearSpecial()">Clear Banner</button>
+        </div>
+      </div>
+      <h3 style="font-family:'Cormorant Garamond'; color: var(--cream); margin-bottom: 0.75rem; font-size: 1.25rem;">Active Specials</h3>
+      <div id="specialsList"></div>
+    </div>
+    
+    <!-- EVENTS TAB -->
+    <div class="admin-pane" id="adminPane-events">
+      <h2>Upcoming Events</h2>
+      <p class="admin-sub">Promote live music, festival pop-ups, catering windows, and more.</p>
+      <div class="events-editor">
+        <div class="form-row two-col">
+          <div>
+            <label>Event Title</label>
+            <input type="text" id="eventTitle" placeholder="e.g. Live Oud Music Night" />
+          </div>
+          <div>
+            <label>Date</label>
+            <input type="date" id="eventDate" />
+          </div>
+        </div>
+        <div class="form-row two-col">
+          <div>
+            <label>Time</label>
+            <input type="text" id="eventTime" placeholder="e.g. 6 – 9 PM" />
+          </div>
+          <div>
+            <label>Location (optional)</label>
+            <input type="text" id="eventLocation" placeholder="At the truck or off-site" />
+          </div>
+        </div>
+        <div class="form-row">
+          <label>Description</label>
+          <textarea id="eventDesc" rows="2" placeholder="Brief details for customers..."></textarea>
+        </div>
+        <div class="form-actions">
+          <button class="admin-btn" onclick="addEvent()">Add Event</button>
+        </div>
+      </div>
+      <h3 style="font-family:'Cormorant Garamond'; color: var(--cream); margin-bottom: 0.75rem; font-size: 1.25rem;">Scheduled Events</h3>
+      <div id="eventsList"></div>
+    </div>
+    
+    <!-- MARKETING TAB -->
+    <div class="admin-pane" id="adminPane-marketing">
+      <h2>Marketing Campaigns</h2>
+      <p class="admin-sub">Send mass emails and SMS blasts to your customer list. Reach the people who've already ordered from you.</p>
+      
+      <!-- AUDIENCE STATS -->
+      <div class="audience-stats">
+        <div class="audience-card">
+          <div class="ac-icon">📧</div>
+          <div class="ac-num" id="emailCount">1,247</div>
+          <div class="ac-label">Email Subscribers</div>
+          <div class="ac-sub">From web orders & opt-ins</div>
+        </div>
+        <div class="audience-card">
+          <div class="ac-icon">💬</div>
+          <div class="ac-num" id="smsCount">892</div>
+          <div class="ac-label">SMS Subscribers</div>
+          <div class="ac-sub">Texted to opt in at checkout</div>
+        </div>
+        <div class="audience-card">
+          <div class="ac-icon">⭐</div>
+          <div class="ac-num" id="loyaltyCount">654</div>
+          <div class="ac-label">Rewards Members</div>
+          <div class="ac-sub">Active loyalty accounts</div>
+        </div>
+        <div class="audience-card highlight">
+          <div class="ac-icon">📊</div>
+          <div class="ac-num">$3.20</div>
+          <div class="ac-label">Cost per Campaign</div>
+          <div class="ac-sub">Avg for SMS to 1,000 customers</div>
+        </div>
+      </div>
+      
+      <!-- CAMPAIGN COMPOSER -->
+      <h3 style="font-family:'Cormorant Garamond'; color: var(--cream); margin: 2rem 0 0.5rem; font-size: 1.45rem;">New Campaign</h3>
+      <p style="color: var(--text-dim); font-size: 0.85rem; margin-bottom: 1rem;">Compose, preview, then send. Or save as a draft.</p>
+      
+      <div class="campaign-composer">
+        
+        <!-- CHANNEL SELECT -->
+        <div class="channel-tabs">
+          <div class="channel-tab active" id="chEmail" onclick="setChannel('email')">
+            <span class="ch-icon">📧</span>
+            <div>
+              <strong>Email</strong>
+              <small>Rich formatting · Photos · Links</small>
+            </div>
+          </div>
+          <div class="channel-tab" id="chSMS" onclick="setChannel('sms')">
+            <span class="ch-icon">💬</span>
+            <div>
+              <strong>SMS Text</strong>
+              <small>Short, punchy · 160 chars · Link OK</small>
+            </div>
+          </div>
+          <div class="channel-tab" id="chBoth" onclick="setChannel('both')">
+            <span class="ch-icon">📡</span>
+            <div>
+              <strong>Both Channels</strong>
+              <small>Maximum reach · Email + SMS together</small>
+            </div>
+          </div>
+        </div>
+        
+        <!-- AUDIENCE SELECT -->
+        <div class="form-row">
+          <label>Audience</label>
+          <select id="campAudience" onchange="updateAudienceCount()">
+            <option value="all">All Subscribers (1,247 people)</option>
+            <option value="loyalty">Rewards Members Only (654 people)</option>
+            <option value="lapsed">Lapsed Customers — no order in 30+ days (312 people)</option>
+            <option value="vips">VIPs — 5+ orders (189 people)</option>
+            <option value="recent">Recent Customers — ordered this week (78 people)</option>
+            <option value="catering">Catering Inquiries (44 people)</option>
+          </select>
+        </div>
+        
+        <!-- SUBJECT LINE (email only) -->
+        <div class="form-row" id="subjectRow">
+          <label>Subject Line</label>
+          <input type="text" id="campSubject" placeholder="e.g. 🥙 Weekend Special — 15% off all Wraps!" />
+        </div>
+        
+        <!-- MESSAGE BODY -->
+        <div class="form-row">
+          <label>Message <span id="charCounter" style="color: var(--text-dim); font-size: 0.7rem; letter-spacing: 0.05em; text-transform: none; float: right;">0 chars</span></label>
+          <textarea id="campBody" rows="5" placeholder="Write your message here..." oninput="updateCharCount(); updatePreview();"></textarea>
+        </div>
+        
+        <!-- QUICK TEMPLATES -->
+        <div style="margin: 0 0 1rem;">
+          <label style="font-family: 'Cinzel'; font-size: 0.7rem; letter-spacing: 0.15em; color: var(--gold); text-transform: uppercase; margin-bottom: 0.5rem; display: block;">Quick Templates</label>
+          <div class="template-chips">
+            <button class="template-chip" onclick="loadTemplate('weeklySpecial')">📣 Weekly Special</button>
+            <button class="template-chip" onclick="loadTemplate('newItem')">🆕 New Menu Item</button>
+            <button class="template-chip" onclick="loadTemplate('loyaltyReminder')">⭐ Loyalty Reminder</button>
+            <button class="template-chip" onclick="loadTemplate('eventInvite')">🎉 Event Invite</button>
+            <button class="template-chip" onclick="loadTemplate('reEngage')">💌 Win Back</button>
+            <button class="template-chip" onclick="loadTemplate('holiday')">🎊 Holiday Greeting</button>
+          </div>
+        </div>
+        
+        <!-- SCHEDULE -->
+        <div class="form-row two-col">
+          <div>
+            <label>Send When</label>
+            <select id="campSchedule">
+              <option value="now">Send Immediately</option>
+              <option value="schedule">Schedule for Later</option>
+              <option value="draft">Save as Draft</option>
+            </select>
+          </div>
+          <div id="scheduleTimeWrap" style="display: none;">
+            <label>Schedule Time</label>
+            <input type="datetime-local" id="campScheduleTime" />
+          </div>
+        </div>
+        
+        <!-- PREVIEW -->
+        <div class="preview-wrap">
+          <label style="font-family: 'Cinzel'; font-size: 0.7rem; letter-spacing: 0.15em; color: var(--gold); text-transform: uppercase; margin-bottom: 0.75rem; display: block;">Live Preview</label>
+          
+          <!-- EMAIL PREVIEW -->
+          <div class="email-preview" id="emailPreview">
+            <div class="email-header">
+              <div class="email-from">
+                <div class="from-avatar">K</div>
+                <div>
+                  <strong>King of Shawarma & Kabab</strong>
+                  <small>marketing@kingofshawarma.com</small>
+                </div>
+              </div>
+              <div class="email-time">just now</div>
+            </div>
+            <div class="email-subject" id="emailPreviewSubject">Your subject line preview...</div>
+            <div class="email-body" id="emailPreviewBody"><em style="color: var(--text-dim);">Your email message will appear here...</em></div>
+            <div class="email-footer">
+              <button class="email-cta">Order Now →</button>
+              <small style="color: var(--text-dim); display: block; margin-top: 0.85rem;">8719 Wurzbach Rd · San Antonio, TX · <a style="color: var(--text-dim);">Unsubscribe</a></small>
+            </div>
+          </div>
+          
+          <!-- SMS PREVIEW -->
+          <div class="sms-preview" id="smsPreview" style="display: none;">
+            <div class="phone-frame">
+              <div class="phone-notch"></div>
+              <div class="phone-screen">
+                <div class="sms-header">King of Shawarma</div>
+                <div class="sms-bubble" id="smsPreviewBody"><em style="opacity: 0.6;">Your SMS preview...</em></div>
+                <div class="sms-time">now</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- ACTIONS -->
+        <div class="form-actions" style="margin-top: 1.5rem;">
+          <button class="admin-btn" onclick="sendCampaign()" id="sendBtn">📡 Send Campaign</button>
+          <button class="admin-btn secondary" onclick="saveDraft()">💾 Save Draft</button>
+          <button class="admin-btn secondary" onclick="testSend()">📲 Send Test to My Phone</button>
+        </div>
+      </div>
+      
+      <!-- CAMPAIGN HISTORY -->
+      <h3 style="font-family:'Cormorant Garamond'; color: var(--cream); margin: 2.5rem 0 0.5rem; font-size: 1.45rem;">Recent Campaigns</h3>
+      <p style="color: var(--text-dim); font-size: 0.85rem; margin-bottom: 1rem;">Open rates, clicks, and revenue attributed to each send.</p>
+      <div id="campaignHistory"></div>
+      
+      <!-- AUTOMATIONS -->
+      <h3 style="font-family:'Cormorant Garamond'; color: var(--cream); margin: 2.5rem 0 0.5rem; font-size: 1.45rem;">Automated Campaigns</h3>
+      <p style="color: var(--text-dim); font-size: 0.85rem; margin-bottom: 1rem;">Set-and-forget messages that send automatically based on customer behavior.</p>
+      <div class="automations-list" id="automationsList"></div>
+      
+      <!-- COMPLIANCE NOTE -->
+      <div class="compliance-note">
+        <strong>📋 Compliance & Best Practices</strong>
+        <p>All marketing complies with CAN-SPAM (email) and TCPA (SMS). Subscribers opt in at checkout and can unsubscribe with one tap. We auto-suppress unsubscribed contacts on every send. SMS is rate-limited to avoid carrier filtering.</p>
+      </div>
+    </div>
+    
+    <!-- PHOTOS TAB -->
+    <div class="admin-pane" id="adminPane-photos">
+      <h2>Photo Library</h2>
+      <p class="admin-sub">Upload high-quality photos of your dishes. Customers see these on the menu and in the order modal.</p>
+      <div class="square-sync-card" style="background: linear-gradient(135deg, rgba(43, 168, 154, 0.12), rgba(29, 114, 104, 0.05)); border-color: rgba(43, 168, 154, 0.3);">
+        <div class="sync-icon" style="background: var(--teal);">📷</div>
+        <div class="sync-info">
+          <small style="color: var(--gold);">Recommended</small>
+          <h4>Schedule On-Site Photo Session</h4>
+          <p>Top Hat Media can shoot every menu item on location in 90 minutes — included with Phase 1.</p>
+        </div>
+        <button style="background: var(--teal); color: var(--bg);" onclick="alert('Photo session request sent to Top Hat Media!\\n\\nWe\\'ll be in touch within 24 hours to schedule.')">Request Shoot</button>
+      </div>
+      <div style="background: var(--bg-2); border: 1px solid var(--border); padding: 1.5rem; border-radius: 4px;">
+        <p style="color: var(--text-dim); font-size: 0.9rem; margin-bottom: 1rem;">Or upload photos yourself — drag-and-drop or paste an image URL:</p>
+        <div style="border: 2px dashed var(--border); padding: 2.5rem; border-radius: 4px; text-align: center; color: var(--text-dim); cursor: pointer;" onclick="alert('In production: file picker opens here.')">
+          <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">📤</div>
+          <strong style="color: var(--cream); display: block; margin-bottom: 0.3rem;">Drop photos here</strong>
+          <span style="font-size: 0.82rem;">or click to browse · JPG, PNG up to 10MB</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- SQUARE SYNC TAB -->
+    <div class="admin-pane" id="adminPane-sync">
+      <h2>Square POS Integration</h2>
+      <p class="admin-sub">Bidirectional sync between your website and Square catalog.</p>
+      
+      <div class="square-sync-card">
+        <div class="sync-icon">⬛</div>
+        <div class="sync-info">
+          <small>Status</small>
+          <h4>Connected to Square</h4>
+          <p>Merchant ID: KING-SATX-001 · Auto-sync every 5 minutes</p>
+        </div>
+        <button onclick="simulateSync()">Force Sync</button>
+      </div>
+      
+      <div style="display: grid; gap: 1rem; margin-top: 1.5rem;">
+        <div style="background: var(--bg-2); border: 1px solid var(--border); padding: 1.25rem; border-radius: 4px;">
+          <strong style="color: var(--gold); font-family: 'Cinzel'; font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase;">Catalog Sync</strong>
+          <p style="color: var(--text-dim); font-size: 0.88rem; margin: 0.5rem 0 1rem;">When you edit a menu item here, the change pushes to your Square POS catalog. When kitchen staff updates a price in Square, the website auto-refreshes.</p>
+          <div style="font-size: 0.78rem; color: var(--teal);">✓ Last successful push: 2 minutes ago<br/>✓ 62 items in sync · 0 conflicts</div>
+        </div>
+        
+        <div style="background: var(--bg-2); border: 1px solid var(--border); padding: 1.25rem; border-radius: 4px;">
+          <strong style="color: var(--gold); font-family: 'Cinzel'; font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase;">Order Routing</strong>
+          <p style="color: var(--text-dim); font-size: 0.88rem; margin: 0.5rem 0 1rem;">Web orders fire directly into your Square Dashboard. Kitchen tickets print automatically.</p>
+          <div style="font-size: 0.78rem; color: var(--teal);">✓ Web orders today: 12<br/>✓ Average ticket: $34.20</div>
+        </div>
+        
+        <div style="background: var(--bg-2); border: 1px solid var(--border); padding: 1.25rem; border-radius: 4px;">
+          <strong style="color: var(--gold); font-family: 'Cinzel'; font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase;">DoorDash Drive</strong>
+          <p style="color: var(--text-dim); font-size: 0.88rem; margin: 0.5rem 0 1rem;">Delivery handled by DoorDash's courier network — you keep 100% of the food revenue. Customers pay a flat $4.99 delivery fee + tip.</p>
+          <div style="font-size: 0.78rem; color: var(--teal);">✓ Active in San Antonio · 5-mile radius</div>
+        </div>
+      </div>
+    </div>
+    
   </div>
 </div>
 
 <div class="toast" id="toast"></div>
 
 <script>
-  // REAL MENU DATA — pulled directly from DoorDash (King of Shawarma & Kabab San Antonio)
-  // Item numbers, prices, descriptions all match DoorDash exactly.
-  // "bread" field distinguishes "crispy bread" (kabab/tikka) vs "pita bread" (shawarma/gyro)
-  const MENU = [
-    {
-      id: 'beef-kabab', num: '#22', name: 'Beef Kabab',
-      desc: 'Two seasoned ground beef skewers, served on a bed of rice, with hummus, salad, and crispy bread.',
-      price: 22.39, rating: '85% (7)', bread: 'crispy bread',
-      tag: 'Top Rated',
-      img: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=800&q=80'
-    },
-    {
-      id: 'chicken-kabab', num: '#23', name: 'Chicken Kabab',
-      desc: 'Two seasoned ground chicken skewers, served on a bed of rice, with hummus, salad, and crispy bread.',
-      price: 21.19, bread: 'crispy bread',
-      img: 'https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=800&q=80'
-    },
-    {
-      id: 'mix-kabab', num: '#24', name: 'Mix Kabab',
-      desc: 'One seasoned ground beef skewer & one seasoned ground chicken skewer, on rice with hummus, salad, crispy bread.',
-      price: 22.19, rating: '100% (8)', bread: 'crispy bread',
-      tag: '100% Liked', tagType: 'popular',
-      img: 'https://images.unsplash.com/photo-1559847844-5315695dadae?w=800&q=80'
-    },
-    {
-      id: 'chicken-shawarma', num: '#25', name: 'Chicken Shawarma',
-      desc: 'Shaved, roasted pieces of marinated chicken, served on a bed of rice, with hummus, salad, and pita bread.',
-      price: 21.19, bread: 'pita bread',
-      tag: 'Bestseller', tagType: 'popular',
-      img: 'https://images.unsplash.com/photo-1561651823-34feb02250e4?w=800&q=80'
-    },
-    {
-      id: 'beef-shawarma', num: '#26', name: 'Beef Shawarma',
-      desc: 'Shaved roasted pieces of marinated beef, served on a bed of rice, with hummus, salad, and pita bread.',
-      price: 22.39, bread: 'pita bread',
-      img: 'https://images.unsplash.com/photo-1633321702518-7feccafb94d5?w=800&q=80'
-    },
-    {
-      id: 'mix-shawarma', num: '#27', name: 'Mix Shawarma',
-      desc: 'Shaved roasted pieces of marinated beef & shaved roasted pieces of marinated chicken, on rice with hummus, salad, pita.',
-      price: 21.19, rating: '100% (8)', bread: 'pita bread',
-      tag: '100% Liked', tagType: 'popular',
-      img: 'https://images.unsplash.com/photo-1604152135912-04a022e23696?w=800&q=80'
-    },
-    {
-      id: 'lamb-gyro', num: '#28', name: 'Lamb Gyro',
-      desc: 'Shaved lamb gyro meat, served on a bed of rice, with hummus, salad, and pita bread.',
-      price: 21.19, bread: 'pita bread',
-      img: 'https://images.unsplash.com/photo-1530469912745-a215c6b256ea?w=800&q=80'
-    },
-    {
-      id: 'chicken-gyro', num: '#29', name: 'Chicken Gyro',
-      desc: 'Shaved chicken gyro meat, served on a bed of rice, with hummus, salad, and pita bread.',
-      price: 21.19, bread: 'pita bread',
-      img: 'https://images.unsplash.com/photo-1639024471283-03518883512d?w=800&q=80'
-    },
-    {
-      id: 'mix-gyro', num: '#30', name: 'Mix Gyro',
-      desc: 'Shaved chicken gyro meat & shaved lamb gyro meat, on a bed of rice, with hummus, salad, and pita bread.',
-      price: 21.19, bread: 'pita bread',
-      img: 'https://images.unsplash.com/photo-1593504049359-74330189a345?w=800&q=80'
-    },
-    {
-      id: 'lamb-tikka', num: '#31', name: 'Lamb Tikka',
-      desc: 'Two skewers of marinated lamb medallions, served on a bed of rice, with hummus, salad, and crispy bread.',
-      price: 27.99, bread: 'crispy bread',
-      tag: 'Premium',
-      img: 'https://images.unsplash.com/photo-1633237308525-cd587cf71926?w=800&q=80'
-    },
-    {
-      id: 'chicken-tikka', num: '#32', name: 'Chicken Tikka',
-      desc: 'Two skewers of marinated chicken chunks, served on a bed of rice, with hummus, salad, and crispy bread.',
-      price: 26.99, bread: 'crispy bread',
-      tag: 'Chef\'s Pick',
-      img: 'https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?w=800&q=80'
-    },
-    {
-      id: 'mix-tikka', num: '#33', name: 'Mix Tikka',
-      desc: 'One skewer of marinated chicken chunks & one skewer of marinated lamb medallions, on rice with hummus, salad, crispy bread.',
-      price: 27.99, bread: 'crispy bread',
-      img: 'https://images.unsplash.com/photo-1606755962773-d324e0a13086?w=800&q=80'
-    }
-  ];
+// ============ DATA: CATEGORIES ============
+const CATEGORIES = [
+  { id: 'wraps', name: 'Wraps', numRange: '#1–10', modifiers: 'wrap', defaultOpen: true },
+  { id: 'specials', name: "King's Special", numRange: '#11–16', modifiers: 'standard', defaultOpen: false },
+  { id: 'arabi', name: "King's Arabi", numRange: '#17–21', modifiers: 'arabi', defaultOpen: false, loyalty: true, badge: 'Redeem with Points ★' },
+  { id: 'entrees', name: 'Entrées', numRange: '#22–33', modifiers: 'entree', defaultOpen: true },
+  { id: 'family', name: 'Family Meals', numRange: 'Catering', modifiers: 'family', defaultOpen: false, badge: 'Feeds 3–5' },
+  { id: 'kids', name: 'Kids Meals', numRange: 'For little ones', modifiers: 'kids', defaultOpen: false },
+  { id: 'sides', name: 'Sides & Sauces', numRange: 'À la carte', modifiers: 'minimal', defaultOpen: false },
+  { id: 'drinks', name: 'Drinks', numRange: 'Beverages', modifiers: 'none', defaultOpen: false }
+];
+
+// ============ DATA: MENU ITEMS (pulled directly from DoorDash) ============
+const MENU = [
+  // WRAPS
+  { id: 'w1', cat: 'wraps', num: '#1', name: 'Chicken Shawarma Wrap', desc: 'Shaved roasted pieces of marinated chicken, wrapped in a panini-pressed tortilla, with sliced cucumber pickles and garlic sauce.', price: 13.59, rating: '88% (17)', tag: '#3 Most Liked', tagType: 'popular', img: 'https://images.unsplash.com/photo-1626700051175-6818013e1d4f?w=600&q=80' },
+  { id: 'w2', cat: 'wraps', num: '#2', name: 'Beef Shawarma Wrap', desc: 'Shaved roasted pieces of marinated beef, wrapped in a panini-pressed tortilla, with hummus, muhammara, lettuce, tomato, onion, tahini.', price: 14.59, img: 'https://images.unsplash.com/photo-1633321702518-7feccafb94d5?w=600&q=80' },
+  { id: 'w3', cat: 'wraps', num: '#3', name: 'Gyro Lamb Wrap', desc: 'Shaved gyro meat, wrapped in a panini-pressed tortilla, with tzatziki sauce, muhammara, onion, lettuce, tomato.', price: 13.59, img: 'https://images.unsplash.com/photo-1530469912745-a215c6b256ea?w=600&q=80' },
+  { id: 'w4', cat: 'wraps', num: '#4', name: 'Chicken Gyro Wrap', desc: 'Shaved chicken gyro meat, wrapped in a panini-pressed tortilla, with tzatziki sauce, muhammara, onion, lettuce, tomato.', price: 13.59, rating: '100% (13)', tag: '100% Liked', tagType: 'popular', img: 'https://images.unsplash.com/photo-1604152135912-04a022e23696?w=600&q=80' },
+  { id: 'w5', cat: 'wraps', num: '#5', name: 'Beef Kabab Wrap', desc: 'Seasoned ground beef skewer, wrapped in a panini-pressed tortilla with hummus, muhammara, lettuce, tomato, onion, tahini.', price: 14.59, img: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=600&q=80' },
+  { id: 'w6', cat: 'wraps', num: '#6', name: 'Chicken Kabab Wrap', desc: 'Seasoned ground chicken skewer, wrapped in a panini-pressed tortilla with hummus, muhammara, lettuce, tomato, onion, tahini.', price: 13.59, img: 'https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=600&q=80' },
+  { id: 'w7', cat: 'wraps', num: '#7', name: 'Lamb Tikka Wrap', desc: 'Marinated lamb medallions, wrapped in a panini-pressed tortilla with hummus, muhammara, lettuce, tomato, onion, tahini.', price: 16.79, img: 'https://images.unsplash.com/photo-1633237308525-cd587cf71926?w=600&q=80' },
+  { id: 'w8', cat: 'wraps', num: '#8', name: 'Chicken Tikka Wrap', desc: 'Chunks of marinated chicken, wrapped in a panini-pressed tortilla with garlic sauce, muhammara, lettuce, tomato, onion.', price: 15.59, img: 'https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?w=600&q=80' },
+  { id: 'w9', cat: 'wraps', num: '#9', name: 'Falafel Wrap', desc: '5 pieces of falafel, wrapped in a panini-pressed tortilla with hummus, muhammara, pickles, lettuce, tomato, cucumber, tahini.', price: 12.59, img: 'https://images.unsplash.com/photo-1593001872095-7d5b3868fb1d?w=600&q=80' },
+  { id: 'w10', cat: 'wraps', num: '#10', name: 'French Fries Wrap', desc: 'Seasoned crispy fries, wrapped in a panini-pressed tortilla with garlic sauce, ketchup, and pickles.', price: 9.19, img: 'https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=600&q=80' },
   
-  const grid = document.getElementById('menuGrid');
-  MENU.forEach(item => {
-    const card = document.createElement('div');
-    card.className = 'menu-card';
-    card.onclick = () => openModal(item);
-    const tagHTML = item.tag ? `<span class="tag ${item.tagType === 'popular' ? 'popular' : ''}">${item.tag}</span>` : '';
-    const ratingHTML = item.rating ? `<span class="rating">${item.rating}</span>` : '';
-    card.innerHTML = `
-      <div class="menu-card-img" style="background-image:url('${item.img}')">
-        ${tagHTML}
-        ${ratingHTML}
-        <span class="placeholder-badge">Sample Photo</span>
-      </div>
-      <div class="menu-card-body">
-        <div class="item-num">${item.num}</div>
-        <h3>${item.name}</h3>
-        <p class="desc">${item.desc}</p>
-        <div class="row">
-          <span class="price">$${item.price.toFixed(2)}</span>
-          <button class="add" onclick="event.stopPropagation(); openModalById('${item.id}')">Customize</button>
+  // KING'S SPECIAL
+  { id: 's11', cat: 'specials', num: '#11', name: 'Half Grilled Chicken', desc: 'Syrian-style marinated chicken grilled over charcoal, served with fries and garlic sauce. (20–30 min prep)', price: 18.19, rating: '77% (9)', img: 'https://images.unsplash.com/photo-1598103442097-8b74394b95c6?w=600&q=80' },
+  { id: 's12', cat: 'specials', num: '#12', name: 'Hummus Topped with Beef Shawarma', desc: 'Homemade dip made with chickpeas, sesame paste, and lemon juice, topped with beef shawarma and served with pita bread.', price: 17.79, img: 'https://images.unsplash.com/photo-1604152135912-04a022e23696?w=600&q=80' },
+  { id: 's13', cat: 'specials', num: '#13', name: 'Falafel & Hummus', desc: '10 pieces of falafel, served with hummus, mixed pickled veggies, and pita bread.', price: 18.19, img: 'https://images.unsplash.com/photo-1593001872095-7d5b3868fb1d?w=600&q=80' },
+  { id: 's14', cat: 'specials', num: '#14', name: 'Vegetarian Platter', desc: '4 pieces of falafel, 4 pieces of grape leaf, served with hummus, muhammara, greek salad, and pita bread.', price: 17.59, img: 'https://images.unsplash.com/photo-1540420773420-3366772f4999?w=600&q=80' },
+  { id: 's15', cat: 'specials', num: '#15', name: 'Falafel Salad', desc: '10 pieces of falafel over a salad of shredded lettuce, diced tomato, cucumber, feta cheese, black olives, and Italian dressing.', price: 17.19, img: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&q=80' },
+  { id: 's16', cat: 'specials', num: '#16', name: 'Gyro Salad with Chicken or Lamb', desc: 'Shaved gyro meat over a salad of shredded lettuce, diced tomato, cucumber, onion, feta, olives, Italian dressing.', price: 15.59, img: 'https://images.unsplash.com/photo-1551248429-40975aa4de74?w=600&q=80' },
+  { id: 's-dubai', cat: 'specials', num: 'New', name: 'Strawberry Dubai Chocolate', desc: 'Freshly cut strawberry, crispy kataif (shredded filo pastry), pistachio cream, and melted chocolate.', price: 15.59, tag: 'Dessert', img: 'https://images.unsplash.com/photo-1604152135912-04a022e23696?w=600&q=80' },
+  
+  // KING'S ARABI — LOYALTY ELIGIBLE
+  { id: 'a17', cat: 'arabi', num: '#17', name: 'Chicken Shawarma Arabi', desc: 'Shaved chicken shawarma, panini-pressed tortilla, sliced cucumber pickles, garlic sauce — cut into 7–8 finger-bite pieces and served with fries, pickles, and garlic sauce.', price: 18.79, rating: '100% (16)', tag: '#1 Most Liked', tagType: 'popular', img: 'https://images.unsplash.com/photo-1561651823-34feb02250e4?w=600&q=80', points: 800 },
+  { id: 'a18', cat: 'arabi', num: '#18', name: 'Beef Shawarma Arabi', desc: 'Shaved beef shawarma wrapped in a panini-pressed tortilla with hummus, muhammara, lettuce, tomato, onion, tahini — cut into 7–8 finger-bite pieces, served with fries, pickles, hummus.', price: 19.79, img: 'https://images.unsplash.com/photo-1633321702518-7feccafb94d5?w=600&q=80', points: 1000 },
+  { id: 'a19', cat: 'arabi', num: '#19', name: 'Gyro Lamb Arabi', desc: 'Shaved gyro meat in panini-pressed tortilla with tzatziki, muhammara, onion, lettuce, tomato — finger-bite cut, served with fries, pickles, and tzatziki sauce.', price: 18.79, rating: '77% (9)', img: 'https://images.unsplash.com/photo-1530469912745-a215c6b256ea?w=600&q=80', points: 800 },
+  { id: 'a20', cat: 'arabi', num: '#20', name: 'Chicken Gyro Arabi', desc: 'Shaved chicken gyro in panini-pressed tortilla with tzatziki, muhammara, onion, lettuce, tomato — finger-bite cut, served with fries, pickles, tzatziki sauce.', price: 18.79, rating: '77% (9)', img: 'https://images.unsplash.com/photo-1604152135912-04a022e23696?w=600&q=80', points: 800 },
+  { id: 'a21', cat: 'arabi', num: '#21', name: 'Falafel Arabi', desc: '5 pieces of falafel in panini-pressed tortilla with hummus, muhammara, pickles, lettuce, tomato, cucumber, tahini — finger-bite cut, served with fries, pickles, hummus.', price: 17.19, img: 'https://images.unsplash.com/photo-1593001872095-7d5b3868fb1d?w=600&q=80', points: 800 },
+  
+  // ENTRÉES
+  { id: 'e22', cat: 'entrees', num: '#22', name: 'Beef Kabab', desc: 'Two seasoned ground beef skewers, served on a bed of rice, with hummus, salad, and crispy bread.', price: 22.39, rating: '85% (7)', tag: 'Top Rated', img: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=600&q=80', bread: 'crispy bread' },
+  { id: 'e23', cat: 'entrees', num: '#23', name: 'Chicken Kabab', desc: 'Two seasoned ground chicken skewers, served on a bed of rice, with hummus, salad, and crispy bread.', price: 21.19, img: 'https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=600&q=80', bread: 'crispy bread' },
+  { id: 'e24', cat: 'entrees', num: '#24', name: 'Mix Kabab', desc: 'One seasoned ground beef skewer & one seasoned ground chicken skewer, on rice with hummus, salad, crispy bread.', price: 22.19, rating: '100% (8)', tag: '100% Liked', tagType: 'popular', img: 'https://images.unsplash.com/photo-1559847844-5315695dadae?w=600&q=80', bread: 'crispy bread' },
+  { id: 'e25', cat: 'entrees', num: '#25', name: 'Chicken Shawarma', desc: 'Shaved, roasted pieces of marinated chicken, served on a bed of rice, with hummus, salad, and pita bread.', price: 21.19, tag: 'Bestseller', tagType: 'popular', img: 'https://images.unsplash.com/photo-1561651823-34feb02250e4?w=600&q=80', bread: 'pita bread' },
+  { id: 'e26', cat: 'entrees', num: '#26', name: 'Beef Shawarma', desc: 'Shaved roasted pieces of marinated beef, on rice with hummus, salad, and pita bread.', price: 22.39, img: 'https://images.unsplash.com/photo-1633321702518-7feccafb94d5?w=600&q=80', bread: 'pita bread' },
+  { id: 'e27', cat: 'entrees', num: '#27', name: 'Mix Shawarma', desc: 'Shaved roasted beef & chicken, on rice with hummus, salad, and pita bread.', price: 21.19, rating: '100% (8)', tag: '100% Liked', tagType: 'popular', img: 'https://images.unsplash.com/photo-1604152135912-04a022e23696?w=600&q=80', bread: 'pita bread' },
+  { id: 'e28', cat: 'entrees', num: '#28', name: 'Lamb Gyro', desc: 'Shaved lamb gyro meat, served on a bed of rice, with hummus, salad, and pita bread.', price: 21.19, img: 'https://images.unsplash.com/photo-1530469912745-a215c6b256ea?w=600&q=80', bread: 'pita bread' },
+  { id: 'e29', cat: 'entrees', num: '#29', name: 'Chicken Gyro', desc: 'Shaved chicken gyro meat, served on a bed of rice, with hummus, salad, and pita bread.', price: 21.19, img: 'https://images.unsplash.com/photo-1639024471283-03518883512d?w=600&q=80', bread: 'pita bread' },
+  { id: 'e30', cat: 'entrees', num: '#30', name: 'Mix Gyro', desc: 'Shaved chicken gyro & shaved lamb gyro, on rice with hummus, salad, and pita bread.', price: 21.19, img: 'https://images.unsplash.com/photo-1593504049359-74330189a345?w=600&q=80', bread: 'pita bread' },
+  { id: 'e31', cat: 'entrees', num: '#31', name: 'Lamb Tikka', desc: 'Two skewers of marinated lamb medallions, on rice with hummus, salad, and crispy bread.', price: 27.99, tag: 'Premium', img: 'https://images.unsplash.com/photo-1633237308525-cd587cf71926?w=600&q=80', bread: 'crispy bread' },
+  { id: 'e32', cat: 'entrees', num: '#32', name: 'Chicken Tikka', desc: 'Two skewers of marinated chicken chunks, on rice with hummus, salad, and crispy bread.', price: 26.99, tag: "Chef's Pick", img: 'https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?w=600&q=80', bread: 'crispy bread' },
+  { id: 'e33', cat: 'entrees', num: '#33', name: 'Mix Tikka', desc: 'One skewer of marinated chicken chunks & one of marinated lamb medallions, on rice with hummus, salad, crispy bread.', price: 27.99, img: 'https://images.unsplash.com/photo-1606755962773-d324e0a13086?w=600&q=80', bread: 'crispy bread' },
+  
+  // FAMILY MEALS
+  { id: 'f1', cat: 'family', num: 'Family', name: 'King\'s Family For 4', desc: '8 skewers (2 lamb medallions, 2 marinated chicken chunks, 2 ground beef, 2 ground chicken) — feeds 4.', price: 75.19, tag: 'Most Variety', img: 'https://images.unsplash.com/photo-1547573854-74d2a71d0826?w=600&q=80' },
+  { id: 'f2', cat: 'family', num: 'Family', name: 'Family Kabab For 3', desc: '6 skewers (3 ground beef, 3 ground chicken) with three sides of your choice.', price: 65.19, img: 'https://images.unsplash.com/photo-1559847844-5315695dadae?w=600&q=80' },
+  { id: 'f3', cat: 'family', num: 'Family', name: 'Family Kabab For 5', desc: '10 skewers (5 ground beef, 5 ground chicken) with 5 sides of your choice.', price: 89.39, img: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=600&q=80' },
+  { id: 'f4', cat: 'family', num: 'Family', name: 'Family Tikka For 3', desc: '6 skewers (3 lamb medallions, 3 chicken chunks) with three sides of your choice.', price: 75.19, img: 'https://images.unsplash.com/photo-1633237308525-cd587cf71926?w=600&q=80' },
+  { id: 'f5', cat: 'family', num: 'Family', name: 'Family Tikka For 5', desc: '10 skewers (5 lamb medallions, 5 chicken chunks) with five sides of your choice.', price: 99.99, tag: 'Premium', img: 'https://images.unsplash.com/photo-1606755962773-d324e0a13086?w=600&q=80' },
+  { id: 'f6', cat: 'family', num: 'Family', name: 'Chicken Shawarma Arabi For 3', desc: 'Three chicken shawarma wraps arabi style, with three sides of your choice.', price: 50.39, img: 'https://images.unsplash.com/photo-1561651823-34feb02250e4?w=600&q=80' },
+  { id: 'f7', cat: 'family', num: 'Family', name: 'Chicken Shawarma Arabi For 5', desc: 'Five chicken shawarma wraps arabi style, with five sides of your choice.', price: 75.19, img: 'https://images.unsplash.com/photo-1604152135912-04a022e23696?w=600&q=80' },
+  { id: 'f8', cat: 'family', num: 'Family', name: 'Beef Shawarma Arabi For 3', desc: 'Three beef shawarma wraps arabi style, with three sides of your choice.', price: 62.19, img: 'https://images.unsplash.com/photo-1633321702518-7feccafb94d5?w=600&q=80' },
+  { id: 'f9', cat: 'family', num: 'Family', name: 'Beef Shawarma Arabi For 5', desc: 'Five beef shawarma wraps arabi style, with five sides of your choice.', price: 85.39, img: 'https://images.unsplash.com/photo-1626700051175-6818013e1d4f?w=600&q=80' },
+  { id: 'f10', cat: 'family', num: 'Family', name: 'Only-Kabab Meal For 5', desc: '10 skewers (5 ground beef, 5 ground chicken). Note: No sides included.', price: 59.19, img: 'https://images.unsplash.com/photo-1565299507177-b0ac66763828?w=600&q=80' },
+  
+  // KIDS MEALS
+  { id: 'k1', cat: 'kids', num: 'Kids', name: 'Kid\'s Kabab', desc: 'Two seasoned ground chicken kabab skewers, served with fries.', price: 13.79, img: 'https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=600&q=80' },
+  { id: 'k2', cat: 'kids', num: 'Kids', name: 'Chicken Wings', desc: 'Crispy, juicy wings — perfect for dipping, served with fries, garlic sauce, and hot sauce.', price: 13.19, img: 'https://images.unsplash.com/photo-1567620832903-9fc6debc209f?w=600&q=80' },
+  { id: 'k3', cat: 'kids', num: 'Kids', name: 'Chicken Nuggets', desc: 'Tender chicken nuggets served with fries, garlic sauce, and ketchup.', price: 11.39, img: 'https://images.unsplash.com/photo-1562967914-608f82629710?w=600&q=80' },
+  
+  // SIDES
+  { id: 'sd1', cat: 'sides', num: 'Side', name: 'Small Fries', desc: 'Seasoned french fries with garlic sauce, ketchup, and hot sauce.', price: 5.39, rating: '100% (15)', tag: '#2 Most Liked', tagType: 'popular', img: 'https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=600&q=80' },
+  { id: 'sd2', cat: 'sides', num: 'Side', name: 'Large Fries', desc: 'Large side of seasoned french fries with garlic sauce, ketchup, and hot sauce.', price: 9.19, img: 'https://images.unsplash.com/photo-1576107232684-1279f390859f?w=600&q=80' },
+  { id: 'sd3', cat: 'sides', num: 'Side', name: 'Grape Leaves', desc: 'Grape leaves filled with a tasty rice mixture with herbs, shaped into small rolls.', price: 6.39, img: 'https://images.unsplash.com/photo-1625944525533-473f1b3d9684?w=600&q=80' },
+  { id: 'sd4', cat: 'sides', num: 'Side', name: 'Rice', desc: 'Yellow rice made from basmati rice.', price: 5.59, img: 'https://images.unsplash.com/photo-1596797038530-2c107229654b?w=600&q=80' },
+  { id: 'sd5', cat: 'sides', num: 'Side', name: 'Hummus', desc: 'Homemade dip made with chickpeas, sesame paste, and lemon juice, served with pita bread.', price: 7.19, rating: '88% (9)', img: 'https://images.unsplash.com/photo-1593001872095-7d5b3868fb1d?w=600&q=80' },
+  { id: 'sd6', cat: 'sides', num: 'Side', name: 'Falafel', desc: 'Deep-fried falafel made from chickpeas, fresh herbs, and spices.', price: 7.39, img: 'https://images.unsplash.com/photo-1547928576-9b3eda2c64fb?w=600&q=80' },
+  { id: 'sd7', cat: 'sides', num: 'Side', name: 'Pita Bread', desc: 'Fluffy, warm pita bread, perfect for dips.', price: 1.49, rating: '66% (9)', img: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=600&q=80' },
+  { id: 'sd8', cat: 'sides', num: 'Side', name: 'Greek Salad', desc: 'Shredded lettuce, diced tomato, cucumber, feta cheese, black olives, Italian dressing.', price: 6.79, img: 'https://images.unsplash.com/photo-1551248429-40975aa4de74?w=600&q=80' },
+  { id: 'sd9', cat: 'sides', num: 'Side', name: 'Mixed Pickled Vegetables', desc: 'Pickled cauliflower, carrots, celery, yellow pepper, red pepper, and lemon.', price: 6.39, img: 'https://images.unsplash.com/photo-1606923829579-0cb981a83e2e?w=600&q=80' },
+  { id: 'sd10', cat: 'sides', num: 'Side', name: 'Muhammara', desc: 'Smoky red pepper and walnut spread, blended with olive oil and spices.', price: 7.19, img: 'https://images.unsplash.com/photo-1626700051175-6818013e1d4f?w=600&q=80' },
+  { id: 'sd11', cat: 'sides', num: 'Side', name: 'Tzatziki Sauce (Large)', desc: 'Greek-style cucumber and tangy yogurt dip — large portion.', price: 7.19, img: 'https://images.unsplash.com/photo-1626776877582-7b1c4a8a85ce?w=600&q=80' },
+  { id: 'sd12', cat: 'sides', num: 'Side', name: 'Garlic Sauce (Large)', desc: 'Authentic Syrian garlic dipping sauce — large portion.', price: 7.19, img: 'https://images.unsplash.com/photo-1559561853-08451507cbe7?w=600&q=80' },
+  { id: 'sd13', cat: 'sides', num: 'Side', name: 'Tzatziki Sauce (2oz)', desc: 'Creamy yogurt blend with cucumber, garlic, and herbs.', price: 0.99, img: 'https://images.unsplash.com/photo-1626776877582-7b1c4a8a85ce?w=600&q=80' },
+  { id: 'sd14', cat: 'sides', num: 'Side', name: 'Garlic Sauce (2oz)', desc: 'Creamy garlic sauce made with blended garlic, olive oil, and lemon juice.', price: 0.99, img: 'https://images.unsplash.com/photo-1559561853-08451507cbe7?w=600&q=80' },
+  { id: 'sd15', cat: 'sides', num: 'Side', name: "King's Hot Sauce (2oz)", desc: "A rich, Mediterranean-style sauce with a blend of spices — bold and savory.", price: 0.99, img: 'https://images.unsplash.com/photo-1607437895606-4928e15daf95?w=600&q=80' },
+  { id: 'sd16', cat: 'sides', num: 'Side', name: 'Tahini Sauce (2oz)', desc: 'Creamy blend of sesame paste with hints of lemon and garlic.', price: 0.99, img: 'https://images.unsplash.com/photo-1626776877582-7b1c4a8a85ce?w=600&q=80' },
+  { id: 'sd17', cat: 'sides', num: 'Side', name: 'Feta Cheese', desc: 'Crumbled feta cheese seasoned with cracked black pepper — tangy and rich.', price: 0.99, img: 'https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?w=600&q=80' },
+  
+  // DRINKS
+  { id: 'd1', cat: 'drinks', num: 'Drink', name: 'Mexican Coke', desc: 'The same great taste, made with pure cane sugar — served in a bottle.', price: 3.59, img: 'https://images.unsplash.com/photo-1554866585-cd94860890b7?w=600&q=80' },
+  { id: 'd2', cat: 'drinks', num: 'Drink', name: 'Mexican Fanta', desc: 'Change up your routine with the bright, bubbly, fruity orange flavor.', price: 3.59, img: 'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=600&q=80' },
+  { id: 'd3', cat: 'drinks', num: 'Drink', name: 'Coke', desc: 'The cold, refreshing, sparkling classic that America loves.', price: 1.79, rating: '100% (6)', img: 'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=600&q=80' },
+  { id: 'd4', cat: 'drinks', num: 'Drink', name: 'Sprite', desc: 'The cold, refreshing flavors of lemon and lime, perfectly blended.', price: 1.79, img: 'https://images.unsplash.com/photo-1625772299848-391b6a87d7b3?w=600&q=80' },
+  { id: 'd5', cat: 'drinks', num: 'Drink', name: 'Diet Coke', desc: 'A crisp, refreshing taste you know and love — zero calories.', price: 1.79, img: 'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=600&q=80' },
+  { id: 'd6', cat: 'drinks', num: 'Drink', name: 'Big Red', desc: 'A sweet, carbonated drink with a distinct red hue and a unique flavor profile.', price: 1.79, img: 'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=600&q=80' },
+  { id: 'd7', cat: 'drinks', num: 'Drink', name: 'Dr Pepper', desc: 'A classic refreshing soda — 23 flavors blended into one.', price: 1.79, img: 'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=600&q=80' },
+  { id: 'd8', cat: 'drinks', num: 'Drink', name: 'Water', desc: 'Clear, refreshing bottled water.', price: 1.19, img: 'https://images.unsplash.com/photo-1606168094336-48f8b0c1cf57?w=600&q=80' }
+];
+
+// ============ MODIFIER SETS ============
+// Different categories have different modifier structures
+const MODIFIERS = {
+  // Entrée modifiers — pulled from DoorDash exactly
+  entree: [
+    {
+      title: 'Modifications', req: 'Optional', type: 'multi',
+      options: [
+        { name: 'Add lamb tikka skewer', extra: 8.99 },
+        { name: 'Add chicken tikka skewer', extra: 7.99 },
+        { name: 'Add chicken kabab skewer', extra: 5.99 },
+        { name: 'Add an extra crispy bread', extra: 3.89 },
+        { name: 'Add cheddar cheese on the kabab', extra: 2.59 },
+        { name: 'Add side of fries', extra: 5.39 },
+        { name: 'Add grilled tomato', extra: 0.89 },
+        { name: 'Add grilled green peppers', extra: 0.89 },
+        { name: 'Add grilled onion', extra: 0.89 },
+        { name: 'Add 2oz Jalapeño', extra: 0.59 },
+        { name: 'Add 2oz pomegranate sauce', extra: 0.59 },
+        { name: 'No salad, double rice', extra: 0.89 },
+        { name: 'No rice, double salad', extra: 0.89 },
+        { name: 'No hummus, double salad', extra: 0.89 },
+        { name: 'No onion inside the crispy bread', extra: 0, free: true },
+        { name: 'No muhammara inside the crispy bread', extra: 0, free: true },
+        { name: 'No onion at all', extra: 0, free: true },
+        { name: 'Extra lemon', extra: 0, free: true },
+        { name: 'Extra tzatziki sauce', extra: 0, free: true }
+      ]
+    },
+    {
+      title: 'Add A Drink', req: 'Optional', type: 'multi',
+      options: [
+        { name: 'Coke', extra: 1.79 },
+        { name: 'Sprite', extra: 1.79 },
+        { name: 'Diet Coke', extra: 1.79 },
+        { name: 'Big Red', extra: 1.79 },
+        { name: 'Dr Pepper', extra: 1.79 },
+        { name: 'Mexican Coke', extra: 3.59 },
+        { name: 'Mexican Fanta', extra: 3.59 },
+        { name: 'Water', extra: 1.19 }
+      ]
+    },
+    {
+      title: 'Recommended Sides And Apps', req: 'Optional · Choose up to 5', type: 'multi',
+      options: [
+        { name: 'Small Fries', extra: 5.39 },
+        { name: 'Grape Leaves', extra: 6.39 },
+        { name: 'Rice', extra: 5.59 },
+        { name: 'Pita Bread', extra: 1.49 },
+        { name: 'Hummus', extra: 7.19 }
+      ]
+    }
+  ],
+  
+  // Wrap modifiers
+  wrap: [
+    {
+      title: 'Modifications', req: 'Optional', type: 'multi',
+      options: [
+        { name: 'Add cheddar cheese (inside the wrap)', extra: 4.59 },
+        { name: 'Add an extra wrap', extra: 8.99 },
+        { name: 'Add side of fries', extra: 5.39 },
+        { name: 'Add 2oz Jalapeño', extra: 0.89 },
+        { name: 'Add 2oz pomegranate sauce', extra: 0.89 },
+        { name: 'Add extra pickles', extra: 0.89 },
+        { name: 'Extra tahini sauce', extra: 0.89 },
+        { name: 'Cut only in half', extra: 0, free: true },
+        { name: 'Extra crispy', extra: 0, free: true },
+        { name: 'No onion', extra: 0, free: true },
+        { name: 'No muhammara', extra: 0, free: true }
+      ]
+    },
+    {
+      title: 'Add A Drink', req: 'Optional', type: 'multi',
+      options: [
+        { name: 'Coke', extra: 1.79 },
+        { name: 'Sprite', extra: 1.79 },
+        { name: 'Diet Coke', extra: 1.79 },
+        { name: 'Big Red', extra: 1.79 },
+        { name: 'Dr Pepper', extra: 1.79 },
+        { name: 'Mexican Coke', extra: 3.59 },
+        { name: 'Mexican Fanta', extra: 3.59 },
+        { name: 'Water', extra: 1.19 }
+      ]
+    }
+  ],
+  
+  // Arabi modifiers — premium handhelds (loyalty-eligible)
+  arabi: [
+    {
+      title: 'Modifications', req: 'Optional', type: 'multi',
+      options: [
+        { name: 'Add cheddar cheese (inside the wrap)', extra: 4.59 },
+        { name: 'Add 2oz Jalapeño', extra: 0.89 },
+        { name: 'Add 2oz pomegranate sauce', extra: 0.89 },
+        { name: 'Extra tahini sauce', extra: 0.89 },
+        { name: 'Add extra pickles', extra: 0.89 },
+        { name: 'Cut only in half', extra: 0, free: true },
+        { name: 'Extra crispy', extra: 0, free: true },
+        { name: 'No onion', extra: 0, free: true },
+        { name: 'No muhammara', extra: 0, free: true }
+      ]
+    },
+    {
+      title: 'Add A Drink', req: 'Optional', type: 'multi',
+      options: [
+        { name: 'Coke', extra: 1.79 },
+        { name: 'Sprite', extra: 1.79 },
+        { name: 'Mexican Coke', extra: 3.59 },
+        { name: 'Mexican Fanta', extra: 3.59 },
+        { name: 'Water', extra: 1.19 }
+      ]
+    }
+  ],
+  
+  // Family meal modifiers — from screenshot
+  family: [
+    {
+      title: 'Customize Your Family Meal', req: 'Optional', type: 'multi',
+      options: [
+        { name: 'Substitute one wrap with gyro lamb wrap', extra: 0, free: true },
+        { name: 'Substitute one wrap with chicken shawarma wrap', extra: 0, free: true },
+        { name: 'Substitute one wrap with chicken gyro wrap', extra: 0, free: true },
+        { name: 'Extra tahini sauce', extra: 0.89 },
+        { name: 'Add extra pickles', extra: 0.89 },
+        { name: 'Add 2oz Jalapeño', extra: 0.89 },
+        { name: 'Add 2oz pomegranate sauce', extra: 0.89 },
+        { name: 'Add cheddar cheese (inside the wraps)', extra: 4.59 },
+        { name: 'Cut only in half', extra: 0, free: true },
+        { name: 'Extra crispy', extra: 0, free: true }
+      ]
+    },
+    {
+      title: 'Choose Your Sides', req: 'Most family meals include 3–5 sides', type: 'multi',
+      options: [
+        { name: 'Yellow Rice', extra: 0, free: true },
+        { name: 'Hummus', extra: 0, free: true },
+        { name: 'Greek Salad', extra: 0, free: true },
+        { name: 'French Fries', extra: 0, free: true },
+        { name: 'Pita Bread', extra: 0, free: true },
+        { name: 'Pickled Vegetables', extra: 0, free: true }
+      ]
+    },
+    {
+      title: 'Add A Drink', req: 'Optional', type: 'multi',
+      options: [
+        { name: 'Coke', extra: 1.79 },
+        { name: 'Sprite', extra: 1.79 },
+        { name: 'Mexican Coke', extra: 3.59 },
+        { name: 'Mexican Fanta', extra: 3.59 },
+        { name: 'Water', extra: 1.19 }
+      ]
+    }
+  ],
+  
+  // Kids modifiers
+  kids: [
+    {
+      title: 'Modifications', req: 'Optional', type: 'multi',
+      options: [
+        { name: 'Add ketchup', extra: 0, free: true },
+        { name: 'Add ranch', extra: 0.59 },
+        { name: 'Add extra garlic sauce', extra: 0.89 }
+      ]
+    },
+    {
+      title: 'Add A Drink', req: 'Optional', type: 'multi',
+      options: [
+        { name: 'Coke', extra: 1.79 },
+        { name: 'Sprite', extra: 1.79 },
+        { name: 'Water', extra: 1.19 }
+      ]
+    }
+  ],
+  
+  // Standard (specials)
+  standard: [
+    {
+      title: 'Modifications', req: 'Optional', type: 'multi',
+      options: [
+        { name: 'Add an extra portion of meat', extra: 5.99 },
+        { name: 'Add extra pita bread', extra: 1.49 },
+        { name: 'Add side of fries', extra: 5.39 },
+        { name: 'Extra tahini sauce', extra: 0.89 },
+        { name: 'Add 2oz Jalapeño', extra: 0.89 },
+        { name: 'No onion', extra: 0, free: true },
+        { name: 'No muhammara', extra: 0, free: true }
+      ]
+    },
+    {
+      title: 'Add A Drink', req: 'Optional', type: 'multi',
+      options: [
+        { name: 'Coke', extra: 1.79 },
+        { name: 'Sprite', extra: 1.79 },
+        { name: 'Mexican Coke', extra: 3.59 },
+        { name: 'Mexican Fanta', extra: 3.59 },
+        { name: 'Water', extra: 1.19 }
+      ]
+    }
+  ],
+  
+  // Sides — minimal
+  minimal: [
+    {
+      title: 'Quantity Options', req: 'Optional', type: 'multi',
+      options: [
+        { name: 'Make it a double', extra: 0, dynamic: 'double' }
+      ]
+    }
+  ],
+  
+  none: []
+};
+
+// ============ STATE ============
+let CART = [];
+let currentItem = null;
+let currentQty = 1;
+let payMethod = 'cash';
+let fulfillment = 'pickup';
+let pointsBalance = parseInt(localStorage.getItem('kingPoints') || '0');
+let activeSpecial = JSON.parse(localStorage.getItem('kingSpecial') || 'null');
+let scheduledEvents = JSON.parse(localStorage.getItem('kingEvents') || 'null') || [
+  { id: 'evt1', title: 'Live Oud Music Night', date: '2026-05-23', time: '6 – 9 PM', location: 'At the truck', desc: 'Authentic Syrian musicians performing live while you dine. Free entry, food specials all night.' },
+  { id: 'evt2', title: 'Pearl Farmers Market Pop-Up', date: '2026-05-30', time: '10 AM – 2 PM', location: 'The Pearl', desc: "We're rolling the truck to The Pearl for the weekend market. Try our shawarma in a new spot." },
+  { id: 'evt3', title: 'Ramadan Iftar Catering Window', date: '2026-06-05', time: 'Order ahead', location: 'Citywide', desc: 'Family-style catering packages for Iftar gatherings. Order at least 48 hours in advance — call (210) 719-1335.' }
+];
+
+// ============ RENDER MENU ============
+function renderMenu() {
+  const container = document.getElementById('menuCategories');
+  const quicknav = document.getElementById('quicknavInner');
+  container.innerHTML = '';
+  quicknav.innerHTML = '';
+  
+  CATEGORIES.forEach((cat, idx) => {
+    const items = MENU.filter(m => m.cat === cat.id);
+    
+    // Quicknav pill
+    const pill = document.createElement('button');
+    pill.className = 'quicknav-pill';
+    if (idx === 0) pill.classList.add('active');
+    pill.innerHTML = `${cat.name}<span class="count">${items.length}</span>`;
+    pill.onclick = () => {
+      document.getElementById('cat-' + cat.id).scrollIntoView({ behavior: 'smooth', block: 'start' });
+      // open the category if closed
+      const el = document.getElementById('cat-' + cat.id);
+      if (!el.classList.contains('open')) el.classList.add('open');
+      // update active pill
+      document.querySelectorAll('.quicknav-pill').forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+    };
+    quicknav.appendChild(pill);
+    
+    // Category section
+    const section = document.createElement('div');
+    section.className = 'menu-category' + (cat.defaultOpen ? ' open' : '');
+    section.id = 'cat-' + cat.id;
+    
+    const badgeHTML = cat.badge
+      ? `<span class="category-badge ${cat.loyalty ? 'loyalty' : ''}">${cat.badge}</span>`
+      : '';
+    
+    section.innerHTML = `
+      <div class="category-header" onclick="toggleCategory('${cat.id}')">
+        <div class="category-header-left">
+          <h2><span class="cat-num">${cat.numRange}</span>${cat.name}</h2>
+          ${badgeHTML}
+          <span class="category-count">${items.length} items</span>
         </div>
-      </div>`;
-    grid.appendChild(card);
+        <button class="category-toggle">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+      </div>
+      <div class="category-body">
+        <div class="category-body-inner">
+          ${cat.id === 'arabi' ? '<div class="category-intro">★ Premium Arabi-style handhelds — eligible for points redemption from King\'s Rewards.</div>' : ''}
+          ${cat.id === 'family' ? '<div class="category-intro">Catering-sized portions for groups of 3–5. Each meal customizable with the family modifier panel.</div>' : ''}
+          <div class="menu-grid ${cat.id === 'sides' ? '' : (cat.id === 'family' ? 'two-col' : '')}" id="grid-${cat.id}"></div>
+        </div>
+      </div>
+    `;
+    container.appendChild(section);
+    
+    // Render items
+    const grid = document.getElementById('grid-' + cat.id);
+    items.forEach(item => {
+      const card = document.createElement('div');
+      card.className = 'menu-card';
+      card.onclick = () => openModal(item);
+      const tagHTML = item.tag ? `<span class="tag ${item.tagType === 'popular' ? 'popular' : ''}">${item.tag}</span>` : '';
+      const ratingHTML = item.rating ? `<span class="rating">${item.rating}</span>` : '';
+      const ptsHTML = item.points ? `<div class="pts-price">${item.points} pts</div>` : '';
+      card.innerHTML = `
+        <div class="menu-card-img" style="background-image:url('${item.img}')">
+          ${tagHTML}
+          ${ratingHTML}
+          <span class="placeholder-badge">Sample</span>
+        </div>
+        <div class="menu-card-body">
+          <div class="item-num">${item.num}</div>
+          <h3>${item.name}</h3>
+          <p class="desc">${item.desc}</p>
+          <div class="row">
+            <div class="price-stack">
+              <span class="price">$${item.price.toFixed(2)}</span>
+              ${ptsHTML}
+            </div>
+            <button class="add" onclick="event.stopPropagation(); openModalById('${item.id}')">Add</button>
+          </div>
+        </div>`;
+      grid.appendChild(card);
+    });
+  });
+}
+
+function toggleCategory(catId) {
+  const el = document.getElementById('cat-' + catId);
+  el.classList.toggle('open');
+}
+
+// ============ ITEM MODAL ============
+function openModalById(id) {
+  const item = MENU.find(m => m.id === id);
+  if (item) openModal(item);
+}
+
+function openModal(item) {
+  currentItem = item;
+  currentQty = 1;
+  payMethod = 'cash';
+  
+  document.getElementById('modalImg').src = item.img;
+  document.getElementById('modalNum').textContent = item.num;
+  document.getElementById('modalRating').textContent = item.rating ? `👍 ${item.rating}` : '';
+  document.getElementById('modalTitle').textContent = item.name;
+  document.getElementById('modalDesc').textContent = item.desc;
+  document.getElementById('modalPrice').textContent = '$' + item.price.toFixed(2);
+  document.getElementById('modalQty').textContent = 1;
+  document.getElementById('modalNotes').value = '';
+  
+  // Served-with note (different per category)
+  const servedEl = document.getElementById('servedWith');
+  if (item.cat === 'entrees') {
+    servedEl.innerHTML = `<strong>Served With</strong>Bed of seasoned yellow rice · Homemade hummus · Fresh salad · ${item.bread === 'pita bread' ? 'Pita bread' : 'Crispy bread'}`;
+    servedEl.style.display = 'block';
+  } else if (item.cat === 'arabi') {
+    servedEl.innerHTML = '<strong>Served With</strong>Cut into 7–8 finger-bite pieces · Side of fries · Mixed pickles · Signature sauce';
+    servedEl.style.display = 'block';
+  } else if (item.cat === 'family') {
+    servedEl.innerHTML = '<strong>Family Meal</strong>Customize wraps, choose your sides, add drinks — all customizations below.';
+    servedEl.style.display = 'block';
+  } else if (item.cat === 'wraps' || item.cat === 'specials') {
+    servedEl.innerHTML = '<strong>Made Fresh</strong>Hand-pressed panini · Homemade sauces · Halal certified.';
+    servedEl.style.display = 'block';
+  } else {
+    servedEl.style.display = 'none';
+  }
+  
+  // Loyalty toggle (only for arabi items #17–21)
+  const payToggle = document.getElementById('payToggle');
+  if (item.points) {
+    payToggle.style.display = 'block';
+    document.getElementById('payCashValue').textContent = '$' + item.price.toFixed(2);
+    document.getElementById('payPointsValue').textContent = item.points + ' pts';
+    document.getElementById('earnNote').textContent = `Earn ${Math.floor(item.price * 10)} pts`;
+    document.getElementById('payPointsAvail').textContent = `You have ${pointsBalance} pts`;
+    // Disable points option if user doesn't have enough
+    const payPointsEl = document.getElementById('payPoints');
+    if (pointsBalance < item.points) {
+      payPointsEl.classList.add('disabled');
+      document.getElementById('payPointsAvail').textContent = `Need ${item.points - pointsBalance} more pts`;
+    } else {
+      payPointsEl.classList.remove('disabled');
+    }
+    document.getElementById('payCash').classList.add('active');
+    document.getElementById('payPoints').classList.remove('active');
+  } else {
+    payToggle.style.display = 'none';
+  }
+  
+  // Render modifiers based on category
+  renderModifiers(item.cat);
+  
+  updateAddBtn();
+  document.getElementById('modal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+  document.querySelector('.modal').scrollTop = 0;
+}
+
+function renderModifiers(catId) {
+  const cat = CATEGORIES.find(c => c.id === catId);
+  const modSet = MODIFIERS[cat.modifiers] || [];
+  const container = document.getElementById('modifierContainer');
+  container.innerHTML = '';
+  
+  modSet.forEach(group => {
+    const groupEl = document.createElement('div');
+    groupEl.className = 'option-group';
+    let optsHTML = '';
+    group.options.forEach(opt => {
+      const extraClass = opt.free ? ' free' : '';
+      const extraText = opt.free ? 'Free' : '+$' + opt.extra.toFixed(2);
+      optsHTML += `
+        <label class="option-row">
+          <input type="checkbox" data-extra="${opt.extra}" />
+          <span class="opt-name">${opt.name}</span>
+          <span class="opt-extra${extraClass}">${extraText}</span>
+        </label>`;
+    });
+    groupEl.innerHTML = `
+      <div class="opt-label">
+        <span class="opt-title">${group.title}</span>
+        <span class="opt-req">${group.req}</span>
+      </div>
+      ${optsHTML}
+    `;
+    container.appendChild(groupEl);
   });
   
-  function openModalById(id) {
-    const item = MENU.find(m => m.id === id);
-    if (item) openModal(item);
+  // Re-bind listeners
+  document.querySelectorAll('#modal input[type="checkbox"]').forEach(i => i.addEventListener('change', updateAddBtn));
+}
+
+function setPayMethod(method) {
+  if (method === 'points' && document.getElementById('payPoints').classList.contains('disabled')) return;
+  payMethod = method;
+  document.getElementById('payCash').classList.toggle('active', method === 'cash');
+  document.getElementById('payPoints').classList.toggle('active', method === 'points');
+  updateAddBtn();
+}
+
+function closeModal() {
+  document.getElementById('modal').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+function changeQty(d) {
+  currentQty = Math.max(1, currentQty + d);
+  document.getElementById('modalQty').textContent = currentQty;
+  updateAddBtn();
+}
+
+function calcLinePrice() {
+  if (!currentItem) return 0;
+  let p = currentItem.price;
+  document.querySelectorAll('#modal input[type="checkbox"]:checked').forEach(c => {
+    p += parseFloat(c.dataset.extra || 0);
+  });
+  return p * currentQty;
+}
+
+function calcLinePoints() {
+  if (!currentItem || !currentItem.points) return 0;
+  return currentItem.points * currentQty;
+}
+
+function updateAddBtn() {
+  const btn = document.getElementById('addToCartBtn');
+  if (payMethod === 'points' && currentItem.points) {
+    btn.innerHTML = `Redeem · <span>${calcLinePoints()} pts</span>`;
+  } else {
+    btn.innerHTML = `Add to Cart · $<span>${calcLinePrice().toFixed(2)}</span>`;
+  }
+}
+
+// ============ CART ============
+function addToCart() {
+  if (!currentItem) return;
+  if (payMethod === 'points' && pointsBalance < calcLinePoints()) {
+    showToast('Not enough points');
+    return;
   }
   
-  let currentItem = null;
-  let currentQty = 1;
+  const mods = [...document.querySelectorAll('#modal input[type="checkbox"]:checked')]
+    .map(c => c.parentElement.querySelector('.opt-name').textContent);
+  const notes = document.getElementById('modalNotes').value;
   
-  function openModal(item) {
-    currentItem = item;
-    currentQty = 1;
-    document.getElementById('modalImg').src = item.img;
-    document.getElementById('modalNum').textContent = `Entrée ${item.num}`;
-    document.getElementById('modalRating').textContent = item.rating ? `👍 ${item.rating}` : '';
-    document.getElementById('modalTitle').textContent = item.name;
-    document.getElementById('modalDesc').textContent = item.desc;
-    document.getElementById('modalPrice').textContent = '$' + item.price.toFixed(2);
-    document.getElementById('modalQty').textContent = 1;
-    document.getElementById('modalNotes').value = '';
-    document.getElementById('breadType').textContent = item.bread === 'pita bread' ? 'Pita bread' : 'Crispy bread';
-    document.querySelectorAll('#modal input[type="checkbox"]').forEach(c => c.checked = false);
-    updateAddBtn();
-    document.getElementById('modal').classList.add('active');
-    document.body.style.overflow = 'hidden';
-    document.querySelector('.modal').scrollTop = 0;
-  }
-  function closeModal() {
-    document.getElementById('modal').classList.remove('active');
-    document.body.style.overflow = '';
-  }
-  function changeQty(d) {
-    currentQty = Math.max(1, currentQty + d);
-    document.getElementById('modalQty').textContent = currentQty;
-    updateAddBtn();
-  }
-  function calcLinePrice() {
-    if (!currentItem) return 0;
-    let p = currentItem.price;
-    document.querySelectorAll('#modal input[type="checkbox"]:checked').forEach(c => {
-      p += parseFloat(c.dataset.extra || 0);
-    });
-    return p * currentQty;
-  }
-  function updateAddBtn() {
-    document.getElementById('addBtnPrice').textContent = calcLinePrice().toFixed(2);
-  }
-  document.querySelectorAll('#modal input').forEach(i => i.addEventListener('change', updateAddBtn));
+  const cartItem = {
+    id: currentItem.id + '-' + Date.now(),
+    itemId: currentItem.id,
+    name: currentItem.name,
+    img: currentItem.img,
+    qty: currentQty,
+    linePrice: calcLinePrice(),
+    payMethod: payMethod,
+    pointsCost: payMethod === 'points' ? calcLinePoints() : 0,
+    mods, notes
+  };
+  CART.push(cartItem);
+  closeModal();
+  renderCart();
+  showToast(`Added: ${currentItem.name}`);
+}
+
+function removeItem(id) {
+  CART = CART.filter(i => i.id !== id);
+  renderCart();
+}
+
+function renderCart() {
+  const itemsEl = document.getElementById('cartItems');
+  const badge = document.getElementById('cartBadge');
+  const checkoutBtn = document.getElementById('checkoutBtn');
   
-  let CART = [];
-  function addToCart() {
-    if (!currentItem) return;
-    const mods = [...document.querySelectorAll('#modal input[type="checkbox"]:checked')]
-      .map(c => c.parentElement.querySelector('.opt-name, .fu-name').textContent);
-    const notes = document.getElementById('modalNotes').value;
-    CART.push({
-      id: currentItem.id + '-' + Date.now(),
-      name: currentItem.name,
-      img: currentItem.img,
-      qty: currentQty,
-      linePrice: calcLinePrice(),
-      mods, notes
-    });
-    closeModal();
-    renderCart();
-    showToast(`Added: ${currentItem.name}`);
-  }
-  function removeItem(id) {
-    CART = CART.filter(i => i.id !== id);
-    renderCart();
-  }
-  function renderCart() {
-    const itemsEl = document.getElementById('cartItems');
-    const badge = document.getElementById('cartBadge');
-    const checkoutBtn = document.getElementById('checkoutBtn');
-    if (CART.length === 0) {
-      itemsEl.innerHTML = '<div class="cart-empty"><span class="eyebrow">Empty Cart</span><p>Add something delicious from the menu.</p></div>';
-      badge.style.display = 'none';
-      checkoutBtn.disabled = true;
-    } else {
-      itemsEl.innerHTML = CART.map(i => `
-        <div class="cart-item">
-          <img src="${i.img}" alt="${i.name}" />
-          <div>
-            <div class="ci-name">${i.name}</div>
-            ${i.mods.length ? `<div class="ci-mods">+ ${i.mods.join('<br/>+ ')}</div>` : ''}
-            ${i.notes ? `<div class="ci-mods"><em>Note: ${i.notes}</em></div>` : ''}
-            <div class="ci-qty">Qty: ${i.qty}</div>
-            <button class="ci-remove" onclick="removeItem('${i.id}')">Remove</button>
-          </div>
-          <div class="ci-price">$${i.linePrice.toFixed(2)}</div>
+  if (CART.length === 0) {
+    itemsEl.innerHTML = '<div class="cart-empty"><span class="eyebrow">Empty Cart</span><p>Add something delicious from the menu.</p></div>';
+    badge.style.display = 'none';
+    checkoutBtn.disabled = true;
+  } else {
+    itemsEl.innerHTML = CART.map(i => `
+      <div class="cart-item">
+        <img src="${i.img}" alt="${i.name}" />
+        <div>
+          <div class="ci-name">${i.name}</div>
+          ${i.mods.length ? `<div class="ci-mods">+ ${i.mods.join('<br/>+ ')}</div>` : ''}
+          ${i.notes ? `<div class="ci-mods"><em>Note: ${i.notes}</em></div>` : ''}
+          <div class="ci-qty">Qty: ${i.qty}</div>
+          ${i.payMethod === 'points' ? `<div class="ci-pts">★ ${i.pointsCost} pts</div>` : ''}
+          <button class="ci-remove" onclick="removeItem('${i.id}')">Remove</button>
         </div>
-      `).join('');
-      badge.style.display = 'flex';
-      badge.textContent = CART.reduce((s, i) => s + i.qty, 0);
-      checkoutBtn.disabled = false;
+        <div class="ci-price ${i.payMethod === 'points' ? 'points' : ''}">${i.payMethod === 'points' ? 'FREE' : '$' + i.linePrice.toFixed(2)}</div>
+      </div>
+    `).join('');
+    badge.style.display = 'flex';
+    badge.textContent = CART.reduce((s, i) => s + i.qty, 0);
+    checkoutBtn.disabled = false;
+  }
+  
+  const cashItems = CART.filter(i => i.payMethod === 'cash');
+  const pointsItems = CART.filter(i => i.payMethod === 'points');
+  const subtotal = cashItems.reduce((s, i) => s + i.linePrice, 0);
+  const pointsTotal = pointsItems.reduce((s, i) => s + i.pointsCost, 0);
+  const deliveryFee = fulfillment === 'delivery' ? 4.99 : 0;
+  const tax = (subtotal + deliveryFee) * 0.0825;
+  const earnPts = Math.floor(subtotal * 10);
+  
+  document.getElementById('cartSubtotal').textContent = '$' + subtotal.toFixed(2);
+  document.getElementById('cartTax').textContent = '$' + tax.toFixed(2);
+  document.getElementById('cartTotal').textContent = '$' + (subtotal + tax + deliveryFee).toFixed(2);
+  document.getElementById('pointsEarn').textContent = earnPts + ' pts';
+  
+  // Points row
+  if (pointsTotal > 0) {
+    document.getElementById('pointsRow').style.display = 'flex';
+    document.getElementById('pointsRowValue').textContent = '-' + pointsTotal + ' pts';
+  } else {
+    document.getElementById('pointsRow').style.display = 'none';
+  }
+  
+  // Delivery row
+  document.getElementById('deliveryRow').style.display = deliveryFee > 0 ? 'flex' : 'none';
+}
+
+function openCart() { document.getElementById('cartDrawer').classList.add('active'); }
+function closeCart() { document.getElementById('cartDrawer').classList.remove('active'); }
+
+function setFulfillment(type) {
+  fulfillment = type;
+  document.getElementById('ftPickup').classList.toggle('active', type === 'pickup');
+  document.getElementById('ftDelivery').classList.toggle('active', type === 'delivery');
+  document.getElementById('fulfillmentNote').textContent = type === 'pickup'
+    ? 'Pickup only · Ready in ~20 minutes'
+    : 'Delivery via DoorDash Drive · 30–45 min · Flat $4.99 fee';
+  renderCart();
+}
+
+function checkout() {
+  const cashItems = CART.filter(i => i.payMethod === 'cash');
+  const pointsItems = CART.filter(i => i.payMethod === 'points');
+  const subtotal = cashItems.reduce((s, i) => s + i.linePrice, 0);
+  const pointsSpent = pointsItems.reduce((s, i) => s + i.pointsCost, 0);
+  const earnPts = Math.floor(subtotal * 10);
+  const deliveryFee = fulfillment === 'delivery' ? 4.99 : 0;
+  const total = subtotal + deliveryFee + (subtotal + deliveryFee) * 0.0825;
+  
+  showToast('→ Redirecting to Square Checkout...');
+  setTimeout(() => {
+    let msg = '⬛ SQUARE CHECKOUT (Mockup demo)\n\n';
+    msg += `Total: $${total.toFixed(2)}\n`;
+    msg += `Fulfillment: ${fulfillment === 'pickup' ? 'Pickup at 8719 Wurzbach Rd' : 'Delivery via DoorDash Drive'}\n\n`;
+    if (pointsSpent > 0) msg += `★ Points redeemed: ${pointsSpent} pts\n`;
+    if (earnPts > 0) msg += `★ Points to earn: +${earnPts} pts (after order completes)\n`;
+    msg += '\n— PRODUCTION FLOW —\n';
+    msg += '1. Customer pays via Square (card, Apple/Google Pay, Cash App Pay)\n';
+    msg += '2. Order auto-prints to kitchen + appears on Square tablet\n';
+    msg += '3. ' + (fulfillment === 'delivery' ? 'DoorDash Drive courier dispatched automatically' : 'Customer notified by SMS when ready') + '\n';
+    msg += '4. Loyalty points credited to customer profile\n\n';
+    msg += '— DIRECT BENEFIT vs DoorDash Marketplace —\n';
+    msg += '• Keep 100% of food revenue (no 30% commission)\n';
+    msg += '• Own customer data (build SMS/email marketing)\n';
+    msg += '• DoorDash Drive: pay only flat $4.99 per delivery';
+    alert(msg);
+    
+    // Simulate points credit
+    if (earnPts > 0 || pointsSpent > 0) {
+      pointsBalance = pointsBalance + earnPts - pointsSpent;
+      localStorage.setItem('kingPoints', pointsBalance.toString());
+      updatePointsDisplay();
     }
-    const subtotal = CART.reduce((s, i) => s + i.linePrice, 0);
-    const tax = subtotal * 0.0825;
-    document.getElementById('cartSubtotal').textContent = '$' + subtotal.toFixed(2);
-    document.getElementById('cartTax').textContent = '$' + tax.toFixed(2);
-    document.getElementById('cartTotal').textContent = '$' + (subtotal + tax).toFixed(2);
+    // Clear cart
+    CART = [];
+    renderCart();
+    closeCart();
+  }, 600);
+}
+
+// ============ POINTS DISPLAY ============
+function updatePointsDisplay() {
+  document.getElementById('pointsChip').innerHTML = `${pointsBalance} pts`;
+  document.getElementById('loyaltyBalance').textContent = pointsBalance.toLocaleString();
+  const pct = Math.min(100, (pointsBalance / 800) * 100);
+  document.getElementById('progressFill').style.width = pct + '%';
+  if (pointsBalance >= 1000) {
+    document.getElementById('nextReward').innerHTML = `<strong style="color:var(--gold-bright);">You've unlocked all rewards!</strong> Redeem on any King's Arabi (#17–#21) at checkout.<div class="progress-bar"><div class="progress-fill" style="width:100%;"></div></div>`;
+  } else if (pointsBalance >= 800) {
+    document.getElementById('nextReward').innerHTML = `<strong>Ready to redeem!</strong> ${1000 - pointsBalance} more pts to unlock Beef Shawarma Arabi (1,000 pts).<div class="progress-bar"><div class="progress-fill" style="width:${(pointsBalance / 1000) * 100}%;"></div></div>`;
+  } else {
+    document.getElementById('nextReward').innerHTML = `<strong>${800 - pointsBalance} points</strong> away from your first reward — a free Chicken Shawarma Arabi (#17)<div class="progress-bar"><div class="progress-fill" style="width:${pct}%;"></div></div>`;
   }
-  function openCart() { document.getElementById('cartDrawer').classList.add('active'); }
-  function closeCart() { document.getElementById('cartDrawer').classList.remove('active'); }
+}
+
+// ============ ADMIN ============
+function openAdminLogin() {
+  document.getElementById('adminLogin').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeAdminLogin() {
+  document.getElementById('adminLogin').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+function adminLogin() {
+  const u = document.getElementById('adminUser').value;
+  const p = document.getElementById('adminPass').value;
+  if ((u === 'king' || u === 'admin') && p === 'king2026') {
+    closeAdminLogin();
+    document.getElementById('adminOverlay').classList.add('active');
+    document.body.style.overflow = 'hidden';
+    renderAdminItems();
+    renderSpecialsList();
+    renderEventsList();
+  } else {
+    showToast('Invalid credentials. Try king / king2026');
+  }
+}
+
+function adminLogout() {
+  document.getElementById('adminOverlay').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+function switchAdminTab(tab) {
+  document.querySelectorAll('.admin-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.admin-pane').forEach(p => p.classList.remove('active'));
+  document.querySelector(`.admin-tab[onclick*="${tab}"]`).classList.add('active');
+  document.getElementById('adminPane-' + tab).classList.add('active');
+}
+
+function renderAdminItems() {
+  const list = document.getElementById('adminItemsList');
+  list.innerHTML = MENU.map(item => `
+    <div class="admin-item">
+      <img src="${item.img}" alt="${item.name}" />
+      <div class="ai-info">
+        <div class="ai-name">${item.num} ${item.name}</div>
+        <div class="ai-cat">${CATEGORIES.find(c => c.id === item.cat).name}${item.points ? ' · ' + item.points + ' pts' : ''}</div>
+      </div>
+      <div class="ai-price">$${item.price.toFixed(2)}</div>
+      <button class="ai-edit" onclick="editItem('${item.id}')">Edit</button>
+    </div>
+  `).join('');
+}
+
+function editItem(id) {
+  const item = MENU.find(m => m.id === id);
+  const newPrice = prompt(`Edit price for ${item.name}:`, item.price.toFixed(2));
+  if (newPrice && !isNaN(parseFloat(newPrice))) {
+    item.price = parseFloat(newPrice);
+    renderAdminItems();
+    renderMenu();
+    showToast(`Saved · Synced to Square POS`);
+  }
+}
+
+function simulateSync() {
+  showToast('Syncing with Square Catalog...');
+  setTimeout(() => showToast('✓ Sync complete · 62 items up to date'), 1200);
+}
+
+function saveSpecial() {
+  const text = document.getElementById('specialText').value;
+  const code = document.getElementById('specialCode').value;
+  const expires = document.getElementById('specialExpires').value;
+  if (!text) return showToast('Please enter banner text');
+  activeSpecial = { text, code, expires };
+  localStorage.setItem('kingSpecial', JSON.stringify(activeSpecial));
+  renderSpecialsBanner();
+  renderSpecialsList();
+  showToast('✓ Banner updated · Live now');
+}
+
+function clearSpecial() {
+  activeSpecial = null;
+  localStorage.removeItem('kingSpecial');
+  renderSpecialsBanner();
+  renderSpecialsList();
+  showToast('Banner cleared');
+}
+
+function renderSpecialsList() {
+  const list = document.getElementById('specialsList');
+  if (!activeSpecial) {
+    list.innerHTML = '<p style="color: var(--text-dim); font-style: italic; padding: 1rem;">No active specials.</p>';
+    return;
+  }
+  list.innerHTML = `
+    <div class="special-card">
+      <div class="sc-info">
+        <h5>${activeSpecial.text}</h5>
+        ${activeSpecial.code ? `<p>Promo code: <strong style="color: var(--gold);">${activeSpecial.code}</strong></p>` : ''}
+        <div class="sc-meta">${activeSpecial.expires ? 'Expires ' + activeSpecial.expires : 'No expiration set'}</div>
+      </div>
+      <button class="admin-btn danger" onclick="clearSpecial()">Remove</button>
+    </div>
+  `;
+}
+
+function renderSpecialsBanner() {
+  const strip = document.getElementById('specialsStrip');
+  if (activeSpecial) {
+    strip.style.display = 'block';
+    strip.innerHTML = `
+      <div class="strip-content">
+        <span class="pulse"></span>
+        <span>${activeSpecial.text}${activeSpecial.code ? ` · Use code <strong>${activeSpecial.code}</strong>` : ''}</span>
+      </div>`;
+  } else {
+    strip.style.display = 'none';
+  }
+}
+
+function addEvent() {
+  const title = document.getElementById('eventTitle').value;
+  const date = document.getElementById('eventDate').value;
+  const time = document.getElementById('eventTime').value;
+  const location = document.getElementById('eventLocation').value;
+  const desc = document.getElementById('eventDesc').value;
+  if (!title || !date) return showToast('Please fill in title and date');
+  scheduledEvents.push({ id: 'evt' + Date.now(), title, date, time, location, desc });
+  localStorage.setItem('kingEvents', JSON.stringify(scheduledEvents));
+  document.getElementById('eventTitle').value = '';
+  document.getElementById('eventDate').value = '';
+  document.getElementById('eventTime').value = '';
+  document.getElementById('eventLocation').value = '';
+  document.getElementById('eventDesc').value = '';
+  renderEvents();
+  renderEventsList();
+  showToast('✓ Event added · Live on homepage');
+}
+
+function deleteEvent(id) {
+  scheduledEvents = scheduledEvents.filter(e => e.id !== id);
+  localStorage.setItem('kingEvents', JSON.stringify(scheduledEvents));
+  renderEvents();
+  renderEventsList();
+}
+
+function renderEventsList() {
+  const list = document.getElementById('eventsList');
+  if (scheduledEvents.length === 0) {
+    list.innerHTML = '<p style="color: var(--text-dim); font-style: italic; padding: 1rem;">No events scheduled.</p>';
+    return;
+  }
+  list.innerHTML = scheduledEvents.map(e => `
+    <div class="special-card">
+      <div class="sc-info">
+        <h5>${e.title}</h5>
+        <p>${e.time}${e.location ? ' · ' + e.location : ''}</p>
+        ${e.desc ? `<p style="margin-top: 0.4rem;">${e.desc}</p>` : ''}
+        <div class="sc-meta">${e.date}</div>
+      </div>
+      <button class="admin-btn danger" onclick="deleteEvent('${e.id}')">Delete</button>
+    </div>
+  `).join('');
+}
+
+function renderEvents() {
+  const grid = document.getElementById('eventsGrid');
+  const sorted = [...scheduledEvents].sort((a, b) => a.date.localeCompare(b.date));
+  grid.innerHTML = sorted.map(e => {
+    const d = new Date(e.date + 'T00:00:00');
+    const month = d.toLocaleString('en-US', { month: 'short' });
+    const day = d.getDate();
+    return `
+      <div class="event-card">
+        <div class="event-date">
+          <div class="month">${month}</div>
+          <div class="day">${day}</div>
+        </div>
+        <div class="event-content">
+          <h4>${e.title}</h4>
+          <div class="event-time">${e.time}${e.location ? ' · ' + e.location : ''}</div>
+          ${e.desc ? `<p>${e.desc}</p>` : ''}
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+// ============ UTILITIES ============
+function handleContact(e) {
+  e.preventDefault();
+  showToast('Message sent — we\'ll be in touch soon!');
+  e.target.reset();
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2400);
+}
+
+// ============ INIT ============
+renderMenu();
+renderEvents();
+updatePointsDisplay();
+if (activeSpecial) renderSpecialsBanner();
+
+// Set sticky quicknav active pill based on scroll
+const catSections = CATEGORIES.map(c => document.getElementById('cat-' + c.id));
+window.addEventListener('scroll', () => {
+  const offset = window.scrollY + 200;
+  for (let i = catSections.length - 1; i >= 0; i--) {
+    if (catSections[i] && catSections[i].offsetTop <= offset) {
+      document.querySelectorAll('.quicknav-pill').forEach((p, idx) => {
+        p.classList.toggle('active', idx === i);
+      });
+      break;
+    }
+  }
+});
+
+// ============ MARKETING ============
+let currentChannel = 'email';
+const audienceCounts = {
+  all: 1247, loyalty: 654, lapsed: 312, vips: 189, recent: 78, catering: 44
+};
+const audienceLabels = {
+  all: 'All Subscribers', loyalty: 'Rewards Members Only',
+  lapsed: 'Lapsed Customers', vips: 'VIPs', recent: 'Recent Customers', catering: 'Catering Inquiries'
+};
+
+const TEMPLATES = {
+  weeklySpecial: {
+    subject: "🥙 This Week's Special — 15% off all Wraps",
+    body: "Hi {first_name},\n\nThis week only — all 10 of our handcrafted wraps are 15% off when you order online for pickup.\n\nFrom the bestselling Chicken Shawarma Wrap to the Lamb Tikka Wrap, every wrap is panini-pressed to order with our homemade muhammara and tahini.\n\nUse code WRAPWEEK at checkout. Valid through Sunday.\n\n— The King's Family"
+  },
+  newItem: {
+    subject: "🆕 New on the Menu: Strawberry Dubai Chocolate",
+    body: "Something special just dropped — Strawberry Dubai Chocolate.\n\nFresh strawberries, crispy kataif (shredded filo), pistachio cream, and warm melted chocolate. Inspired by the viral dessert taking the Middle East by storm.\n\nAvailable now at the truck and online for pickup. $15.59.\n\nCome try it before the secret gets out."
+  },
+  loyaltyReminder: {
+    subject: "⭐ You have {points} points waiting!",
+    body: "{first_name} — your points are ready to cash in.\n\nYou've earned {points} pts on past orders. That's enough for a FREE King's Arabi (#17–#21).\n\nThe Chicken Shawarma Arabi (#17) is our #1 most-liked item ever — and it's yours for 800 points.\n\nRedeem at checkout, no code needed."
+  },
+  eventInvite: {
+    subject: "🎉 Live Oud Music Night at the Truck",
+    body: "Join us Friday at the truck for an unforgettable evening.\n\nAuthentic Syrian musicians performing live oud while you dine. Food specials all night. Free entry.\n\nFriday · 6 – 9 PM · 8719 Wurzbach Rd\n\nReserve a spot by replying to this message."
+  },
+  reEngage: {
+    subject: "💌 We miss you, {first_name}",
+    body: "It's been a while since we've seen you at King's. Here's something to make it worth the trip back —\n\n$5 off your next order of $25+. No strings attached. Use code MISSYOU at checkout.\n\nValid for the next 14 days. Pickup or DoorDash Drive delivery.\n\nصحتين و هنا — Sahtain wa hana.\n— The King's Family"
+  },
+  holiday: {
+    subject: "🎊 Eid Mubarak from King's",
+    body: "Wishing you and your family a blessed Eid filled with joy, family, and good food.\n\nWe're open all day today with our regular menu plus our Ramadan Family Meal packages — perfect for Iftar gatherings.\n\nThank you for being part of the King's family this year.\n\nEid Mubarak ✨"
+  }
+};
+
+function setChannel(ch) {
+  currentChannel = ch;
+  document.getElementById('chEmail').classList.toggle('active', ch === 'email');
+  document.getElementById('chSMS').classList.toggle('active', ch === 'sms');
+  document.getElementById('chBoth').classList.toggle('active', ch === 'both');
   
-  function checkout() {
-    showToast('→ Redirecting to Square checkout...');
+  document.getElementById('subjectRow').style.display = (ch === 'sms') ? 'none' : 'block';
+  document.getElementById('emailPreview').style.display = (ch === 'sms') ? 'none' : 'block';
+  document.getElementById('smsPreview').style.display = (ch === 'email') ? 'none' : 'flex';
+  
+  document.getElementById('campBody').placeholder = ch === 'sms'
+    ? 'Keep it short — 160 chars max. Add a link if you want.'
+    : 'Write your message here...';
+  
+  updateCharCount();
+  updatePreview();
+}
+
+function updateAudienceCount() {
+  const aud = document.getElementById('campAudience').value;
+  // Just for feedback in the UI — the option text already includes count
+}
+
+function updateCharCount() {
+  const body = document.getElementById('campBody').value;
+  const len = body.length;
+  const counter = document.getElementById('charCounter');
+  if (currentChannel === 'sms' || currentChannel === 'both') {
+    const segments = Math.ceil(len / 160) || 1;
+    counter.textContent = `${len} chars · ${segments} SMS segment${segments > 1 ? 's' : ''}`;
+    counter.style.color = len > 160 ? 'var(--red)' : 'var(--text-dim)';
+  } else {
+    counter.textContent = `${len} chars`;
+    counter.style.color = 'var(--text-dim)';
+  }
+}
+
+function updatePreview() {
+  const subject = document.getElementById('campSubject').value;
+  const body = document.getElementById('campBody').value;
+  
+  // Substitute personalization tokens for preview
+  const personalized = body
+    .replace(/{first_name}/g, 'Sarah')
+    .replace(/{points}/g, '850');
+  const personalizedSubj = subject
+    .replace(/{first_name}/g, 'Sarah')
+    .replace(/{points}/g, '850');
+  
+  document.getElementById('emailPreviewSubject').textContent = personalizedSubj || 'Your subject line preview...';
+  document.getElementById('emailPreviewBody').textContent = personalized || 'Your email message will appear here...';
+  document.getElementById('smsPreviewBody').textContent = personalized || 'Your SMS preview...';
+}
+
+function loadTemplate(key) {
+  const tpl = TEMPLATES[key];
+  if (!tpl) return;
+  document.getElementById('campSubject').value = tpl.subject;
+  document.getElementById('campBody').value = tpl.body;
+  updateCharCount();
+  updatePreview();
+  showToast('Template loaded — customize as needed');
+}
+
+// Show/hide scheduled time picker
+document.addEventListener('change', e => {
+  if (e.target.id === 'campSchedule') {
+    document.getElementById('scheduleTimeWrap').style.display = e.target.value === 'schedule' ? 'block' : 'none';
+  }
+});
+
+function sendCampaign() {
+  const aud = document.getElementById('campAudience').value;
+  const audCount = audienceCounts[aud];
+  const subject = document.getElementById('campSubject').value;
+  const body = document.getElementById('campBody').value;
+  const schedule = document.getElementById('campSchedule').value;
+  
+  if (!body) return showToast('Please write a message first');
+  if (currentChannel !== 'sms' && !subject) return showToast('Email needs a subject line');
+  
+  let confirmMsg = `Send to ${audCount.toLocaleString()} ${audienceLabels[aud]}?\n\n`;
+  confirmMsg += `Channel: ${currentChannel === 'both' ? 'Email + SMS' : currentChannel.toUpperCase()}\n`;
+  if (currentChannel !== 'sms') confirmMsg += `Subject: ${subject}\n`;
+  confirmMsg += `\nEstimated cost: $${(audCount * 0.0035).toFixed(2)}\n`;
+  if (schedule === 'now') confirmMsg += `\n→ Sending immediately.`;
+  else if (schedule === 'schedule') confirmMsg += `\n→ Scheduled for: ${document.getElementById('campScheduleTime').value || '(not set)'}`;
+  
+  if (!confirm(confirmMsg)) return;
+  
+  if (schedule === 'now') {
+    showToast(`📡 Campaign sending to ${audCount.toLocaleString()} customers...`);
     setTimeout(() => {
-      alert('SQUARE CHECKOUT (Mockup demo)\n\nIn production this hands the order off to the Square Checkout API.\nThe order appears in King\'s existing Square Dashboard for the kitchen.\n\nFLOW:\n1. Customer pays via Square (card, Apple Pay, Google Pay, Cash App Pay)\n2. Order auto-prints to kitchen + appears on tablet\n3. Customer gets SMS/email confirmation with pickup ETA\n4. Customer picks up at counter — staff confirms in Square POS\n\nNO new system to learn. Uses the same Square account already in place.\n\nDIRECT BENEFIT vs DoorDash:\n• Keep 100% of revenue (no 30% DoorDash commission)\n• Customer data stays with King (build email/SMS marketing list)\n• Faster order flow (no third-party delay)');
-    }, 600);
+      showToast('✓ Sent! Check the campaign history below.');
+      // Add to history (mocked)
+      addCampaignToHistory({
+        channel: currentChannel,
+        title: subject || body.substring(0, 60),
+        audience: audienceLabels[aud],
+        sent: audCount,
+        opens: Math.floor(audCount * 0.42),
+        clicks: Math.floor(audCount * 0.08),
+        revenue: Math.floor(audCount * 1.85)
+      });
+      // Clear form
+      document.getElementById('campSubject').value = '';
+      document.getElementById('campBody').value = '';
+      updatePreview();
+      updateCharCount();
+    }, 1400);
+  } else if (schedule === 'schedule') {
+    showToast('📅 Campaign scheduled');
+  } else {
+    showToast('💾 Draft saved');
   }
-  
-  function handleContact(e) {
-    e.preventDefault();
-    showToast('Message sent — we\'ll be in touch soon!');
-    e.target.reset();
-  }
-  
-  function showToast(msg) {
-    const t = document.getElementById('toast');
-    t.textContent = msg;
-    t.classList.add('show');
-    setTimeout(() => t.classList.remove('show'), 2400);
-  }
-  
-  document.querySelectorAll('nav ul a').forEach(a => a.addEventListener('click', closeCart));
+}
+
+function saveDraft() {
+  showToast('💾 Draft saved');
+}
+
+function testSend() {
+  showToast('📲 Test sent to (210) 740-2999');
+}
+
+const initialCampaigns = [
+  { channel: 'email', title: '🥙 Mother\'s Day Family Meal — 15% off', audience: 'All Subscribers', sent: 1247, opens: 524, clicks: 98, revenue: 2340, sentAt: '2 days ago' },
+  { channel: 'sms', title: 'New menu items dropping today!', audience: 'Rewards Members', sent: 654, opens: 612, clicks: 142, revenue: 1980, sentAt: '5 days ago' },
+  { channel: 'email', title: 'You haven\'t visited in a while...', audience: 'Lapsed Customers', sent: 312, opens: 89, clicks: 31, revenue: 720, sentAt: '1 week ago' }
+];
+
+function renderCampaignHistory() {
+  const container = document.getElementById('campaignHistory');
+  if (!container) return;
+  container.innerHTML = initialCampaigns.map(c => `
+    <div class="campaign-row">
+      <div class="cr-channel ${c.channel === 'email' ? 'email' : 'sms'}">${c.channel === 'email' ? '📧' : '💬'}</div>
+      <div class="cr-info">
+        <div class="cr-title">${c.title}</div>
+        <div class="cr-meta">${c.audience} · ${c.sentAt} · ${c.sent.toLocaleString()} sent</div>
+      </div>
+      <div class="cr-stat"><div class="stat-num">${Math.round(c.opens / c.sent * 100)}%</div><div class="stat-label">Open</div></div>
+      <div class="cr-stat"><div class="stat-num">${Math.round(c.clicks / c.sent * 100)}%</div><div class="stat-label">Click</div></div>
+      <div class="cr-stat"><div class="stat-num">${c.clicks}</div><div class="stat-label">Orders</div></div>
+      <div class="cr-stat revenue"><div class="stat-num">$${c.revenue.toLocaleString()}</div><div class="stat-label">Revenue</div></div>
+    </div>
+  `).join('');
+}
+
+function addCampaignToHistory(camp) {
+  initialCampaigns.unshift({
+    ...camp,
+    sentAt: 'just now'
+  });
+  renderCampaignHistory();
+}
+
+const AUTOMATIONS = [
+  { id: 'welcome', title: 'Welcome Series', desc: 'New customer signs up → receives a welcome email + first-order discount code 10 minutes later.', stats: '✓ 89 sent this month · 34% conversion', on: true },
+  { id: 'birthday', title: 'Birthday Reward', desc: 'Customer receives a free side on their birthday week — collected at signup.', stats: '✓ 22 sent this month · 68% redeemed', on: true },
+  { id: 'winback', title: 'Win-Back Campaign', desc: 'After 30 days of no orders → automatic SMS with $5 off code.', stats: '✓ 156 sent this month · 18% reactivated', on: true },
+  { id: 'loyaltyalert', title: 'Loyalty Points Reminder', desc: 'When a customer hits 800 pts → SMS alerting them they can redeem a free Arabi wrap.', stats: '✓ 42 sent this month · 71% redeemed', on: true },
+  { id: 'review', title: 'Post-Order Review Request', desc: 'Two hours after a delivery completes → email asking for a Google review.', stats: '○ Not yet activated', on: false },
+  { id: 'cartabandon', title: 'Cart Abandonment', desc: 'Customer adds to cart but doesn\'t checkout → SMS reminder after 30 min.', stats: '○ Not yet activated', on: false }
+];
+
+function renderAutomations() {
+  const container = document.getElementById('automationsList');
+  if (!container) return;
+  container.innerHTML = AUTOMATIONS.map(a => `
+    <div class="automation-card">
+      <div class="automation-info">
+        <div class="am-title">${a.title}</div>
+        <div class="am-desc">${a.desc}</div>
+        <div class="am-stats">${a.stats}</div>
+      </div>
+      <div class="toggle-switch ${a.on ? 'on' : ''}" onclick="toggleAutomation('${a.id}', this)"></div>
+    </div>
+  `).join('');
+}
+
+function toggleAutomation(id, el) {
+  const auto = AUTOMATIONS.find(a => a.id === id);
+  auto.on = !auto.on;
+  el.classList.toggle('on');
+  showToast(auto.on ? `✓ "${auto.title}" activated` : `"${auto.title}" paused`);
+}
+
+// Init marketing UI on first admin open
+const originalAdminLogin = adminLogin;
+adminLogin = function() {
+  originalAdminLogin();
+  setTimeout(() => {
+    renderCampaignHistory();
+    renderAutomations();
+  }, 100);
+};
 </script>
 
 </body>
